@@ -1,0 +1,16 @@
+button {
+	width:100px;
+	height:20px;
+	background-color: blue;
+}
+
+
+#plaintext {
+	height: 200px;
+	width: 80%;
+}
+
+#ciphertext {
+	height: 167px;
+	width: 334px;
+}
