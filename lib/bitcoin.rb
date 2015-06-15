@@ -26,6 +26,8 @@ def key_details(prikey)
 end
 
 
+
+
 ###Get Transaction Info:
 ###++++++++++++++++++++++++++
 # 'https://blockchain.info/rawtx/dc67dadf5312b205b9dd8475abdbc441f36710ba4abfa68679abfe116a17ae63?format=json'
@@ -37,9 +39,10 @@ end
 
 
 	
-def send_message(message, prev_hash, to_address, from_address, private_key)
+def send_message(message, prev_hash, private_key1, private_key2)
 
-	Bitcoin.network = :testnet3
+	# Bitcoin.network = :testnet3
+	Bitcoin.network = :bitcoin
 
 	include Bitcoin::Builder
 
@@ -48,7 +51,9 @@ def send_message(message, prev_hash, to_address, from_address, private_key)
 	prev_tx = Bitcoin::P::Tx.from_json(open("http://webbtc.com/tx/#{prev_hash}.json"))
 
 
-	key = Bitcoin::Key.new(private_key)
+	key = Bitcoin::Key.new(private_key1)
+	to_key = Bitcoin::Key.new(private_key2)
+	to_address=to_key.addr
 
 	# send the same amount as the last tranasction
 	value = prev_tx.outputs[prev_out_index].value
@@ -59,7 +64,7 @@ def send_message(message, prev_hash, to_address, from_address, private_key)
 	  t.input do |i|
 	    i.prev_out prev_tx
 	    i.prev_out_index prev_out_index
-	    i.signature_key key
+	    i.signature_key key 
 	  end
 
 	  # add an output that sends some bitcoins to another address
@@ -71,10 +76,10 @@ def send_message(message, prev_hash, to_address, from_address, private_key)
 	  # add another output spending the remaining amount back to yourself
 	  # if you want to pay a tx fee, reduce the value of this output accordingly
 	  # if you want to keep your financial history private, use a different address
-	  t.output do |o|
-	    o.value value #Any difference between this and other value is a BTC Miner fee
-	    o.script {|s| s.recipient from_address }
-	  end
+	  # t.output do |o|
+	  #   o.value value #Any difference between this and other value is a BTC Miner fee
+	  #   o.script {|s| s.recipient key.addr }
+	  # end
 
 	  t.output do |o|
 	    # specify message to encodue using OP_RETURN    
@@ -96,14 +101,10 @@ def send_message(message, prev_hash, to_address, from_address, private_key)
 end 
 
 
-message 		= 'feNxzxHyGtW4XCOCUsPtDB0N+m6ModAp6H/3APjfNB4uPeDzuOZ8'
-prev_hash 		= 'dc67dadf5312b205b9dd8475abdbc441f36710ba4abfa68679abfe116a17ae63'
-to_address  	= ''
-from_address 	= ''
-private_key 	= ''
+
+puts send_message(message, prev_hash, private_key1, private_key2 )
 
 
-send_message(message, prev_hash, to_address, from_address, private_key )
+# puts Bitcoin::valid_address?(to_address)
 
-
-
+# puts key_details(new_prikey)
