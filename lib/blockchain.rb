@@ -1,4 +1,4 @@
-require 'blockchain'
+# require 'blockchain'
 #using the blockchain API
 
 # stats = Blockchain::get_statistics()
