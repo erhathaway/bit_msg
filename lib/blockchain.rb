@@ -1,39 +1,64 @@
-# require 'blockchain'
+require 'rubygems'
+require 'blockchain'
+require 'pry'
+require 'httparty'
+require 'json'
 #using the blockchain API
 
-# stats = Blockchain::get_statistics()
+def get_available_transactions(address, network='bitcoin')
+  available_transactions = {}
 
-	  # @blocks_size                       @mined_blocks            @total_blocks    
-	  # @btc_mined                         @miners_revenue_btc      @total_btc       
-	  # @difficulty                        @miners_revenue_usd      @total_btc_sent  
-	  # @estimated_btc_sent                @minutes_between_blocks  @total_fees_btc  
-	  # @estimated_transaction_volume_usd  @next_retarget           @trade_volume_btc
-	  # @hash_rate                         @number_of_transactions  @trade_volume_usd
-	  # @market_price_usd                  @timestamp     
+  if network == 'testnet3'
+    response = HTTParty.get("http://test.webbtc.com/address/#{address}.json")
+    transactions = response["transactions"]
+    transactions.each do |k,v|
+      tx_hash = k
+      tx = v
+      outputs = tx["out"]
+      counter = 0
+      outputs.each do |o|
+        if o["address"] == address
+          available_transactions[tx_hash]=counter
+        end
+        counter +=1
+      end
+    end
+  elsif network == 'bitcoin'
+    address_obj = Blockchain::get_address(address)
+    transactions = address_obj.transactions
+
+    transactions.each do |t|
+      counter = 0
+
+      t.outputs.each do |o|
+        if o.address == address and o.spent == false
+          available_transactions[t.hash]=counter
+        end
+        counter +=1
+      end
+    end
+  end
+  available_transactions
+end
 
 
-# address = Blockchain::get_address('16mnnKSG8dMoehGekQgvnWVGtaoxnNV182')
+def get_tx_obj(prev_hash, network)
+  if network == "testnet3"
+    prev_tx = Bitcoin::P::Tx.from_json(open("http://test.webbtc.com/tx/#{prev_hash}.json"))
+  else
+    prev_tx = Bitcoin::P::Tx.from_json(open("http://webbtc.com/tx/#{prev_hash}.json"))
+  end
+end
 
-	  # @address        @hash160  @total_received  @transactions
-	  # @final_balance  @n_tx     @total_sent    
+def get_all_transactions(address, network='bitcoin')
+  transactions = []
 
-# transactions = address.transactions[0].hash
-# puts transactions
-
-# tx = Blockchain::get_tx(transactions)
-
-	 # @relayed_by  		@size
-	 # @time 				@tx_index
-	 # @version  			@block_height
-	 # @double_spend 		@hash
-	 # @inputs 				@outputs
-
-
-# outputs = address.transactions[0].outputs
-# inputs = address.transactions[0].inputs
-
-    # @address    			@n
-    # @script    			@script_sig
-    # @sequence    			@tx_index
-    # @type    				@value
-
+  if network == 'testnet3'
+    response = HTTParty.get("http://test.webbtc.com/address/#{address}.json")
+    transactions = response["transactions"]
+  elsif network == 'bitcoin'
+    address_obj = Blockchain::get_address(address)
+    transactions = address_obj.transactions
+  end
+  transactions
+end

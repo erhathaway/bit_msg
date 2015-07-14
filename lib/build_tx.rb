@@ -1,8 +1,10 @@
 require 'bitcoin'
 require_relative 'utilities.rb'
+require_relative 'wallet.rb'
+require_relative 'blockchain.rb'
 require 'open-uri'
-
-Bitcoin.network = :testnet3
+require 'json'
+require 'pry'
 
 def build_transaction(prev_tx, prev_out_index, key, value, addr, message)
 
@@ -17,8 +19,7 @@ def build_transaction(prev_tx, prev_out_index, key, value, addr, message)
 
     t.output do |o|
       o.value value 
-
-      o.script { |s| binding.pry s.type :address; s.recipient addr }
+      o.script { |s| s.type :address; s.recipient addr }
       # o.script {|s| s.recipient key.addr }
     end
 
@@ -30,43 +31,64 @@ def build_transaction(prev_tx, prev_out_index, key, value, addr, message)
   end
 end
 
-def prev_tx(prev_hash, network)
-  if network == "testnet3"
-    prev_tx = Bitcoin::P::Tx.from_json(open("http://test.webbtc.com/tx/#{prev_hash}.json"))
-  else
-    prev_tx = Bitcoin::P::Tx.from_json(open("http://webbtc.com/tx/#{prev_hash}.json"))
-  end
-end
-
-def key(publ_key, priv_key)
-  key = Bitcoin::Key.new(priv_key, publ_key)
-end
-
-def bin_to_hex(s)
-  s.unpack('H*').first
-end
-
 #transaction inputs
-priv_key    = "private key"
-publ_key    = "uncompressed public key"
-address     = "1MrEdc7ee7Kop4ZptE3222KzhqDTQa2epR"
-previous_tx = "66c82ddda2ddb1789c8fb28ef4913d05f3fa7f2ef9841c9c8115f6b98729e14d"
+# ------------------------------------------------
+in_wallet_number = 4
+out_wallet_number = 5
+network = "testnet3"
+
+in_priv_key    = wallet[in_wallet_number][:priv_key]
+in_publ_key    = wallet[in_wallet_number][:publ_key]
+in_address     = wallet[in_wallet_number][:address]
+out_address    = wallet[out_wallet_number][:address]
 
 # generate tx info off inputs
-key             = Bitcoin::Key.new(priv_key, publ_key)
-prev_tx         = prev_tx(previous_tx, "testnet3")
-prev_out_index  = 1
+# ------------------------------------------------
+
+if network == "testnet3"
+  Bitcoin.network = :testnet3
+elsif network == "bitcoin"
+  Bitcoin.network = :bitcoin
+end
+  
+previous_tx     = "no transaction found"
+prev_out_index = 0
+
+# transactions = get_all_transactions(in_address, network)
+# puts in_address
+# puts JSON.pretty_generate(transactions)
+
+previous_tx = "a6594864986d83b70b0f9a04d6a72d28d493e886f9cef3b00d20bd13d4c2a7f7"
+prev_out_index = 1
+
+# get_available_transactions(in_address, network).each do |output|
+#   previous_tx    = output[0]
+#   prev_out_index = output[1]
+# end
+
+key             = get_key(in_priv_key, in_publ_key, in_address)
+prev_tx         = get_tx_obj(previous_tx, network)
+
 tx_value        = prev_tx.outputs[prev_out_index].value
 
+# print state
+# ------------------------------------------------
+print_state(
+  in_priv_key,
+  in_publ_key, 
+  in_address,
+  key,
+  out_address,
+  previous_tx,
+  tx_value,
+  prev_out_index)
+
 # build new tx
-tx = build_transaction(prev_tx, prev_out_index, key, tx_value, address, "hello")
+# ------------------------------------------------
+tx = build_transaction(prev_tx, prev_out_index, key, tx_value, out_address, "hello")
 
-# puts tx.to_json
+puts tx.to_json
+puts
 puts bin_to_hex(tx.to_payload)
-
-
-
-
-
 
 
