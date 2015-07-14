@@ -57,8 +57,13 @@ def get_all_transactions(address, network='bitcoin')
     response = HTTParty.get("http://test.webbtc.com/address/#{address}.json")
     transactions = response["transactions"]
   elsif network == 'bitcoin'
-    address_obj = Blockchain::get_address(address)
-    transactions = address_obj.transactions
+    response = HTTParty.get("http://webbtc.com/address/#{address}.json")
+    transactions = response["transactions"]
   end
   transactions
 end
+
+
+
+# transactions = get_all_transactions("16mnnKSG8dMoehGekQgvnWVGtaoxnNV182")
+# puts JSON.pretty_generate(transactions)

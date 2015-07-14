@@ -33,9 +33,9 @@ end
 
 #transaction inputs
 # ------------------------------------------------
-in_wallet_number = 4
-out_wallet_number = 5
-network = "testnet3"
+in_wallet_number = 1
+out_wallet_number = 2
+network = "bitcoin"
 
 in_priv_key    = wallet[in_wallet_number][:priv_key]
 in_publ_key    = wallet[in_wallet_number][:publ_key]
@@ -58,8 +58,10 @@ prev_out_index = 0
 # puts in_address
 # puts JSON.pretty_generate(transactions)
 
-previous_tx = "a6594864986d83b70b0f9a04d6a72d28d493e886f9cef3b00d20bd13d4c2a7f7"
-prev_out_index = 1
+# previous_tx = "a6594864986d83b70b0f9a04d6a72d28d493e886f9cef3b00d20bd13d4c2a7f7"
+# prev_out_index = 1
+previous_tx = "dc67dadf5312b205b9dd8475abdbc441f36710ba4abfa68679abfe116a17ae63"
+prev_out_index = 0
 
 # get_available_transactions(in_address, network).each do |output|
 #   previous_tx    = output[0]
@@ -69,7 +71,7 @@ prev_out_index = 1
 key             = get_key(in_priv_key, in_publ_key, in_address)
 prev_tx         = get_tx_obj(previous_tx, network)
 
-tx_value        = prev_tx.outputs[prev_out_index].value
+tx_value        = prev_tx.outputs[prev_out_index].value - 10000
 
 # print state
 # ------------------------------------------------
