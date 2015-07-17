@@ -1,19 +1,45 @@
 # require 'rubygems'
 # require 'blockchain'
-# require 'pry'
-# # require 'httparty'
-# require 'json'
+require 'pry'
+require 'httparty'
+require 'json'
 # require_relative 'utilities.rb'
 
 # https://blockexplorer.com/q
 
-def get_newest_block
-  # block_hash = HTTParty.get("https://blockexplorer.com/q/latesthash")
-  latest_block = HTTParty.get("http://btc.blockr.io/api/v1/block/info/365450")
-  block_hash = latest_block["data"]["hash"]
-  block = HTTParty.get("http://webbtc.com/block/#{block_hash}.json")
+
+#-------------------------------------------
+
+def get_blockchain_stats
+  stats = HTTParty.get("http://webbtc.com/stats.json")
 end
 
+def get_height_from_stats(stats)
+  stats["blocks"]["main"]
+end
+
+def get_latest_height
+  stats = get_blockchain_stats
+  current_height = get_height_from_stats(stats)
+end
+
+#-------------------------------------------
+
+def get_block_header(height)
+  block = HTTParty.get("http://btc.blockr.io/api/v1/block/info/#{height}")
+end
+
+def get_block_header_nb(block_header)
+  block_header["data"]["nb"]
+  end
+
+def check_block_header_newness(block_header)
+  #returns false if newest block
+  #otherwise returns next block height
+  block_header["data"]["next_block_nb"]
+end
+
+#-------------------------------------------
 
 def get_block_by_height(height)
   block_data = HTTParty.get("http://btc.blockr.io/api/v1/block/info/#{height}")
@@ -46,7 +72,7 @@ end
 # ----------------------------
 # block = get_newest_block
 # puts get_op_returns(block)
-
+get_blockchain_stats
 
 # [365446,365447,365448,365449,365450].each do |height|
 #   block = get_block_by_height(height)

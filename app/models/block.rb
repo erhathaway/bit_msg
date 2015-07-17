@@ -3,5 +3,5 @@ class Block < ActiveRecord::Base
 
   validates :block_height, presence: true
   validates :block_hash, presence: true
-  validates :parsed_date, presence: true
+  # validates :parsed_date, presence: true
 end
