@@ -24,7 +24,7 @@ def build_transaction(prev_tx, prev_out_index, key, value, addr, message)
     end
 
     t.output do |o|
-      o.to message, :op_return
+      o.to encode_message(message), :op_return
       o.value 0
     end
 
@@ -33,9 +33,11 @@ end
 
 #transaction inputs
 # ------------------------------------------------
+message = "hello world todayayy okay okay okay"
 in_wallet_number = 1
 out_wallet_number = 2
 network = "bitcoin"
+fee = 10000 #default is 10,000
 
 in_priv_key    = wallet[in_wallet_number][:priv_key]
 in_publ_key    = wallet[in_wallet_number][:publ_key]
@@ -71,7 +73,7 @@ prev_out_index = 0
 key             = get_key(in_priv_key, in_publ_key, in_address)
 prev_tx         = get_tx_obj(previous_tx, network)
 
-tx_value        = prev_tx.outputs[prev_out_index].value - 10000
+tx_value        = prev_tx.outputs[prev_out_index].value - fee
 
 # print state
 # ------------------------------------------------
@@ -83,11 +85,12 @@ print_state(
   out_address,
   previous_tx,
   tx_value,
-  prev_out_index)
+  prev_out_index,
+  message)
 
 # build new tx
 # ------------------------------------------------
-tx = build_transaction(prev_tx, prev_out_index, key, tx_value, out_address, "hello")
+tx = build_transaction(prev_tx, prev_out_index, key, tx_value, out_address, message)
 
 puts tx.to_json
 puts

@@ -1,0 +1,26 @@
+As a visitor / user I want to be able to:
+  1) Encrypt a message
+       Without supplying an IV and/or Salt
+       With a IV and/or Salt
+       If I am a user, I want the option to save the IV and Salt to my account
+  2) Send a message to the server for posting in the blockchain:
+       With a transaction fee by using a coupon code
+       Without a transaction fee
+       Append an ID to the message that the server will remember
+       If I am a user, I want the option to save the message ID to my account
+  3) Generate coupon codes by sending money to a bitcoin address.
+     The coupon code is worth the amount sent to the btc address minus the transaction fee
+  4) View messages by:
+       Time range
+       ID
+
+As a user I want to be able to:
+  1) Register using only a user name and password. Email is optional
+  2) Access my saved data:
+        Salt
+        IV
+        Message IDs
+  3) View my messages
+  4) Reset my password if I supplied an email
+
+

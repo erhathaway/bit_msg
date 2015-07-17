@@ -1,5 +1,5 @@
 require 'sinatra'
-require_relative 'parse'
+require_relative 'lib/parse'
 # require 'sinatra/reloader'
 # require 'sinatra/activerecord'
 require 'pry'
@@ -8,8 +8,13 @@ get '/' do
   erb :main
 end
 
+get '/messages' do
+  erb :main
+end
+
 post '/message/send' do
 	# puts params.to_s.split(",")
-	parse_encrypted(params)
-	redirect '/'
+	puts parse_encrypted(params)
+  binding.pry
+  redirect '/'
 end

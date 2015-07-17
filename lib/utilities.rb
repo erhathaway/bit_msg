@@ -40,11 +40,7 @@ def get_key(priv_key, publ_key, addr)
   end
 end
 
-def bin_to_hex(s)
-  s.unpack('H*').first
-end
-
-def print_state(in_priv, in_pub, in_addr, key, out_addr, in_tx_hash, in_tx_value, in_tx_index)
+def print_state(in_priv, in_pub, in_addr, key, out_addr, in_tx_hash, in_tx_value, in_tx_index, message="")
   puts "Private key:       " + in_priv
   puts "Public key:        " + in_pub
   puts "Tx input address:  " + in_addr
@@ -53,5 +49,18 @@ def print_state(in_priv, in_pub, in_addr, key, out_addr, in_tx_hash, in_tx_value
   puts "Tx input hash:     " + in_tx_hash
   puts "Tx input value:    " + in_tx_value.to_s
   puts "Tx input index:    " + in_tx_index.to_s
+  puts "Message:           " + encode_message(message).join()
+  puts "Message length:    " + encode_message(message).join().length.to_s
   puts
+end
+
+def bin_to_hex(s)
+  s.unpack('H*').first
+end
+
+def encode_message(message)
+  message.unpack("H*")
+end
+def decode_message(message)
+  [message].pack("H*")
 end
