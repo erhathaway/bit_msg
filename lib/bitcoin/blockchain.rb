@@ -1,8 +1,8 @@
-require 'rubygems'
-require 'blockchain'
-require 'pry'
-require 'httparty'
-require 'json'
+# require 'rubygems'
+# require 'blockchain'
+# require 'pry'
+# require 'httparty'
+# require 'json'
 #using the blockchain API
 
 def get_available_transactions(address, network='bitcoin')

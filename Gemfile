@@ -36,6 +36,15 @@ gem 'devise'
 # API
 gem 'httparty'
 
+# JSON
+gem 'json'
+
+# bitcoin for ruby
+gem 'bitcoin-ruby', git: 'https://github.com/lian/bitcoin-ruby', branch: 'master', require: 'bitcoin'
+gem 'blockchain'
+
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'byebug'

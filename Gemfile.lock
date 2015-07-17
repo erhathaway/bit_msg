@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/lian/bitcoin-ruby
+  revision: f28866cdc5b073a02f506d4f93036cab6c243f92
+  branch: master
+  specs:
+    bitcoin-ruby (0.0.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -40,6 +47,7 @@ GEM
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    blockchain (1.0.2)
     builder (3.2.2)
     coderay (1.1.0)
     coffee-rails (4.1.0)
@@ -163,11 +171,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bitcoin-ruby!
+  blockchain
   coffee-rails (~> 4.1.0)
   devise
   httparty
   jbuilder (~> 2.0)
   jquery-rails
+  json
   pg
   pry-rails
   rails (= 4.2.3)
