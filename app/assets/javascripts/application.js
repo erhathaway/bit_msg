@@ -17,8 +17,7 @@
 
 
 $(document).ready(function() {
-  console.log('hi')
-  alert('hi')
+
   $('.submit_to_server').on('click', function() {
 
     xhr=new XMLHttpRequest();

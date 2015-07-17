@@ -5211,3 +5211,16 @@ Started GET "/assets/application.self-d25b56d01caa90c48e64d962637443eedbd4633bb9
 
 
 Started GET "/assets/sjcl.self-55de14b6e7a209964e275b08da5fcc131b058fb04bb781bcaf3386b0e81811ce.js?body=1" for 127.0.0.1 at 2015-07-17 00:54:37 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-17 02:04:09 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (21.7ms)
+Completed 200 OK in 303ms (Views: 302.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-17 02:04:10 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 35ms (Views: 35.2ms | ActiveRecord: 0.0ms)

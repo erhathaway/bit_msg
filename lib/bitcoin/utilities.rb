@@ -13,20 +13,20 @@ end
 def key_details(prikey, pubkey)
   #returns prikey, prikey_hash58, pubkey_hash58, pubkey_uncompressed, address as a hash
   my_key = Bitcoin::Key.new(prikey, pubkey)
-  { priv_key:prikey, 
-    priv_key_58:my_key.to_base58, 
-    publ_key_160:my_key.hash160, 
-    publ_key: my_key.pub_uncompressed, 
+  { priv_key:prikey,
+    priv_key_58:my_key.to_base58,
+    publ_key_160:my_key.hash160,
+    publ_key: my_key.pub_uncompressed,
     address:my_key.addr
   }
 end
 
 def prikey_from58(prikey_58)
   my_key = Bitcoin::Key.from_base58(prikey_58)
-  { priv_key:my_key.priv, 
-    priv_key_58:my_key.to_base58, 
-    publ_key_160:my_key.pub, 
-    publ_key: my_key.pub_uncompressed, 
+  { priv_key:my_key.priv,
+    priv_key_58:my_key.to_base58,
+    publ_key_160:my_key.pub,
+    publ_key: my_key.pub_uncompressed,
     address: my_key.addr
   }
 end
