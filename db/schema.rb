@@ -28,12 +28,21 @@ ActiveRecord::Schema.define(version: 20150716182503) do
   add_index "blocks", ["block_hash"], name: "index_blocks_on_block_hash", using: :btree
   add_index "blocks", ["block_height"], name: "index_blocks_on_block_height", using: :btree
 
+  create_table "exchanges", force: :cascade do |t|
+    t.string   "exchange_hash", null: false
+    t.integer  "block_id",      null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "exchanges", ["exchange_hash"], name: "index_exchanges_on_exchange_hash", using: :btree
+
   create_table "message_metadata", force: :cascade do |t|
     t.string   "iv"
     t.string   "salt"
     t.integer  "user_id",        null: false
     t.integer  "message_tag_id"
-    t.string   "transaction_id"
+    t.integer  "exchange_id"
     t.datetime "date_posted"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
@@ -46,22 +55,13 @@ ActiveRecord::Schema.define(version: 20150716182503) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.string   "transaction_id",         null: false
+    t.integer  "exchange_id",            null: false
     t.string   "op_return_data_raw",     null: false
     t.string   "op_return_data_decoded", null: false
     t.integer  "message_tag_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
-
-  create_table "transactions", force: :cascade do |t|
-    t.string   "tx_hash",    null: false
-    t.integer  "block_id",   null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "transactions", ["tx_hash"], name: "index_transactions_on_tx_hash", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: ""

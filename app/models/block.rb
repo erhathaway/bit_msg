@@ -1,6 +1,6 @@
 class Block < ActiveRecord::Base
-  has_many :transactions
-  has_many :messages, through: :transactions
+  has_many :exchanges
+  has_many :messages, through: :exchanges
 
   validates :block_height, presence: true
   validates :block_hash, presence: true

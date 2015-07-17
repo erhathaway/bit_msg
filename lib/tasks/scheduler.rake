@@ -12,10 +12,10 @@ def add_messages_and_transactions(block_obj)
   messages = get_op_returns(block)
   # binding.pry
   messages.each do |k,v|
-    t = Transaction.find_or_create_by(tx_hash: k, block_id: block_obj.id)
+    t = Exchange.find_or_create_by(exchange_hash: k, block_id: block_obj.id)
     # binding.pry
     Message.create(
-      transaction_id: t,
+      exchange_id: t.id,
       op_return_data_raw: v,
       op_return_data_decoded: decode_message(v))
         binding.pry
