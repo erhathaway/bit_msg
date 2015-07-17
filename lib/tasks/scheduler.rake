@@ -1,6 +1,28 @@
 require_relative '../bitcoin/new_blocks.rb'
+require_relative '../bitcoin/utilities.rb'
+def add_block(block_header)
+  a = Block.new
+  a.add_block_header(block_header)
+  a.save
+  a
+end
+
+def add_messages_and_transactions(block_obj)
+  block = get_block_by_hash(block_obj.block_hash)
+  messages = get_op_returns(block)
+  binding.pry
+  messages.each do |k,v|
+    t = Transaction.find_or_create_by(tx_hash: k, block_id: block_obj.id)
+    binding.pry
+  #   t.message.first_or_create(
+  # #     transaction_id: t.id,
+  #     op_return_data_raw: v,
+  #     op_return_data_decoded: decode_message(v))
+  end
+end
 
 
+  Message.first_or_create(transaction_id: t.id, op_return_data_raw: v,op_return_data_decoded: decode_message(v))
 namespace :scheduler do
 
   desc "This task is called by the Heroku scheduler add-on"
@@ -16,7 +38,7 @@ namespace :scheduler do
     block_header = get_block_header(btc_current_height)
     nb = get_block_header_nb(block_header)
     next_nb = check_block_header_newness(block_header)
-    binding.pry
+
 
     if btc_current_height != db_current_height + 1
       block_header = get_block_header(db_current_height + 1)
@@ -28,6 +50,8 @@ namespace :scheduler do
     if not Block.exists?(block_height: nb)
       # write block to database
       puts "adding block to db!"
+      block = add_block(block_header)
+      add_messages_and_transactions(block)
     end
 
     #if current block header data is old
@@ -39,8 +63,9 @@ namespace :scheduler do
       if not Block.exists?(block_height: nb)
         # write block to database
         puts "adding block to db!"
+        block = add_block(block_header)
+        add_messages_and_transactions(block)
       end
-      binding.pry
     end
 
   end

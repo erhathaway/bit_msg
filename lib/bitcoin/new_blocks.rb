@@ -31,7 +31,11 @@ end
 
 def get_block_header_nb(block_header)
   block_header["data"]["nb"]
-  end
+end
+
+def get_block_header_hash(block_header)
+    block_header["data"]["hash"]
+end
 
 def check_block_header_newness(block_header)
   #returns false if newest block
@@ -45,6 +49,15 @@ def get_block_by_height(height)
   block_data = HTTParty.get("http://btc.blockr.io/api/v1/block/info/#{height}")
   block_hash = block_data["data"]["hash"]
   block = HTTParty.get("http://webbtc.com/block/#{block_hash}.json")
+end
+
+def get_block_by_hash(hash)
+  block = HTTParty.get("http://webbtc.com/block/#{hash}.json")
+end
+
+def get_block_by_header(block_header)
+  block_hash = get_block_header_hash(block_header)
+  get_block_by_hash(block_hash)
 end
 
 def parse_op_return(op_data)

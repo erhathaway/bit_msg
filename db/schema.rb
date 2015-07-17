@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20150716182503) do
   enable_extension "plpgsql"
 
   create_table "blocks", force: :cascade do |t|
-    t.string   "block_height"
-    t.string   "block_hash"
+    t.string   "block_height", null: false
+    t.string   "block_hash",   null: false
     t.datetime "parsed_date"
     t.datetime "date_posted"
     t.datetime "created_at",   null: false
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20150716182503) do
   create_table "message_metadata", force: :cascade do |t|
     t.string   "iv"
     t.string   "salt"
-    t.integer  "user_id"
+    t.integer  "user_id",        null: false
     t.integer  "message_tag_id"
     t.string   "transaction_id"
     t.datetime "date_posted"
@@ -40,24 +40,23 @@ ActiveRecord::Schema.define(version: 20150716182503) do
   end
 
   create_table "message_tags", force: :cascade do |t|
-    t.string   "tag"
+    t.string   "tag",        null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "messages", force: :cascade do |t|
-    t.string   "transaction_id"
-    t.string   "op_return_data_raw"
-    t.string   "op_return_data_decoded"
-    t.datetime "date_posted"
+    t.string   "transaction_id",         null: false
+    t.string   "op_return_data_raw",     null: false
+    t.string   "op_return_data_decoded", null: false
     t.integer  "message_tag_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.string   "tx_hash"
-    t.integer  "block_id"
+    t.string   "tx_hash",    null: false
+    t.integer  "block_id",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,9 +1,9 @@
 class CreateBlocks < ActiveRecord::Migration
   def change
     create_table :blocks do |t|
-      t.string :block_height,       presence: true, unique: true
-      t.string :block_hash,         presence: true, unique: true
-      t.datetime :parsed_date,      presence: true
+      t.string :block_height,       null:false, presence: true, unique: true
+      t.string :block_hash,         null:false, presence: true, unique: true
+      t.datetime :parsed_date
       t.datetime :date_posted
 
       t.timestamps null: false

@@ -1,8 +1,8 @@
 class CreateTransactions < ActiveRecord::Migration
   def change
     create_table :transactions do |t|
-    t.string :tx_hash,   presence: true, unique: true
-    t.integer :block_id
+    t.string :tx_hash,   null:false, unique: true
+    t.integer :block_id, null:false
 
     t.timestamps null: false
   end
