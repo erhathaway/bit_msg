@@ -1,5 +1,5 @@
-require 'bitcoin'
-require 'pry'
+# require 'bitcoin'
+# require 'pry'
 
 # comment in if using the test network
 # Bitcoin.network = :testnet3

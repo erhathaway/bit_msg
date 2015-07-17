@@ -1,10 +1,10 @@
-require 'bitcoin'
-require_relative 'utilities.rb'
-require_relative 'wallet.rb'
-require_relative 'blockchain.rb'
-require 'open-uri'
-require 'json'
-require 'pry'
+# require 'bitcoin'
+# require_relative 'utilities.rb'
+# require_relative 'wallet.rb'
+# require_relative 'blockchain.rb'
+# require 'open-uri'
+# require 'json'
+# require 'pry'
 
 def build_transaction(prev_tx, prev_out_index, key, value, addr, message)
 
@@ -18,7 +18,7 @@ def build_transaction(prev_tx, prev_out_index, key, value, addr, message)
     end
 
     t.output do |o|
-      o.value value 
+      o.value value
       o.script { |s| s.type :address; s.recipient addr }
       # o.script {|s| s.recipient key.addr }
     end
@@ -52,7 +52,7 @@ if network == "testnet3"
 elsif network == "bitcoin"
   Bitcoin.network = :bitcoin
 end
-  
+
 previous_tx     = "no transaction found"
 prev_out_index = 0
 
@@ -79,7 +79,7 @@ tx_value        = prev_tx.outputs[prev_out_index].value - fee
 # ------------------------------------------------
 print_state(
   in_priv_key,
-  in_publ_key, 
+  in_publ_key,
   in_address,
   key,
   out_address,
@@ -95,5 +95,3 @@ tx = build_transaction(prev_tx, prev_out_index, key, tx_value, out_address, mess
 puts tx.to_json
 puts
 puts bin_to_hex(tx.to_payload)
-
-
