@@ -61,6 +61,9 @@ end
 def encode_message(message)
   message.unpack("H*")
 end
+
 def decode_message(message)
-  [message].pack("H*")
+  s = [message].pack("H*")
+  a = s.encode!('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '')
+  a.gsub("\u0000", '')
 end

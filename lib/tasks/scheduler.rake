@@ -10,19 +10,19 @@ end
 def add_messages_and_transactions(block_obj)
   block = get_block_by_hash(block_obj.block_hash)
   messages = get_op_returns(block)
-  binding.pry
+  # binding.pry
   messages.each do |k,v|
     t = Transaction.find_or_create_by(tx_hash: k, block_id: block_obj.id)
-    binding.pry
-  #   t.message.first_or_create(
-  # #     transaction_id: t.id,
-  #     op_return_data_raw: v,
-  #     op_return_data_decoded: decode_message(v))
+    # binding.pry
+    Message.create(
+      transaction_id: t,
+      op_return_data_raw: v,
+      op_return_data_decoded: decode_message(v))
+        binding.pry
   end
 end
 
 
-  Message.first_or_create(transaction_id: t.id, op_return_data_raw: v,op_return_data_decoded: decode_message(v))
 namespace :scheduler do
 
   desc "This task is called by the Heroku scheduler add-on"
@@ -71,7 +71,7 @@ namespace :scheduler do
   end
 
   task :update_message_feed => :environment do
-
+    binding.pry
   end
 
 end
