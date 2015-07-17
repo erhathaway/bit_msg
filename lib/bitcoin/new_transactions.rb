@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'blockchain'
 require 'pry'
-require 'httparty'
+# require 'httparty'
 require 'json'
 require_relative 'utilities.rb'
 

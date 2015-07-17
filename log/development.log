@@ -4890,3 +4890,324 @@ Processing by Devise::RegistrationsController#update as HTML
 Unpermitted parameter: email
   Rendered devise/registrations/edit.html.erb within layouts/application (2.6ms)
 Completed 200 OK in 166ms (Views: 21.4ms | ActiveRecord: 2.4ms)
+[ActiveJob] Enqueued TestJob (Job ID: 5b348f16-7544-41fd-bd9d-6a723c6b0433) to Resque(default) at 2015-07-17 04:03:24 UTC with arguments: "hi"
+[ActiveJob] Enqueued TestJob (Job ID: 0c804a03-87fb-4f55-8f44-111fe55f1a9a) to Resque(default) with arguments: 1, 2, 3
+[ActiveJob] Enqueued TestJob (Job ID: ab6a0647-76f2-471f-a89b-8e2fe85d7aa9) to Resque(default) at 2015-07-17 04:04:53 UTC with arguments: "hi"
+[ActiveJob] [TestJob] [0c804a03-87fb-4f55-8f44-111fe55f1a9a] Performing TestJob from Resque(default) with arguments: 1, 2, 3
+[ActiveJob] [TestJob] [0c804a03-87fb-4f55-8f44-111fe55f1a9a] Performed TestJob from Resque(default) in 1.85ms
+[ActiveJob] Enqueued TestJob (Job ID: f9824cc0-60f8-49ba-8c6f-c1e285a9e34b) to Resque(default) at 2015-07-17 04:05:37 UTC with arguments: "hi"
+[ActiveJob] Enqueued TestJob (Job ID: 58416c5e-09be-4f74-87f8-1d08f9003331) to Resque(default) at 2015-07-17 04:08:23 UTC with arguments: "hi"
+[ActiveJob] Enqueued TestJob (Job ID: 2adf5420-0600-4669-87a2-cf8e7c1235af) to Resque(default) at 2015-07-17 04:13:09 UTC with arguments: "hi"
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-17 00:46:46 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (114.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (101.7ms)
+Completed 500 Internal Server Error in 316ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `pry' for #<Binding:0x007fdf0f0d2aa0>):
+    1: <body onload="loaded()">
+    2:   <p class="notice"><%= notice %></p>
+    3:   <p class="alert"><%= alert %></p>
+    4: <%= binding.pry %>
+    5: 
+    6: <form id="theForm" onsubmit="return false;">
+    7:   <div class="column" id="ckey">
+  app/views/homes/index.html.erb:4:in `_app_views_homes_index_html_erb__2713603599915654552_70298003601880'
+
+
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (87.2ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (66.0ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (229.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-17 00:46:58 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (3.3ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `pry' for #<Binding:0x007fdf0ecefb90>):
+    1: <body onload="loaded()">
+    2:   <p class="notice"><%= notice %></p>
+    3:   <p class="alert"><%= alert %></p>
+    4: <% binding.pry %>
+    5: 
+    6: <form id="theForm" onsubmit="return false;">
+    7:   <div class="column" id="ckey">
+  app/views/homes/index.html.erb:4:in `_app_views_homes_index_html_erb__2713603599915654552_70298001497240'
+
+
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.5ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (19.0ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (15.6ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (33.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-17 00:46:59 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `pry' for #<Binding:0x007fdf0fa18f10>):
+    1: <body onload="loaded()">
+    2:   <p class="notice"><%= notice %></p>
+    3:   <p class="alert"><%= alert %></p>
+    4: <% binding.pry %>
+    5: 
+    6: <form id="theForm" onsubmit="return false;">
+    7:   <div class="column" id="ckey">
+  app/views/homes/index.html.erb:4:in `_app_views_homes_index_html_erb__2713603599915654552_70298001497240'
+
+
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.8ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (19.3ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (15.5ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (33.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-17 00:47:36 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `pry' for #<Binding:0x007fdf0f549958>):
+    1: <body onload="loaded()">
+    2:   <p class="notice"><%= notice %></p>
+    3:   <p class="alert"><%= alert %></p>
+    4: <% binding.pry %>
+    5: 
+    6: <form id="theForm" onsubmit="return false;">
+    7:   <div class="column" id="ckey">
+  app/views/homes/index.html.erb:4:in `_app_views_homes_index_html_erb__2713603599915654552_70298001497240'
+
+
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (20.6ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (17.1ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (37.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-17 00:47:37 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (8.7ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `pry' for #<Binding:0x007fdf0f2b57c8>):
+    1: <body onload="loaded()">
+    2:   <p class="notice"><%= notice %></p>
+    3:   <p class="alert"><%= alert %></p>
+    4: <% binding.pry %>
+    5: 
+    6: <form id="theForm" onsubmit="return false;">
+    7:   <div class="column" id="ckey">
+  app/views/homes/index.html.erb:4:in `_app_views_homes_index_html_erb__2713603599915654552_70298001497240'
+
+
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.8ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (23.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (21.9ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (43.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-17 00:47:38 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `pry' for #<Binding:0x007fdf0f051ab8>):
+    1: <body onload="loaded()">
+    2:   <p class="notice"><%= notice %></p>
+    3:   <p class="alert"><%= alert %></p>
+    4: <% binding.pry %>
+    5: 
+    6: <form id="theForm" onsubmit="return false;">
+    7:   <div class="column" id="ckey">
+  app/views/homes/index.html.erb:4:in `_app_views_homes_index_html_erb__2713603599915654552_70298001497240'
+
+
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (21.0ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (15.2ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (32.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-17 00:47:39 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (3.5ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `pry' for #<Binding:0x007fdf0edbe558>):
+    1: <body onload="loaded()">
+    2:   <p class="notice"><%= notice %></p>
+    3:   <p class="alert"><%= alert %></p>
+    4: <% binding.pry %>
+    5: 
+    6: <form id="theForm" onsubmit="return false;">
+    7:   <div class="column" id="ckey">
+  app/views/homes/index.html.erb:4:in `_app_views_homes_index_html_erb__2713603599915654552_70298001497240'
+
+
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.1ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (29.7ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (19.7ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (41.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-17 00:47:50 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (240408.2ms)
+Completed 200 OK in 240939ms (Views: 240938.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-07-17 00:51:51 -0400
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for 127.0.0.1 at 2015-07-17 00:51:51 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-07-17 00:51:51 -0400
+
+
+Started GET "/assets/example.self-a3e5a44ebf6bcbbeafb762c14d9bae2dbd3b33e41b26a37e6de5b940c015b80f.js?body=1" for 127.0.0.1 at 2015-07-17 00:51:51 -0400
+
+
+Started GET "/assets/sjcl.self-55de14b6e7a209964e275b08da5fcc131b058fb04bb781bcaf3386b0e81811ce.js?body=1" for 127.0.0.1 at 2015-07-17 00:51:51 -0400
+
+
+Started GET "/assets/application.self-d25b56d01caa90c48e64d962637443eedbd4633bb9a88beec2bddf5df0e4807d.js?body=1" for 127.0.0.1 at 2015-07-17 00:51:51 -0400
+
+
+Started GET "/assets/form.self-467b2fe81eb530483bcf7c1ee7dc081bba7e9136f762aeea6fb561025042bfab.js?body=1" for 127.0.0.1 at 2015-07-17 00:51:51 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-17 00:51:55 -0400
+
+LoadError (cannot load such file -- /home/ethan/Dropbox/Programs/cryptography/bit_msg/lib/plan):
+  app/controllers/homes_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.2ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (16.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/ethan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (36.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-17 00:52:16 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 37ms (Views: 36.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-07-17 00:54:22 -0400
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for 127.0.0.1 at 2015-07-17 00:54:22 -0400
+
+
+Started GET "/assets/form.self-467b2fe81eb530483bcf7c1ee7dc081bba7e9136f762aeea6fb561025042bfab.js?body=1" for 127.0.0.1 at 2015-07-17 00:54:23 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-07-17 00:54:23 -0400
+
+
+Started GET "/assets/example.self-a3e5a44ebf6bcbbeafb762c14d9bae2dbd3b33e41b26a37e6de5b940c015b80f.js?body=1" for 127.0.0.1 at 2015-07-17 00:54:23 -0400
+
+
+Started GET "/assets/application.self-d25b56d01caa90c48e64d962637443eedbd4633bb9a88beec2bddf5df0e4807d.js?body=1" for 127.0.0.1 at 2015-07-17 00:54:23 -0400
+
+
+Started GET "/assets/sjcl.self-55de14b6e7a209964e275b08da5fcc131b058fb04bb781bcaf3386b0e81811ce.js?body=1" for 127.0.0.1 at 2015-07-17 00:54:23 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-17 00:54:37 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 49ms (Views: 48.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-07-17 00:54:37 -0400
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for 127.0.0.1 at 2015-07-17 00:54:37 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-07-17 00:54:37 -0400
+
+
+Started GET "/assets/example.self-a3e5a44ebf6bcbbeafb762c14d9bae2dbd3b33e41b26a37e6de5b940c015b80f.js?body=1" for 127.0.0.1 at 2015-07-17 00:54:37 -0400
+
+
+Started GET "/assets/form.self-467b2fe81eb530483bcf7c1ee7dc081bba7e9136f762aeea6fb561025042bfab.js?body=1" for 127.0.0.1 at 2015-07-17 00:54:37 -0400
+
+
+Started GET "/assets/application.self-d25b56d01caa90c48e64d962637443eedbd4633bb9a88beec2bddf5df0e4807d.js?body=1" for 127.0.0.1 at 2015-07-17 00:54:37 -0400
+
+
+Started GET "/assets/sjcl.self-55de14b6e7a209964e275b08da5fcc131b058fb04bb781bcaf3386b0e81811ce.js?body=1" for 127.0.0.1 at 2015-07-17 00:54:37 -0400
