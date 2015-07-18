@@ -1,6 +1,7 @@
-class MessageTag < ActiveRecord::Base
-  has_many :messages
-  has_many :message_metadata
+class MessageMetadata < ActiveRecord::Base
+  belongs_to :messages
+  belongs_to :message_tag
+  belongs_to :user
 
-  validates :tag, presence: true
+  validates :user_id, presence: true
 end
