@@ -4,8 +4,11 @@
 
 def index
   if params[:search].present?
-  @species = Species.search(params[:search]).page params[:page]
+  @messages = Message.search(params[:search]).page params[:page]
 else
-  @species = Species.all.order(:common_name).page params[:page]
-end
+  @messages = Message.joins("
+                JOIN exchanges ON
+                  Exchanges.id = Messages.exchange_id
+                JOIN blocks ON
+                  Blocks.id = Exchanges.block_id").order('date_posted').page params[:page]
 end
