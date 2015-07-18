@@ -46,7 +46,11 @@ gem 'blockchain'
 # patch to make heroku work with rails 4
 gem 'rails_12factor'
 
+# try to clean up mesages that are decoded from hex. esp wrt weird binary characters
 gem 'utf8-cleaner'
+
+#paginate search results
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
