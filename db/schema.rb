@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20150716182503) do
   create_table "blocks", force: :cascade do |t|
     t.string   "block_height", null: false
     t.string   "block_hash",   null: false
-    t.datetime "parsed_date"
     t.datetime "date_posted"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false

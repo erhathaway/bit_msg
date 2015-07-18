@@ -9,6 +9,6 @@ class Block < ActiveRecord::Base
   def add_block_header(block_header)
     update(block_height: block_header["data"]["nb"])
     update(block_hash: block_header["data"]["hash"])
-    # update(date_posted: block_header["data"]["time_utc"])
+    update(date_posted: block_header["data"]["time_utc"])
   end
 end
