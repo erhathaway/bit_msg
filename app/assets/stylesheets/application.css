@@ -13,3 +13,64 @@
  *= require_tree .
  *= require_self
  */
+
+/*General*/
+h4 {
+  margin-bottom: 2px;
+}
+/*Message Result Page*/
+.search_message_container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  display: inline-block;
+}
+.search_message_container:hover {
+  background-color: gray;
+}
+.result{
+  float: left;
+}
+
+.search_message_raw {
+  width: 650px;
+}
+
+.search_message_decoded {
+  width: 650px;
+  border: solid black 1px;
+  margin-left: -15px;
+  padding-left: 15px;
+  padding-bottom: 15px;
+}
+.search_message_tx_hash {
+  width: 650px;
+}
+
+.search_message_block_hash {
+  width: 650px;
+}
+
+.search_message_block_height {
+  width: 100px;
+}
+
+
+/*Message Details*/
+#message_details {
+  display: none;
+  border: 2px solid white;
+  position: fixed;
+  margin: 0px auto;
+  top: 25%;
+  left: 25%;
+  z-index: 11;
+  background-color: rgb(68,67,73);
+  width: 50%;
+  height: 50%;
+}
+
+#message_details_container {
+  padding: 30px;
+}

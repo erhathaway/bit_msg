@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   root 'homes#index'
 
 
-  resources :messages, only: [:index, :show]
+  resources :messages, only: [:index, :show] do
+    collection do
+      post :get_data
+    end
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
