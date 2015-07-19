@@ -1,8 +1,8 @@
 # require 'rubygems'
 # require 'blockchain'
-require 'pry'
-require 'httparty'
-require 'json'
+# require 'pry'
+# require 'httparty'
+# require 'json'
 # require_relative 'utilities.rb'
 
 # https://blockexplorer.com/q
