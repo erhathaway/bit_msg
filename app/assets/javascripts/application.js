@@ -18,8 +18,9 @@
 
 $(document).ready(function() {
   $( ".search_message_decoded").on('click touch', function(){show_message_box(this);});
-  $( ".toggle_technical_details").on('click touch', function(){show_technical_details(this);})
-  $('.submit_to_server').on('click', function(){submit_message()});
+  $( ".toggle_technical_details").on('click touch', function(){show_technical_details(this);});
+  $( '.submit_to_server').on('click', function(){submit_message()});
+  $( "#get_coupon" ).on('click touch', function(){get_coupon(this);});
 
   $(document).on('click touch', function(events) {
     if (!$(event.target).parents().addBack().is('.search_message_decoded')){
@@ -33,6 +34,21 @@ $(document).ready(function() {
 
 
 });
+
+function get_coupon(data){
+  $.ajax({
+    type: "POST",
+    url: "../bit_coupons/get_coupon",
+    data: { test: "hello" },
+    dataType: "json",
+    success: function(data){
+      debugger
+      $("#coupon_address").text(data["coupon_address"]);
+      $("#coupon_code").text(data["coupon_code"]);
+    },
+    error: function(data){console.log(data)}
+  });
+}
 
 function show_technical_details(data){
   var details = $(data).siblings(".technical_details")

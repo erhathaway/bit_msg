@@ -13,6 +13,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :bit_coupons, only: [:show] do
+    collection do
+      post :get_coupon
+    end
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
