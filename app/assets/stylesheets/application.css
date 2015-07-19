@@ -16,44 +16,62 @@
 
 /*General*/
 h4 {
+  margin-top: 2px;
   margin-bottom: 2px;
 }
 /*Message Result Page*/
 .search_message_container {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   padding-left: 40px;
   padding-right: 40px;
   display: inline-block;
+  width: 93%;
 }
 .search_message_container:hover {
-  background-color: gray;
+  border: 3px solid black;
 }
 .result{
   float: left;
 }
 
 .search_message_raw {
-  width: 650px;
+  width: 550px;
 }
 
 .search_message_decoded {
-  width: 650px;
+  width: 35%;
   border: solid black 1px;
   margin-left: -15px;
   padding-left: 15px;
-  padding-bottom: 15px;
+  padding-bottom: 7px;
+  padding-top: 7px;
 }
 .search_message_tx_hash {
-  width: 650px;
+  width: 550px;
 }
 
 .search_message_block_hash {
-  width: 650px;
+  width: 550px;
 }
 
 .search_message_block_height {
   width: 100px;
+}
+
+.search_message_date {
+  width: 200px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.technical_details {
+  display: none;
+}
+
+.toggle_technical_details {
+  width: 90%;
+  height: 20px;
 }
 
 
@@ -63,12 +81,12 @@ h4 {
   border: 2px solid white;
   position: fixed;
   margin: 0px auto;
-  top: 25%;
+  top: 10%;
   left: 25%;
   z-index: 11;
   background-color: rgb(68,67,73);
   width: 50%;
-  height: 50%;
+  height: 80%;
 }
 
 #message_details_container {

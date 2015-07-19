@@ -17,39 +17,58 @@
 
 
 $(document).ready(function() {
-  $( ".search_message_container").click(function(){get_message(this);});
+  // $( "#messages_page").click(function(){maintain_page(this);});
+  $( ".search_message_decoded").click(function(){show_message_box(this);});
+  $( ".toggle_technical_details").click(function(){show_technical_details(this);})
   $('.submit_to_server').on('click', function(){submit_message()});
 });
 
+function maintain_page(data){
+  var state = $("#message_details").css('display');
+  if (state == 'block'){
+    $("#message_details").css("display", "none");
+  };
+}
 
-function get_message(data){
-  var state = $("#message_details").css('display')
+function show_technical_details(data){
+  var details = $(data).siblings(".technical_details")
+  var state = details.css('display');
+  if (state == 'block') { details.css('display', "none"); }
+  else { details.css('display', "block"); }
+}
+
+function show_message_box(data){
+  var state = $("#message_details").css('display');
   if (state == 'block'){
     $("#message_details").css("display", "none");
   }
   else {
-    var messageId = $(data).data("messageid");
-    console.log(messageId);
+    var messageId = $(data.parentElement).data("messageid");
     $("#message_details").css("display", "block");
-
-    $.ajax({
-      type: "POST",
-      url: "../messages/get_data",
-      data: {
-          message_id: messageId,
-            },
-      dataType: "json",
-      success: function(data){
-        $("#message_details_raw a").text(data["raw"]);
-            console.log(data);
-            },
-      error: function(data){
-        debugger;
-      }
-    });
+    get_message_details(messageId);
   }
 }
 
+function get_message_details(messageId){
+  $.ajax({
+    type: "POST",
+    url: "../messages/get_data",
+    data: {
+        message_id: messageId,
+          },
+    dataType: "json",
+    success: function(data){update_message_details(data);},
+    error: function(data){console.log(data)}
+  });
+}
+function update_message_details(data){
+  $("#message_details_raw a").text(data["raw"]);
+  $("#message_details_decoded a").text(data["decoded"]);
+  $("#message_details_tx_hash a").text(data["tx_hash"]);
+  $("#message_details_block_hash a").text(data["block_hash"]);
+  $("#message_details_block_height a").text(data["block_height"]);
+  $("#message_details_date a").text(data["date_posted"]);
+}
 // function submit_message(){
 //   xhr=new XMLHttpRequest();
 //   xhr.open("POST", "message/send", true);
