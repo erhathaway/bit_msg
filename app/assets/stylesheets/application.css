@@ -27,6 +27,8 @@ h4 {
   padding-right: 40px;
   display: inline-block;
   width: 93%;
+  border: 3px solid white;
+
 }
 .search_message_container:hover {
   border: 3px solid black;

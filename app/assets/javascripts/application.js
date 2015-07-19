@@ -18,17 +18,31 @@
 
 $(document).ready(function() {
   // $( "#messages_page").click(function(){maintain_page(this);});
-  $( ".search_message_decoded").click(function(){show_message_box(this);});
-  $( ".toggle_technical_details").click(function(){show_technical_details(this);})
+  $( ".search_message_decoded").on('click touch', function(){show_message_box(this);});
+  $( ".toggle_technical_details").on('click touch', function(){show_technical_details(this);})
   $('.submit_to_server').on('click', function(){submit_message()});
+
+  $(document).on('click touch', function(events) {
+    if (!$(event.target).parents().addBack().is('.search_message_decoded')){
+      $('#message_details').css("display", "none");
+    }
+  });
+
+  $('#message_details').on('click touch', function(event) {
+    event.stopPropagation();
+  });
+
+
 });
 
-function maintain_page(data){
-  var state = $("#message_details").css('display');
-  if (state == 'block'){
-    $("#message_details").css("display", "none");
-  };
-}
+
+
+// function maintain_page(data){
+//   var state = $("#message_details").css('display');
+//   if (state == 'block'){
+//     $("#message_details").css("display", "none");
+//   };
+// }
 
 function show_technical_details(data){
   var details = $(data).siblings(".technical_details")
