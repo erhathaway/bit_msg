@@ -23,7 +23,6 @@ class Message < ActiveRecord::Base
                 exchange_hash ILIKE :search OR
                 block_hash ILIKE :search OR
                 block_height ILIKE :search", search: "%#{search}%")
-          # binding.pry
     else
       find(:all)
     end

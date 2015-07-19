@@ -1,10 +1,12 @@
 <%  @messages.each do |message| %>
   <hr>
-  <div class="index_message">
-    <%= message.op_return_data_raw %>
-    <%= message.op_return_data_decoded %>
-    <%= message.exchange.exchange_hash %>
-    <%= message.exchange.block.block_hash %>
+  <div class="search_message" data-messageid="<%=message.id%>">
+    <div class="search_message_raw result"><h4>Raw Message</h4><%= message.op_return_data_raw %></div>
+    <div class="search_message_decoded result"><h4>Decoded Message</h4><%= message.op_return_data_decoded %></div>
+    <div class="search_message_tx_hash result"><h4>Tx Hash</h4><%= message.exchange.exchange_hash %></div>
+    <div class="search_message_block_hash result"><h4>Block Hash</h4><%= message.exchange.block.block_hash %></div>
+    <div class="search_message_block_hash result"><h4>Block Height</h4><%= message.exchange.block.block_height %></div>
+    <div class="search_message_date result"><h4>Date</h4><%= message.exchange.block.date_posted %></div>
   </div>
 <% end %>
 
