@@ -85,7 +85,7 @@ namespace :scheduler do
   end
 
   task :update_message_feed => :environment do
-    binding.pry
+
   end
 
 end
