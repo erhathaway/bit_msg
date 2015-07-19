@@ -4,7 +4,7 @@ class Block < ActiveRecord::Base
 
   validates :block_height, presence: true
   validates :block_hash, presence: true
-  # validates :parsed_date, presence: true
+  validates :date_posted, presence: true
 
   def add_block_header(block_header)
     update(block_height: block_header["data"]["nb"])

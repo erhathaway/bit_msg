@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150716182503) do
+ActiveRecord::Schema.define(version: 20150719065626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bit_coupons", force: :cascade do |t|
+    t.string   "private_key", null: false
+    t.string   "public_key",  null: false
+    t.string   "address",     null: false
+    t.string   "coupon_code", null: false
+    t.integer  "btc_value"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "bit_coupons", ["coupon_code"], name: "index_bit_coupons_on_coupon_code", using: :btree
 
   create_table "blocks", force: :cascade do |t|
     t.string   "block_height", null: false
