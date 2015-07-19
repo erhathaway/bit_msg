@@ -17,7 +17,7 @@
     <%= paginate @messages %>
 
   <div id="message_details">
-    <div id="message_details_container">
+    <div id="message_details_container" class="popup">
       <div id="message_details_raw"><h4>Raw Message</h4><a></a></div>
       <div id="message_details_decoded"><h4>Decoded Message</h4><a></a></div>
       <div id="message_details_tx_hash"><h4>Tx Hash</h4><a></a></div>
@@ -28,6 +28,9 @@
         <label for="password">Password:</label>
         <input type="password" class="wide" name="password" id="password" autocomplete="off" tabindex="1"/>
       </form>
+    </div>
+    <div id="message_crypt_container" class="popup">
+      <%= h render(:partial => '/homes/send_message.html.erb') -%>
     </div>
   </div>
 </div>

@@ -35,14 +35,18 @@ h4 {
 }
 .result{
   float: left;
+  word-wrap: break-word;
+  margin-right: 30px;
+
 }
 
 .search_message_raw {
-  width: 550px;
+  width: 500px;
+  /*margin-right: 30px;*/
 }
 
 .search_message_decoded {
-  width: 35%;
+  width: 500px;
   border: solid black 1px;
   margin-left: -15px;
   padding-left: 15px;
@@ -50,11 +54,11 @@ h4 {
   padding-top: 7px;
 }
 .search_message_tx_hash {
-  width: 550px;
+  width: 500px;
 }
 
 .search_message_block_hash {
-  width: 550px;
+  width: 500px;
 }
 
 .search_message_block_height {
@@ -63,8 +67,8 @@ h4 {
 
 .search_message_date {
   width: 200px;
-  padding-right: 10px;
-  padding-left: 10px;
+  /*padding-right: 10px;*/
+  /*padding-left: 10px;*/
 }
 
 .technical_details {
@@ -84,13 +88,14 @@ h4 {
   position: fixed;
   margin: 0px auto;
   top: 10%;
-  left: 25%;
+  left: 5%;
   z-index: 11;
   background-color: rgb(68,67,73);
-  width: 50%;
+  width: 90%;
   height: 80%;
 }
 
-#message_details_container {
+.popup {
+  float: left;
   padding: 30px;
 }
