@@ -1,0 +1,11 @@
+<%  @messages.each do |message| %>
+  <hr>
+  <div class="index_message">
+    <%= message.op_return_data_raw %>
+    <%= message.op_return_data_decoded %>
+    <%= message.exchange.exchange_hash %>
+    <%= message.exchange.block.block_hash %>
+  </div>
+<% end %>
+
+  <%= paginate @messages %>

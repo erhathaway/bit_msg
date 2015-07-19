@@ -7,23 +7,23 @@ class Message < ActiveRecord::Base
   validates :op_return_data_raw, presence: true
   validates :op_return_data_decoded, presence: true
 
-  paginates_per 100
+  paginates_per 50
 
   def self.search(search)
     if search
-        #search messages
-        a = where("op_return_data_decoded ILIKE :search",
-             search: "%#{search}%")
-
-        #search message tags
-        tag_results = []
-        b = MessageTag.where("tag ILIKE :search", search: "%#{search}%")
-        b.each do |tag|
-          tag_results = tag_results | tag.messages
-        end
-
-        #interleave two different results
-        a.zip(tag_results).flatten.compact
+        joins(
+          "LEFT OUTER JOIN message_tags ON
+          message_tags.id = Messages.message_tag_id
+          JOIN exchanges ON
+            exchanges.id = Messages.exchange_id
+          JOIN blocks ON
+            Blocks.id = Exchanges.block_id"
+              ).where("
+                op_return_data_decoded ILIKE :search OR
+                exchange_hash ILIKE :search OR
+                block_hash ILIKE :search OR
+                block_height ILIKE :search", search: "%#{search}%")
+          # binding.pry
     else
       find(:all)
     end
