@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20150719065626) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "blocks", ["block_hash"], name: "index_blocks_on_block_hash", using: :btree
-  add_index "blocks", ["block_height"], name: "index_blocks_on_block_height", using: :btree
+  add_index "blocks", ["block_hash"], name: "index_blocks_on_block_hash", unique: true, using: :btree
+  add_index "blocks", ["block_height"], name: "index_blocks_on_block_height", unique: true, using: :btree
 
   create_table "exchanges", force: :cascade do |t|
     t.string   "exchange_hash", null: false
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20150719065626) do
     t.datetime "updated_at",    null: false
   end
 
-  add_index "exchanges", ["exchange_hash"], name: "index_exchanges_on_exchange_hash", using: :btree
+  add_index "exchanges", ["exchange_hash"], name: "index_exchanges_on_exchange_hash", unique: true, using: :btree
 
   create_table "message_metadata", force: :cascade do |t|
     t.string   "iv"
