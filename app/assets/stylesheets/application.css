@@ -108,3 +108,9 @@ h4 {
   width: 500px;
   border: solid black 2px;
 }
+
+
+/*Crypt Message*/
+#crypt {
+  float:left
+}
