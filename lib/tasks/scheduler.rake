@@ -38,7 +38,6 @@ namespace :scheduler do
 
   task :get_new_blocks => :environment do
     puts "Getting new blocks from blockchain..."
-    binding.pry
     begin
       #compare current block chain to db data
       btc_current_height = get_latest_height
