@@ -4,8 +4,8 @@ class CreateBitCoupons < ActiveRecord::Migration
     t.string :private_key,    null:false, unique: true
     t.string :public_key,     null:false, unique: true
     t.string :address,        null:false, unique: true
-    t.string :coupon_code,     null:false, unique: true
-    t.integer :btc_value
+    t.string :coupon_code,    null:false, unique: true
+    t.integer :btc_value,     default: 0
     t.integer :user_id
 
     t.timestamps null: false

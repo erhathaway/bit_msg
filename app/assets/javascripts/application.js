@@ -23,14 +23,29 @@ $(document).ready(function() {
 
 
   $("#get_coupon").on("ajax:success", function(e, data, status, xhr){
-    if (data["state"]=="verified"){
+    // debugger
+    if (data["state"]=="new"){
       $("#coupon_address").text(data["coupon_address"]);
       $("#coupon_code").text(data["coupon_code"]);
+      $("#coupon_value").text(data["coupon_value"]);
+      grecaptcha.reset();
+    }
+    else if (data["state"]=="value") {
+      $("#coupon_address").text(data["coupon_address"]);
+      $("#coupon_code").text("");
+      $("#coupon_value").text(data["coupon_value"]);
+      grecaptcha.reset();
+    }
+    else if (data["state"]=="no value") {
+      $("#coupon_address").text("Could not find coupon");
+      $("#coupon_code").text("");
+      $("#coupon_value").text("");
       grecaptcha.reset();
     }
     else {
       $("#coupon_address").text("Please verify you are not a robot!")
-      $("#coupon_code").text("")
+      $("#coupon_code").text("");
+      $("#coupon_value").text("");
 
     };
     }).on( "ajax:error", function(e, xhr, status, error){

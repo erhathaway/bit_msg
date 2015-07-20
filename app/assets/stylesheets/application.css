@@ -104,4 +104,7 @@ h4 {
 .bit_coupon {
   float: left;
   padding: 20px;
+  height: 500px;
+  width: 500px;
+  border: solid black 2px;
 }
