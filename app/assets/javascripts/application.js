@@ -20,21 +20,7 @@ $(document).ready(function() {
   $( ".search_message_decoded").on('click touch', function(){show_message_box(this);});
   $( ".toggle_technical_details").on('click touch', function(){show_technical_details(this);});
   $( "#use_encryption").on('click touch', function(){show_encryption(this);});
-
-  $( '.submit_to_server').on('click', function(){submit_message()});
-
-  $("#submit_message_form").on("ajax:success", function(e, data, status, xhr){
-    debugger
-    // if (data["state"]=="new"){
-    //   $("#coupon_address").text(data["coupon_address"]);
-    //   $("#coupon_code").text(data["coupon_code"]);
-    //   $("#coupon_value").text(data["coupon_value"]);
-    //   grecaptcha.reset();
-    // }
-    }).on( "ajax:error", function(e, xhr, status, error){
-      debugger
-      $("#coupon_code").text("Error!")
-      });
+  $( "#submit_message_form").submit(function(){submit_message(this);});
 
   $("#get_coupon").on("ajax:success", function(e, data, status, xhr){
     // debugger
@@ -122,6 +108,7 @@ function get_message_details(messageId){
     error: function(data){console.log(data)}
   });
 }
+
 function update_message_details(data){
   $("#message_details_raw a").text(data["raw"]);
   $("#message_details_decoded a").text(data["decoded"]);
@@ -130,19 +117,19 @@ function update_message_details(data){
   $("#message_details_block_height a").text(data["block_height"]);
   $("#message_details_date a").text(data["date_posted"]);
 }
-// function submit_message(){
-//   xhr=new XMLHttpRequest();
-//   xhr.open("POST", "message/send", true);
-//   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-//   xhr.send($('textarea#ciphertext').val());
-//
-//   var message = $('<p>'+$('textarea#ciphertext').val()+'</p>');
-//   $('div>#output').parent().append(message);
-//   });
-//   $('#encrypt').on('click', function() {
-//   doEncrypt()
-//   });
-//   $('#decrypt').on('click', function() {
-//   doDecrypt()
-//   });
-// }
+
+function submit_message(data){
+  debugger
+    var message = $('textarea#ciphertext').val();
+    var coupon = $('#submit_message_coupon').val();
+    var captcha = $("#g-recaptcha-response").val();
+    $.ajax({
+      type: "POST",
+      url: "/queued_messages/submit_message",
+      dataType: "json",
+      data: {"g-recaptcha-response": captcha},
+
+      success: function(data){console.log(data);},
+      error: function(data){console.log(data)}
+    });
+}

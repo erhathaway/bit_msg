@@ -1,6 +1,7 @@
 class QueuedMessagesController < ApplicationController
 
   def submit_message
+    binding.pry
     render json: { state: "okay"}
     # if verify_recaptcha
     #   if params["commit"] == "New coupon"
