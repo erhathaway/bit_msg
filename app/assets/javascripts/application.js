@@ -19,6 +19,8 @@
 $(document).ready(function() {
   $( ".search_message_decoded").on('click touch', function(){show_message_box(this);});
   $( ".toggle_technical_details").on('click touch', function(){show_technical_details(this);});
+  $( "#use_encryption").on('click touch', function(){show_encryption(this);});
+
   $( '.submit_to_server').on('click', function(){submit_message()});
 
 
@@ -66,6 +68,16 @@ $(document).ready(function() {
 
 
 });
+
+
+function show_encryption(data){
+  // var details = $(data).siblings(".technical_details")
+  var state = $(".section").css('display');
+  if (state == 'none') {
+    $('.crypt').each(function() {$(this).css('display', "block");});
+  }
+  else { $('.crypt').each(function() {$(this).css('display', "none");}); }
+}
 
 function show_technical_details(data){
   var details = $(data).siblings(".technical_details")

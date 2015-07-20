@@ -4,23 +4,28 @@
   <script type="text/javascript" src="form.js"></script>
   <script type="text/javascript" src="example.js"></script>
 </head> -->
+<div id="use_encryption">
+  Use Encryption
+</div>
+
 <body onload="loaded()" id="crypt">
 
 
   <form id="theForm" onsubmit="return false;">
+
   <div class="column" id="ckey">
     <!-- Password and pbkdf2 parameters -->
     <div class="box" id="ppassword">
-      <h2>Password</h2>
-      <div class="section">
+      <!-- <h4>Password</h4> -->
+      <div class="section crypt">
         <label for="password">Password:</label>
-        <input type="password" class="wide" name="password" id="password" autocomplete="off" tabindex="1"/>
+        <input type="password" class="wide" name="password" id="password" autocomplete="off" tabindex="1" placeholder="Password"/>
       </div>
     </div>
 
     <div class="box" id="pkey">
-      <h2>Key Derivation</h2>
-      <div class="section">
+      <!-- <h4>Key Derivation</h4> -->
+      <div class="section crypt">
         <div>
           <label for="salt">Salt:</label>
           <a class="random floatright" href="javascript:randomize('salt',2,0)">random</a>
@@ -76,7 +81,7 @@
         <label for="ocb2"><acronym title="Offset CodeBook mode, version 2.0">OCB2</acronym></label>
       </div>
 
-      <div class="section">
+      <div class="section crypt">
         <div>
           <label for="iv">Initialization vector:</label>
           <a class="random floatright" href="javascript:randomize('iv',4,0)">random</a>
@@ -112,10 +117,10 @@
 
   <div class="column" id="ctexts">
     <div id="pplaintext" class="box">
-      <h2>Plaintext</h2>
-      <div class="section">
-        <label for="plaintext">Secret message:</label>
-        <textarea id="plaintext" autocomplete="off" rows="5" tabindex="2"></textarea>
+      <!-- <h4>Plaintext</h4> -->
+      <div class="section crypt">
+        <label for="plaintext">Plaintext</label>
+        <textarea id="plaintext" autocomplete="off" rows="5" tabindex="2" placeholder="Type Message Here"></textarea>
       </div>
 
       <div class="section" hidden>
@@ -129,14 +134,14 @@
     </div>
 
     <div id="buttons">
-      <a href="javascript:doEncrypt()" id="encrypt" tabindex="4"><span class="turnDown">encrypt</span></a>
-      <a href="javascript:doDecrypt()" id="decrypt" tabindex="6"><span class="turnUp">decrypt</span></a>
+      <a href="javascript:doEncrypt()" id="encrypt" tabindex="4"><span class="turnDown section crypt">encrypt</span></a>
+      <a href="javascript:doDecrypt()" id="decrypt" tabindex="6"><span class="turnUp section crypt">decrypt</span></a>
     </div>
 
     <div id="pciphertext" class="box">
-      <h2>Ciphertext</h2>
-      <label for="ciphertext">Ciphertext:</label>
-      <textarea id="ciphertext" autocomplete="off" rows="7" tabindex="5"></textarea>
+      <h4>Submission Text</h4>
+      <!-- <label for="ciphertext">Ciphertext:</label> -->
+      <textarea id="ciphertext" autocomplete="off" rows="7" tabindex="5" placeholder="Message to post on blockchain"></textarea>
     </div>
   </form>
 </body>

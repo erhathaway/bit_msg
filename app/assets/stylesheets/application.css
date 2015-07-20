@@ -111,6 +111,19 @@ h4 {
 
 
 /*Crypt Message*/
+
 #crypt {
   float:left
+}
+
+.section{
+  display: none;
+}
+
+#plaintext {
+  width: 60%;
+}
+
+#ciphertext {
+  width: 60%;
 }
