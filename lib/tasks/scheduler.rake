@@ -38,6 +38,7 @@ namespace :scheduler do
 
   task :get_new_blocks => :environment do
     puts "Getting new blocks from blockchain..."
+    binding.pry
     begin
       #compare current block chain to db data
       btc_current_height = get_latest_height
@@ -76,7 +77,8 @@ namespace :scheduler do
           add_messages_and_transactions(block)
         end
       end
-    rescue
+    rescue StandardError=>e
+      puts "Error: #{e}"
       puts "ERROR in downloading newest blockchain data"
       puts "#lib/tasks/scheduler.rake"
 
