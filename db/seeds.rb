@@ -7,6 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Block.create!(
-  block_height: "365715",
-  block_hash: "0000000000000000058a92e706c8e80ca6bef42f9e37d1b9bb1c39c0d2aa075b",
-  date_posted: Date.today.to_datetime )
+  block_height: "366183",
+  block_hash: "000000000000000004c38c693d56678451849845366981e4aa1e59b34b6eed3f",
+  date_posted: "2015-07-20 19:12" )
