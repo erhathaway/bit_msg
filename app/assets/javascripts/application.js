@@ -101,7 +101,7 @@ function get_message_details(messageId){
     type: "POST",
     url: "../messages/get_data",
     data: {
-        message_id: messageId,
+        message_id: messageId
           },
     dataType: "json",
     success: function(data){update_message_details(data);},
@@ -119,16 +119,20 @@ function update_message_details(data){
 }
 
 function submit_message(data){
-  debugger
+
     var message = $('textarea#ciphertext').val();
     var coupon = $('#submit_message_coupon').val();
     var captcha = $("#g-recaptcha-response").val();
+      debugger
     $.ajax({
       type: "POST",
       url: "/queued_messages/submit_message",
       dataType: "json",
-      data: {"g-recaptcha-response": captcha},
-
+      data: {
+        "g-recaptcha-response": captcha,
+        message: message,
+        coupon: coupon
+            },
       success: function(data){console.log(data);},
       error: function(data){console.log(data)}
     });
