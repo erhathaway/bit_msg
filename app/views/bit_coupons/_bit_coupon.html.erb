@@ -1,4 +1,11 @@
+<div id="new_bit_coupon_form" class="bit_coupon">
+  <%= form_tag('/bit_coupons/get_coupon', remote: true, id: 'get_coupon') do%>
+    <%= recaptcha_tags %>
+    <%= submit_tag "New coupon", class:"button radius"%>
+  <% end %>
+</div>
 
-<div id="get_coupon">Get Coupon</div>
-<div id="coupon_address"></div>
-<div id="coupon_code"></div>
+<div id="couon_info" class="bit_coupon">
+  <div id="coupon_address"></div>
+  <div id="coupon_code"></div>
+</div>
