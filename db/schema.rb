@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150719065626) do
+ActiveRecord::Schema.define(version: 20150720202453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,15 @@ ActiveRecord::Schema.define(version: 20150719065626) do
     t.integer  "message_tag_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "queued_messages", force: :cascade do |t|
+    t.string   "message",    null: false
+    t.string   "coupon"
+    t.string   "tx_state",   null: false
+    t.string   "tx_hash"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

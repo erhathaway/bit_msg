@@ -127,3 +127,8 @@ h4 {
 #ciphertext {
   width: 60%;
 }
+
+#submit_message_container {
+  margin-top: 5px;
+  margin-bottom: 70px;
+}

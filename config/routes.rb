@@ -18,6 +18,12 @@ Rails.application.routes.draw do
       post :get_coupon
     end
   end
+
+  resources :queued_messages, only: [:show] do
+    collection do
+      post :submit_message
+    end
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

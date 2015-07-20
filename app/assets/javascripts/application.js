@@ -23,6 +23,18 @@ $(document).ready(function() {
 
   $( '.submit_to_server').on('click', function(){submit_message()});
 
+  $("#submit_message_form").on("ajax:success", function(e, data, status, xhr){
+    debugger
+    // if (data["state"]=="new"){
+    //   $("#coupon_address").text(data["coupon_address"]);
+    //   $("#coupon_code").text(data["coupon_code"]);
+    //   $("#coupon_value").text(data["coupon_value"]);
+    //   grecaptcha.reset();
+    // }
+    }).on( "ajax:error", function(e, xhr, status, error){
+      debugger
+      $("#coupon_code").text("Error!")
+      });
 
   $("#get_coupon").on("ajax:success", function(e, data, status, xhr){
     // debugger

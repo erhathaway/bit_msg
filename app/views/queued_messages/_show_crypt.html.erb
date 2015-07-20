@@ -144,5 +144,13 @@
       <textarea id="ciphertext" autocomplete="off" rows="7" tabindex="5" placeholder="Message to post on blockchain"></textarea>
     </div>
   </form>
+
+  <div id="submit_message_container">
+    <%= form_for('data', url: '../queued_messages/submit_message', remote: true, html: {id: 'submit_message_form'}) do |f| %>
+
+      <%= f.text_field "coupon_code", placeholder: "Coupon code" %>
+      <%= f.submit "Send message to server", class:"button radius"%>
+    <% end %>
+  </div>
+
 </body>
-</html>
