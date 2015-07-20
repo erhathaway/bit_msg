@@ -17,14 +17,14 @@ ActiveRecord::Schema.define(version: 20150719065626) do
   enable_extension "plpgsql"
 
   create_table "bit_coupons", force: :cascade do |t|
-    t.string   "private_key", null: false
-    t.string   "public_key",  null: false
-    t.string   "address",     null: false
-    t.string   "coupon_code", null: false
-    t.integer  "btc_value"
+    t.string   "private_key",             null: false
+    t.string   "public_key",              null: false
+    t.string   "address",                 null: false
+    t.string   "coupon_code",             null: false
+    t.integer  "btc_value",   default: 0
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   add_index "bit_coupons", ["coupon_code"], name: "index_bit_coupons_on_coupon_code", using: :btree
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20150719065626) do
     t.integer  "exchange_id",            null: false
     t.string   "op_return_data_raw",     null: false
     t.string   "op_return_data_decoded", null: false
+    t.string   "op_return_data_custom"
     t.integer  "message_tag_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
@@ -78,6 +79,7 @@ ActiveRecord::Schema.define(version: 20150719065626) do
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: ""
     t.string   "encrypted_password",     default: "", null: false
+    t.string   "username",               default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -86,7 +88,6 @@ ActiveRecord::Schema.define(version: 20150719065626) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.string   "username",                            null: false
   end
 
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

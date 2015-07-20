@@ -6,4 +6,4 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Block.create(block_height: 365715, block_hash: "0000000000000000058a92e706c8e80ca6bef42f9e37d1b9bb1c39c0d2aa075b")
+Block.create(block_height: "365715", block_hash: "0000000000000000058a92e706c8e80ca6bef42f9e37d1b9bb1c39c0d2aa075b")
