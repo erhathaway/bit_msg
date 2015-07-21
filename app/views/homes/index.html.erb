@@ -1,14 +1,25 @@
-<!-- <%= form_tag messages_path, method: "get" do %>
-  <div class="message_search">
-    <%= text_field_tag(:search, nil, placeholder: "Message") %>
+<div class="row">
+  <div id="name" class="small-4 large-centered columns">
+  <h1>Blockchain Messages</h1>
   </div>
-  <div id="front_page_buttons">
-    <%=link_to 'View All', messages_path, id: "view_all_button", class: "button radius small" %>
-    <%= submit_tag "Search", id: "search_button", class: "button radius small" %>
+</div>
+<div class="row">
+  <div id="search" class="small-9 large-centered columns">
+    <%= text_field_tag(:search, nil, placeholder: "Message", id: "message_search") %>
   </div>
-<% end %> -->
-
-<div id="new_message_popup">
-  <%= h render(:partial => '/bit_coupons/bit_coupon.html.erb') -%>
-  <%= h render(:partial => '/queued_messages/show_crypt.html.erb') -%>
+  <div id="search" class="small-3 large-centered columns">
+    <%= submit_tag "Search", id: "front_search_button", class: "button radius small" %>
+    <%=link_to 'View All', messages_path, id: "front_view_all_button", class: "button radius small" %>
+  </div>
+</div>
+<div class="row">
+  <div id="client_side_image" class="small-4 large-centered columns front_page_image">
+    <%= image_tag("client_side.svg", width: '350', height: '350', alt: 'Site Logo', class: "logo") %>
+  </div>
+  <div id="bitmsg_server_image" class="small-4 large-centered columns front_page_image">
+    <%= image_tag("bitmsg_server.svg", width: '350', height: '350', alt: 'Site Logo', class: "logo") %>
+  </div>
+  <div id="block_chain_image" class="small-4 large-centered columns front_page_image">
+    <%= image_tag("block_chain.svg", width: '350', height: '350', alt: 'Site Logo', class: "logo") %>
+  </div>
 </div>

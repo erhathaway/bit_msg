@@ -322,3 +322,34 @@ margin-right: 20px;
   margin-top: 20px;
   margin-right: 20px;
 }
+
+
+/*-------------------------------------------------*/
+/*Front Page*/
+
+#name{
+  padding-top:20%;
+  width: 600px;
+  text-align: center;
+
+}
+.front_page_image {
+  /*padding: 10%;*/
+  /*padding-left: 40%;*/
+  height: 700px;
+  /*border-top: 2px solid black;*/
+}
+
+#client_side_image {
+  margin-top: 50%;
+  /*background-color: blue;*/
+}
+
+#bitmsg_server_image {
+  /*background-color: green;*/
+}
+
+#block_chain_image {
+  /*background-color: yellow;*/
+  margin-bottom: 300px;
+}

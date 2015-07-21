@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     collection do
       post :get_data
     end
+    collection do
+      get :new_message
+    end
   end
 
   resources :bit_coupons, only: [:show] do
@@ -19,7 +22,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :queued_messages, only: [:show] do
+  resources :queued_messages, only: [] do
     collection do
       post :submit_message
     end
