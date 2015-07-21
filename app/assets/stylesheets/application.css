@@ -23,6 +23,12 @@
 h4 {
   margin-top: 2px;
   margin-bottom: 2px;
+  font-size: 18px;
+}
+
+h5 {
+  font-weight: bold;
+  font-size: 15px;
 }
 /*Message Result Page*/
 #messages_page {
@@ -37,12 +43,27 @@ h4 {
 }
 
 
-/*
-.search_message_container:hover {
-  border: 3px solid black;
+.search_message_container {
+  border: 3px solid white;
+  border-top: 0px;
+  border-bottom: 0px;
+  border-right: 0px;
+  margin-top: -5px;
+  margin-bottom: -5px;
 }
 
 
+.search_message_container:hover {
+  border: 3px solid black;
+  border-top: 0px;
+  border-bottom: 0px;
+  border-right: 0px;
+}
+
+.search_message_date {
+  font-size: 15px;
+}
+/*
 .search_message_raw {
   width: 500px;
 }

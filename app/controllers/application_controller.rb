@@ -18,17 +18,17 @@ class ApplicationController < ActionController::Base
       days = (days * 24)
       if days < 1
         days = (days * 60)
-        if days == 1
+        if days.to_i == 1
           ending = ' minute ago'
         else
           ending = ' minutes ago'
         end
-      elsif days == 1
+      elsif days.to_i == 1
         ending = ' hour ago'
       else
         ending = ' hours ago'
       end
-    elsif days == 1
+    elsif days.to_i == 1
       # days = days.to_i
       ending = ' day ago'
     else
