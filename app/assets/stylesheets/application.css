@@ -12,7 +12,11 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
+
  */
+
+/*pallet: 12B0u0kbGkgdubic4g8ahnV8bsm*/
 
 /*General*/
 h4 {
@@ -132,3 +136,46 @@ h4 {
   margin-top: 5px;
   margin-bottom: 70px;
 }
+
+/*Top Navigation Bar*/
+.barrr {
+  position:fixed;
+  top:0;
+  width:100%;
+  display: block;
+  background-color: #5A7247;
+  z-index: 1000;
+}
+
+/*#message_search {
+  margin-left: 20px;
+  float: left;
+  width: 220px;
+  height: 30px;
+}*/
+
+/*.nav_button_left {
+  float: right;
+  margin-left: 10px;
+  background-color: #3D502E;
+}
+
+.nav_button_left:hover {
+  background-color: #8AA973;
+}*/
+
+/*#search_button1 {
+  float: left;
+}*/
+
+/*#view_all_button {
+  float: left;
+  margin-left: 8px;
+}*/
+
+/*#search_box{
+background: url(magnifying_glass.svg) no-repeat;
+background-color: white;
+background-position: right;
+margin-right: 20px;
+}*/

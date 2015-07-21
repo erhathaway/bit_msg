@@ -1,4 +1,4 @@
-<%= form_tag messages_path, method: "get" do %>
+<!-- <%= form_tag messages_path, method: "get" do %>
   <div class="message_search">
     <%= text_field_tag(:search, nil, placeholder: "Message") %>
   </div>
@@ -6,7 +6,7 @@
     <%=link_to 'View All', messages_path, id: "view_all_button", class: "button radius small" %>
     <%= submit_tag "Search", id: "search_button", class: "button radius small" %>
   </div>
-<% end %>
+<% end %> -->
 
 
 <%= h render(:partial => '/bit_coupons/bit_coupon.html.erb') -%>

@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require_tree .
 
 
@@ -137,3 +138,5 @@ function submit_message(data){
       error: function(data){console.log(data)}
     });
 }
+
+$(function(){ $(document).foundation(); });
