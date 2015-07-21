@@ -5,7 +5,7 @@
       <div class="row search_message_container" data-messageid="<%=message.id%>">
               <hr>
         <div class="small-12 large-centered columns">
-          <div class="search_message_date result"><%= message.exchange.block.date_posted %></div>
+          <div class="search_message_date result"><%= format_time(message.exchange.block.date_posted) %></div>
           <div class="search_message_decoded result"><h5><%= message.op_return_data_decoded %></h5></div>
 
           <div class="toggle_technical_details result"><%= image_tag 'magnifying_glass.svg', width: 20, height: 20, alt: 'show technical details'%></div>
