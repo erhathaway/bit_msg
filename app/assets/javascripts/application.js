@@ -18,10 +18,11 @@
 
 
 $(document).ready(function() {
-  $( ".search_message_decoded").on('click touch', function(){show_message_box(this);});
+  // $( ".search_message_decoded").on('click touch', function(){show_message_box(this);});
   $( ".toggle_technical_details").on('click touch', function(){show_technical_details(this);});
   $( "#use_encryption").on('click touch', function(){show_encryption(this);});
   $( "#submit_message_form").submit(function(){submit_message(this);});
+  // $( "#new_message_button").on('click touch', function(){show_new_message_popup(this);});
 
   $("#get_coupon").on("ajax:success", function(e, data, status, xhr){
     // debugger
@@ -68,14 +69,29 @@ $(document).ready(function() {
 
 });
 
-
+// function show_new_message_popup(data){
+//   var state = $("#new_message_popup").css('display');
+//   if (state == 'block'){
+//     $("#new_message_popup").css("display", "none");
+//   }
+//   else {
+//     // var messageId = $(data.parentElement).data("messageid");
+//     $("#new_message_popup").css("display", "block");
+//     // get_message_details(messageId);
+//   }
+// }
 function show_encryption(data){
   // var details = $(data).siblings(".technical_details")
   var state = $(".section").css('display');
   if (state == 'none') {
     $('.crypt').each(function() {$(this).css('display', "block");});
+    $('#coupon_buttons').each(function() {$(this).css('margin-top', '273px');});
+
   }
-  else { $('.crypt').each(function() {$(this).css('display', "none");}); }
+  else { $('.crypt').each(function() {
+    $(this).css('display', "none");});
+    $('#coupon_buttons').each(function() {$(this).css('margin-top', '10px');});
+  }
 }
 
 function show_technical_details(data){

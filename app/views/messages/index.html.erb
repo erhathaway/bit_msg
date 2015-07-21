@@ -1,12 +1,12 @@
 
   <div id="messages_page">
     <%  @messages.each do |message| %>
-      <div class="row " data-messageid="<%=message.id%>">
-      <hr>
+      <div class="row ">
+        <hr>
       </div>
       <div class="row search_message_container" data-messageid="<%=message.id%>">
 
-        <div class="small-12 large-centered columns tx1d">
+        <div class="small-12 large-centered columns">
           <div class="search_message_date result"><%= format_time(message.exchange.block.date_posted) %></div>
           <div class="search_message_decoded result"><h4><%= message.op_return_data_decoded %></h4></div>
 

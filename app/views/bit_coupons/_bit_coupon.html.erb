@@ -1,14 +1,31 @@
-<div id="new_bit_coupon_form" class="bit_coupon">
-  <%= form_for('data', url: '../bit_coupons/get_coupon', remote: true, html: {id: 'get_coupon'}) do |f| %>
-    <%= recaptcha_tags %>
-    <%= f.submit "New coupon", class:"button radius"%>
-    <%= f.text_field "coupon_code" %>
-    <%= f.submit "Check value", class:"button radius"%>
-  <% end %>
-</div>
 
-<div id="couon_info" class="bit_coupon">
-  <div id="coupon_address">hello</div>
-  <div id="coupon_code">world</div>
-  <div id="coupon_value">YES</div>
+<div id="bit_coupon_container" class="bit_coupon">
+  <%= form_for('data', url: '../bit_coupons/get_coupon', remote: true, html: {id: 'get_coupon'}) do |f| %>
+
+  <div id="recaptcha_box">
+    <%= recaptcha_tags %>
+  </div>
+  <div id="coupon_buttons">
+    <div id="couon_info">
+      <h4>Address</h4>
+      <div id="coupon_address"></div>
+      <h4>Credit Code</h4>
+      <div id="coupon_code"></div>
+      <h4>Value</h4>
+      <div id="coupon_value"></div>
+    </div>
+    <div id="coupon_address_input">
+      <%= f.text_field "coupon_code", id: "right-label", placeholder: "Address" %>
+    </div>
+    <div id="coupon_code_input">
+      <%= f.text_field "coupon_code", id: "right-label", placeholder: "Credit Code" %>
+    </div>
+    <div id="new_coupon_button" class="coupon_button">
+        <%= f.submit "New Credit", class:"button tiny" %>
+    </div>
+    <div id="coupon_code_submit" class="coupon_button">
+      <%= f.submit "Check value", class:"button tiny"%>
+    </div>
+  </div>
+  <% end %>
 </div>
