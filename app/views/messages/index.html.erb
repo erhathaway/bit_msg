@@ -1,24 +1,26 @@
 
   <div id="messages_page">
     <%  @messages.each do |message| %>
-
+      <div class="row " data-messageid="<%=message.id%>">
+      <hr>
+      </div>
       <div class="row search_message_container" data-messageid="<%=message.id%>">
-              <hr>
-        <div class="small-12 large-centered columns">
+
+        <div class="small-12 large-centered columns tx1d">
           <div class="search_message_date result"><%= format_time(message.exchange.block.date_posted) %></div>
-          <div class="search_message_decoded result"><h5><%= message.op_return_data_decoded %></h5></div>
+          <div class="search_message_decoded result"><h4><%= message.op_return_data_decoded %></h4></div>
 
           <div class="toggle_technical_details result"><%= image_tag 'magnifying_glass.svg', width: 20, height: 20, alt: 'show technical details'%></div>
           <div class="toggle_decode_message result"><%= image_tag 'speech117.svg', width: 20, height: 20, alt: 'decode message'%></div>
 
 
           <div class="technical_details">
-            <div class="search_message_raw result"><h4>Raw Message</h4><%= message.op_return_data_raw %></div>
-            <div class="search_message_tx_hash result"><h4>Tx Hash</h4><%= message.exchange.exchange_hash %></div>
-            <div class="search_message_block_hash result"><h4>Block Hash</h4><%= message.exchange.block.block_hash %></div>
-            <div class="search_message_block_height result"><h4>Block Height</h4><%= message.exchange.block.block_height %></div>
+            <div class="search_message_raw result"><h5>Raw Message</h5><%= message.op_return_data_raw %></div>
+            <div class="search_message_tx_hash result"><h5>Tx Hash</h5><%= message.exchange.exchange_hash %></div>
+            <div class="search_message_block_hash result"><h5>Block Hash</h5><%= message.exchange.block.block_hash %></div>
+            <div class="search_message_block_height result"><h5>Block Height</h5><%= message.exchange.block.block_height %></div>
           </div>
-        <div>
+        </div>
       </div>
     <% end %>
 
