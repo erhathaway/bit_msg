@@ -79,6 +79,7 @@ function show_encryption(data){
 }
 
 function show_technical_details(data){
+  console.log('hi');
   var details = $(data).siblings(".technical_details")
   var state = details.css('display');
   if (state == 'block') { details.css('display', "none"); }
