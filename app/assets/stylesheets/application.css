@@ -18,6 +18,7 @@
 
 /*pallet: 12B0u0kbGkgdubic4g8ahnV8bsm*/
 
+/*-------------------------------------------------*/
 /*General*/
 h4 {
   margin-top: 2px;
@@ -94,7 +95,7 @@ h4 {
   float: right;
 }
 
-
+/*-------------------------------------------------*/
 /*Message Details*/
 #message_details {
   display: none;
@@ -114,16 +115,7 @@ h4 {
   padding: 30px;
 }
 
-/*Coupons*/
-.bit_coupon {
-  float: left;
-  padding: 20px;
-  height: 500px;
-  width: 500px;
-  border: solid black 2px;
-}
-
-
+/*-------------------------------------------------*/
 /*Crypt Message*/
 
 #crypt {
@@ -146,7 +138,7 @@ h4 {
   margin-top: 5px;
   margin-bottom: 70px;
 }
-
+/*-------------------------------------------------*/
 /*Top Navigation Bar*/
 .barrr {
   position:fixed;
@@ -190,10 +182,56 @@ h4 {
 #new_message_button {
   background-color: #3D502E;
 }
-
+/*-------------------------------------------------*/
 /*#search_box{
 background: url(magnifying_glass.svg) no-repeat;
 background-color: white;
 background-position: right;
 margin-right: 20px;
 }*/
+
+
+
+/*-------------------------------------------------*/
+/*New message*/
+#new_message_popup {
+  display: none;
+  border: 2px solid white;
+  position: fixed;
+  margin: 0px auto;
+  top: 10%;
+  left: 10%;
+  z-index: 11;
+  background-color: rgb(68,67,73);
+  width: 80%;
+  height: 80%;
+}
+
+#bit_coupon_container {
+  float:left;
+  width: 300px;
+  padding: 20px;
+}
+
+
+#theForm{
+  float: right;
+  width: 70%;
+}
+
+/*.bit_coupon {
+  float: left;
+  padding: 20px;
+  height: 500px;
+  width: 500px;
+  border: solid black 2px;
+}*/
+#coupon_buttons{
+  margin-top: 200px;
+  /*padding-top: 500px;*/
+}
+
+.coupon_button{
+  float: left;
+  margin-right: 20px;
+}
