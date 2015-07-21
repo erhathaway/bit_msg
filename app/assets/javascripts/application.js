@@ -85,8 +85,13 @@ function show_encryption(data){
   var state = $(".section").css('display');
   if (state == 'none') {
     $('.crypt').each(function() {$(this).css('display', "block");});
+    $('#coupon_buttons').each(function() {$(this).css('margin-top', '150px');});
+
   }
-  else { $('.crypt').each(function() {$(this).css('display', "none");}); }
+  else { $('.crypt').each(function() {
+    $(this).css('display', "none");});
+    $('#coupon_buttons').each(function() {$(this).css('margin-top', '10px');});
+  }
 }
 
 function show_technical_details(data){

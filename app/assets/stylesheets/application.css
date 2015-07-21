@@ -231,7 +231,9 @@ margin-right: 20px;
 #bit_coupon_container {
   float:left;
   width: 300px;
-  padding: 20px;
+  margin: 20px;
+  padding: 10px;
+  /*border: 2px solid black;*/
 }
 
 
@@ -251,8 +253,11 @@ margin-right: 20px;
   border: solid black 2px;
 }*/
 #coupon_buttons {
-  /*margin-top: 20%;*/
-  /*padding-top: 500px;*/
+  margin-top: 10px;
+  border: 2px solid black;
+  padding: 20px;
+  padding-bottom: 50px;
+
 }
 
 .coupon_button {
