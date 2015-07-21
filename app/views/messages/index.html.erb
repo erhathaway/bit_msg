@@ -1,36 +1,42 @@
-<div id="messages_page">
-  <%  @messages.each do |message| %>
-    <hr>
-    <div class="search_message_container" data-messageid="<%=message.id%>">
-      <div class="search_message_raw result"><h4>Raw Message</h4><%= message.op_return_data_raw %></div>
-      <div class="search_message_decoded result"><h4>Decoded Message</h4><%= message.op_return_data_decoded %></div>
-      <div class="search_message_date result"><h4>Date</h4><%= message.exchange.block.date_posted %></div>
-      <div class="toggle_technical_details result">Show Technical Details</div>
-      <div class="technical_details">
-        <div class="search_message_tx_hash result"><h4>Tx Hash</h4><%= message.exchange.exchange_hash %></div>
-        <div class="search_message_block_hash result"><h4>Block Hash</h4><%= message.exchange.block.block_hash %></div>
-        <div class="search_message_block_height result"><h4>Block Height</h4><%= message.exchange.block.block_height %></div>
+
+  <div id="messages_page">
+    <%  @messages.each do |message| %>
+
+      <div class="row search_message_container" data-messageid="<%=message.id%>">
+              <hr>
+        <div class="small-12 large-centered columns">
+          <div class="search_message_date result"><%= message.exchange.block.date_posted %></div>
+          <div class="search_message_decoded result"><h5><%= message.op_return_data_decoded %></h5></div>
+
+          <div class="toggle_technical_details result">Show Technical Details</div>
+        </div>
+
+        <div class="technical_details">
+          <div class="search_message_raw result"><h4>Raw Message</h4><%= message.op_return_data_raw %></div>
+          <div class="search_message_tx_hash result"><h4>Tx Hash</h4><%= message.exchange.exchange_hash %></div>
+          <div class="search_message_block_hash result"><h4>Block Hash</h4><%= message.exchange.block.block_hash %></div>
+          <div class="search_message_block_height result"><h4>Block Height</h4><%= message.exchange.block.block_height %></div>
+        </div>
+      </div>
+    <% end %>
+
+      <%= paginate @messages %>
+
+    <div id="message_details">
+      <div id="message_details_container" class="popup">
+        <div id="message_details_raw"><h4>Raw Message</h4><a></a></div>
+        <div id="message_details_decoded"><h4>Decoded Message</h4><a></a></div>
+        <div id="message_details_tx_hash"><h4>Tx Hash</h4><a></a></div>
+        <div id="message_details_block_hash"><h4>Block Hash</h4><a></a></div>
+        <div id="message_details_block_height"><h4>Block Height</h4><a></a></div>
+        <div id="message_details_date"><h4>Date</h4><a></a></div>
+        <form class="form" action="#" id="event_form">
+          <label for="password">Password:</label>
+          <input type="password" class="wide" name="password" id="password" autocomplete="off" tabindex="1"/>
+        </form>
+      </div>
+      <div id="message_crypt_container" class="popup">
+        <%= h render(:partial => '/homes/send_message.html.erb') -%>
       </div>
     </div>
-  <% end %>
-
-    <%= paginate @messages %>
-
-  <div id="message_details">
-    <div id="message_details_container" class="popup">
-      <div id="message_details_raw"><h4>Raw Message</h4><a></a></div>
-      <div id="message_details_decoded"><h4>Decoded Message</h4><a></a></div>
-      <div id="message_details_tx_hash"><h4>Tx Hash</h4><a></a></div>
-      <div id="message_details_block_hash"><h4>Block Hash</h4><a></a></div>
-      <div id="message_details_block_height"><h4>Block Height</h4><a></a></div>
-      <div id="message_details_date"><h4>Date</h4><a></a></div>
-      <form class="form" action="#" id="event_form">
-        <label for="password">Password:</label>
-        <input type="password" class="wide" name="password" id="password" autocomplete="off" tabindex="1"/>
-      </form>
-    </div>
-    <div id="message_crypt_container" class="popup">
-      <%= h render(:partial => '/homes/send_message.html.erb') -%>
-    </div>
   </div>
-</div>
