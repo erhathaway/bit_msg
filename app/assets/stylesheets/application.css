@@ -147,12 +147,15 @@ h4 {
   z-index: 1000;
 }
 
-/*#message_search {
+.has-form {
+  background-color: #5A7247;
+}
+#message_search {
   margin-left: 20px;
-  float: left;
-  width: 220px;
-  height: 30px;
-}*/
+  /*float: left;*/
+  /*width: 220px;*/
+  /*height: 30px;*/
+}
 
 /*.nav_button_left {
   float: right;
@@ -164,14 +167,19 @@ h4 {
   background-color: #8AA973;
 }*/
 
-/*#search_button1 {
-  float: left;
-}*/
+#search_button {
+  background-color: #3D502E;
+}
 
-/*#view_all_button {
-  float: left;
-  margin-left: 8px;
-}*/
+#view_all_button {
+  margin-left: -15px;
+  background-color: #3D502E;
+  width: 100px;
+}
+
+#new_message_button {
+  background-color: #3D502E;
+}
 
 /*#search_box{
 background: url(magnifying_glass.svg) no-repeat;
