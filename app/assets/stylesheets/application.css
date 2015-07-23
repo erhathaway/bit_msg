@@ -338,6 +338,7 @@ margin-right: 20px;
 .front_page_panel {
   margin-top: -110px;
   margin-bottom: 160px;
+  padding-top: 20px;
 
   height: 100%;
 }
