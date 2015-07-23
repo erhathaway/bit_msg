@@ -1,21 +1,12 @@
 <div class="sticky">
- <div class="contain-to-grid">
-   <nav id="front_nav_bar" class="top-bar">
-       <!-- <ul class="title-area">
-           <li class="name">
-                <h1><a href="#">Top Bar Title </a></h1>
-           </li>
-           <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a>
-           </li>
-       </ul> -->
-       <section class="top-bar-section">
-          <ul class="right">
-            <!-- <li class="active"><a href="#">Right Button Active</a></li> -->
-            <li class="has-form">
-              <a href="http://foundation.zurb.com/docs" class="large button radius">NEW MESSAGE</a>
-            </li>
-          </ul>
-      </section>
-   </nav>
- </div>
+  <!-- <div class="contain-to-grid"> -->
+  <div class="row">
+    <!-- <div id="name" class="small-3 small-offset-6 columns"> -->
+      <!-- large-8 large-offset-3 columns -->
+      <div id="front_new_message_button">
+        <%=link_to 'NEW MESSAGE', new_message_messages_path, id: "front_new_message_button", class: "large button radius" %>
+
+      </div>
+    <!-- </div> -->
+  </div>
 </div>

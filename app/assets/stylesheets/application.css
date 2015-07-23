@@ -339,9 +339,6 @@ margin-right: 20px;
   text-align: center;
 }
 
-
-#front_button_container {
-}
 #front_search_button {
   margin-left: 40%;
 }
@@ -354,6 +351,7 @@ margin-right: 20px;
 
 
 .front_page_panel {
+  margin-top: -30px;
   height: 100%;
 }
 #bitmsg_server_text {
@@ -374,26 +372,27 @@ margin-right: 20px;
   background-color: rgba(255, 255, 255, 0.0);
   border: 2px solid #21CE99;
   margin-right: -80px;
+    font-size: 14px;
 }
 
-#front_nav_bar .button:hover {
-  height: 50px;
-  width: 170px;
+#front_new_message_button a {
   background-color: rgba(255, 255, 255, 0.0);
   border: 2px solid #16AB7D;
-  margin-right: -80px;
-}
-
-#front_nav_bar a {
-  margin-top: 20px;
-  margin-left: 20px;
-  padding-top: 15px;
   color: #21CE99;
+  font-size: 13px;
+
 }
 
 #front_title{
   margin-top: -80px;
   padding-bottom: 20px;
+}
+
+#front_new_message_button{
+  float: right;
+  margin-top: 15px;
+  /*right: 0px;*/
+  z-index: 1000;
 }
 /*Front page arrow*/
 .arrow {

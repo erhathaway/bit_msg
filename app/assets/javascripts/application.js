@@ -73,7 +73,11 @@ $(document).ready(function() {
 $(function(){
   if($('body').is('.front_page')){
     //add dynamic script tag  using createElement()
-    $('#fullpage').fullpage();
+    $('#fullpage').fullpage({
+
+
+      
+    });
 
     //call specific functions
   }

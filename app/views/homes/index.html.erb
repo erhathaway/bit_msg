@@ -1,7 +1,9 @@
 <body class="front_page">
-<%= h render(:partial => '/layouts/header_minimal.html.erb') -%>
+
+  <%= h render(:partial => '/layouts/header_minimal.html.erb') -%>
 
 <div id="fullpage">
+
 <div class="row front_page_panel section ">
   <div id="name" class="small-6 small-centered columns">
   <h1 id=front_title>Blockchain Messages</h1>
@@ -34,7 +36,7 @@
     <p> This means that messages are encrypted locally in your browser and no raw text is sent to the server. In other words, we have no idea what you write.</p>
   </div>
 </div>
-<div class="row front_page_panel section">
+<div id="bitmsg_server_panel" class="row front_page_panel section">
   <div id="bitmsg_server_image" class="small-6 small-centered columns front_page_image ">
     <%= image_tag("bitmsg_server.svg", width: '400', height: '400', alt: 'Site Logo', class: "logo") %>
   <div class="row">
