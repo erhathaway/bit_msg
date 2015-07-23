@@ -22,6 +22,8 @@ $(document).ready(function() {
   $( ".toggle_technical_details").on('click touch', function(){show_technical_details(this);});
   $( "#use_encryption").on('click touch', function(){show_encryption(this);});
   $( "#submit_message_form").submit(function(){submit_message(this);});
+  $('#fullpage').fullpage();
+
   // $( "#new_message_button").on('click touch', function(){show_new_message_popup(this);});
 
   $("#get_coupon").on("ajax:success", function(e, data, status, xhr){

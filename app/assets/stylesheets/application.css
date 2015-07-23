@@ -20,6 +20,10 @@
 
 /*-------------------------------------------------*/
 /*General*/
+html, body {
+    height:100%;
+}
+
 h4 {
   margin-top: 2px;
   margin-bottom: 2px;
@@ -328,28 +332,43 @@ margin-right: 20px;
 /*Front Page*/
 
 #name{
-  padding-top:20%;
   width: 600px;
   text-align: center;
-
 }
-.front_page_image {
+
+
+#front_button_container {
+}
+#front_search_button {
+  margin-left: 40%;
+  }
+
+.front_page_panel {
+  height: 100%;
+}
+.front_page_image img {
+  /*vertical-align: middle;*/
+  /*height: 400px;*/
   /*padding: 10%;*/
   /*padding-left: 40%;*/
-  height: 700px;
+  /*height: 700px;*/
   /*border-top: 2px solid black;*/
 }
 
 #client_side_image {
-  margin-top: 50%;
+  /*padding-top: 20%;*/
+  /*margin-top: 50%;*/
   /*background-color: blue;*/
 }
 
 #bitmsg_server_image {
+  /*padding-top: 10%;*/
+
   /*background-color: green;*/
 }
 
 #block_chain_image {
+  /*padding-bottom: -20%;*/
   /*background-color: yellow;*/
-  margin-bottom: 300px;
+  /*margin-bottom: 300px;*/
 }
