@@ -59,7 +59,7 @@ gem "recaptcha", :require => "recaptcha/rails"
 gem 'foundation-rails'
 
 #heroku problem:
-gem 'compass-rails', '~> 1.1.3'
+gem 'compass'
 
 
 group :development, :test do
