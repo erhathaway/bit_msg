@@ -167,24 +167,22 @@ h5 {
 }
 /*-------------------------------------------------*/
 /*Top Navigation Bar*/
-.barrr {
+/*.barrr {
   position:fixed;
   top:0;
   width:100%;
   display: block;
   background-color: #5A7247;
   z-index: 1000;
-}
+}*/
 
-.has-form {
+/*.has-form {
   background-color: #5A7247;
-}
-#message_search {
+}*/
+/*#message_search {
   margin-left: 20px;
-  /*float: left;*/
-  /*width: 220px;*/
-  /*height: 30px;*/
-}
+
+}*/
 
 /*.nav_button_left {
   float: right;
@@ -196,7 +194,7 @@ h5 {
   background-color: #8AA973;
 }*/
 
-#search_button {
+/*#search_button {
   background-color: #3D502E;
 }
 
@@ -204,10 +202,26 @@ h5 {
   margin-left: -15px;
   background-color: #3D502E;
   width: 100px;
-}
+}*/
 
+#new_message_button_container {
+  position: fixed;
+  right: 0px;
+  margin-top: 15px;
+  padding-right: 30px;
+  z-index: 1000;
+}
 #new_message_button {
-  background-color: #3D502E;
+
+  float: right;
+  margin-top: 15px;
+  padding-right: 30px;
+  z-index: 1000;
+
+  background-color: rgba(255, 255, 255, 0.0);
+  border: 2px solid #21CE99;
+  color: #21CE99;
+  font-size: 13px;
 }
 /*-------------------------------------------------*/
 /*#search_box{
@@ -336,10 +350,6 @@ margin-right: 20px;
 
 
 .front_page_panel {
-  margin-top: -110px;
-  margin-bottom: 160px;
-  padding-top: 20px;
-
   height: 100%;
 }
 
@@ -360,28 +370,15 @@ margin-right: 20px;
 }
 
 #bitmsg_server_text {
-  /*text-align: center;*/
   margin-top: 40px;
   width: 500px;
 }
 
-#front_new_message_button a {
-  background-color: rgba(255, 255, 255, 0.0);
-  border: 2px solid #21CE99;
-  color: #21CE99;
-  font-size: 13px;
-}
 
-#front_new_message_button{
-  float: right;
-  margin-top: 15px;
-  padding-right: 30px;
-  z-index: 1000;
-}
 
-#front_nav_container {
+/*#front_nav_container {
   height: 50px;
-}
+}*/
 
 #client_side_image_text {
   color: #c8cacb;
