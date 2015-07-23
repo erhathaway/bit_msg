@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
                     JOIN exchanges ON
                       Exchanges.id = Messages.exchange_id
                     JOIN blocks ON
-                      Blocks.id = Exchanges.block_id").order('date_posted').page params[:page]
+                      Blocks.id = Exchanges.block_id").order('date_posted DESC').page params[:page]
       # @messages = Message.all.page params[:page]
     end
   end

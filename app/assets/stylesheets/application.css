@@ -184,10 +184,14 @@ h5 {
 #nav_search_button {
   float: left;
   margin-right: 5px;
+  background-color: rgba(33,206,153,1)
+
 }
 
 #nav_view_all_button {
   float: left;
+  background-color: rgba(33,206,153,1)
+
 }
 
 #new_message_button_container {
