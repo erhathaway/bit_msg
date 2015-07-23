@@ -1,9 +1,10 @@
 <body class="front_page">
+<%= h render(:partial => '/layouts/header_minimal.html.erb') -%>
 
 <div id="fullpage">
 <div class="row front_page_panel section ">
   <div id="name" class="small-6 small-centered columns">
-  <h1>Blockchain Messages</h1>
+  <h1 id=front_title>Blockchain Messages</h1>
   </div>
   <%= form_tag messages_path, method: "get" do %>
   <div class="row">
@@ -18,9 +19,9 @@
     </div>
   </div>
   <% end %>
-  <div class="arrow bounce">
+  <!-- <div class="arrow bounce">
     <%= image_tag("down_arrow.png", width: '180', height: '180', alt: 'Scroll') %>
-  </div>
+  </div> -->
 </div>
 
 
@@ -38,8 +39,8 @@
     <%= image_tag("bitmsg_server.svg", width: '400', height: '400', alt: 'Site Logo', class: "logo") %>
   <div class="row">
     <div id="bitmsg_server_text">
-      <h3> Messages are sent as part of a micro transactions </h3>
-      <p> The message you submit to the server is wrapped into a bitcoin transaction </p>
+      <h3> Messages are packed into micro transactions </h3>
+      <p> The message you submit to the server is wrapped into a bitcoin transaction. Any "fee" you include is used to incentivise people who host the network to absorb the transaction into the ledger </p>
     </div>
   </div>
   </div>
@@ -50,7 +51,7 @@
     <%= image_tag("block_chain.svg", width: '350', height: '350', alt: 'Site Logo', class: "logo") %>
   </div>
   <div id="client_side_image_text" class="small-4 columns">
-    <h3> Our server sends the transaction-message to the transactional ledger </h3>
+    <h3> Our server sends the data to the transactional ledger </h3>
     <p> The transactional ledger is called the bitcoin blockchain. This is a public and distributed self referencing chain of transactions.</p>
   </div>
 </div>

@@ -20,7 +20,7 @@
 
 /*-------------------------------------------------*/
 /*General*/
-body, div, h1, h2, h3, h4, h5 {
+body, div, h1, h2, h3, h4, h5, a {
   font-family: 'Abel', sans-serif;
 }
 
@@ -359,10 +359,42 @@ margin-right: 20px;
 #bitmsg_server_text {
   text-align: center;
   margin-top: 40px;
-  width: 400px;
+  width: 500px;
 }
 
+#front_nav_bar {
+  background-color: rgba(255, 255, 255, 0.0);
+  background: rgba(255, 255, 255, 0.0);
 
+}
+
+#front_nav_bar .button {
+  height: 50px;
+  width: 170px;
+  background-color: rgba(255, 255, 255, 0.0);
+  border: 2px solid #21CE99;
+  margin-right: -80px;
+}
+
+#front_nav_bar .button:hover {
+  height: 50px;
+  width: 170px;
+  background-color: rgba(255, 255, 255, 0.0);
+  border: 2px solid #16AB7D;
+  margin-right: -80px;
+}
+
+#front_nav_bar a {
+  margin-top: 20px;
+  margin-left: 20px;
+  padding-top: 15px;
+  color: #21CE99;
+}
+
+#front_title{
+  margin-top: -80px;
+  padding-bottom: 20px;
+}
 /*Front page arrow*/
 .arrow {
   position: fixed;
