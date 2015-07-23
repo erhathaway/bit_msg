@@ -3,9 +3,9 @@
     <div id="messages_nav_container">
       <div id="messages_search_form">
         <%= form_tag messages_path, method: "get" do %>
-          <%= text_field_tag(:search, nil, placeholder: "Message", id: "message_search") %>
-          <%= submit_tag "Search", id: "search_button", class: "button radius small" %>
-          <%=link_to 'View All', messages_path, id: "view_all_button", class: "button radius small" %>
+          <%= text_field_tag(:search, nil, placeholder: "Message", id: "nav_message_search") %>
+          <%= submit_tag "Search", id: "nav_search_button", class: "button radius tiny" %>
+          <%=link_to 'View All', messages_path, id: "nav_view_all_button", class: "button radius tiny" %>
         <% end %>
       </div>
 

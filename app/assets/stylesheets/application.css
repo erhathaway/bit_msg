@@ -167,42 +167,28 @@ h5 {
 }
 /*-------------------------------------------------*/
 /*Top Navigation Bar*/
-/*.barrr {
-  position:fixed;
-  top:0;
-  width:100%;
-  display: block;
-  background-color: #5A7247;
-  z-index: 1000;
-}*/
-
-/*.has-form {
-  background-color: #5A7247;
-}*/
-/*#message_search {
-  margin-left: 20px;
-
-}*/
-
-/*.nav_button_left {
-  float: right;
-  margin-left: 10px;
-  background-color: #3D502E;
+#messages_search_form{
+  position: fixed;
+  left: 0px;
+  margin-top: 40px;
+  padding-left: 60px;
+  width: 60%;
 }
 
-.nav_button_left:hover {
-  background-color: #8AA973;
-}*/
-
-/*#search_button {
-  background-color: #3D502E;
+#nav_message_search {
+  float: left;
+  width: 200px;
+  height: 33px;
 }
 
-#view_all_button {
-  margin-left: -15px;
-  background-color: #3D502E;
-  width: 100px;
-}*/
+#nav_search_button {
+  float: left;
+  margin-right: 5px;
+}
+
+#nav_view_all_button {
+  float: left;
+}
 
 #new_message_button_container {
   position: fixed;
@@ -355,16 +341,17 @@ margin-right: 20px;
 
 #name, #front_title{
   width: 600px;
-  margin-left: 10px;
+  margin-left: -10px;
 }
 
 #front_search_button {
-  margin-left: 10px;
-  margin-right: 15px;
+  margin-left: -10px;
 }
+
 .front_button {
   background-color: #21CE99
 }
+
 .front_button:hover {
   background-color: #16AB7D
 }
@@ -374,11 +361,6 @@ margin-right: 20px;
   width: 500px;
 }
 
-
-
-/*#front_nav_container {
-  height: 50px;
-}*/
 
 #client_side_image_text {
   color: #c8cacb;
