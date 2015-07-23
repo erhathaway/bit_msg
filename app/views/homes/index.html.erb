@@ -8,13 +8,13 @@
   <%= form_tag messages_path, method: "get" do %>
   <div class="row">
     <div id="search" class="small-9 small-centered columns">
-      <%= text_field_tag(:search, nil, placeholder: "Message", id: "message_search") %>
+      <%= text_field_tag(:search, nil, placeholder: "Message, Transaction Hash, Block Hash, Tag ...", id: "message_search") %>
     </div>
   </div>
   <div class="row">
     <div id="front_button_container" class="small-12 small-centered columns">
-      <%= submit_tag "Search", id: "front_search_button", class: "button radius small" %>
-      <%=link_to 'View All', messages_path, id: "front_view_all_button", class: "button radius small" %>
+      <%= submit_tag "SEARCH", id: "front_search_button", class: "button radius small front_button" %>
+      <%=link_to 'NEWEST', messages_path, id: "front_view_all_button", class: "button radius small front_button" %>
     </div>
   </div>
   <% end %>
@@ -29,7 +29,7 @@
     <%= image_tag("client_side.svg", width: '400', height: '400', alt: 'Site Logo', class: "logo") %>
   </div>
   <div id="client_side_image_text" class="small-4 columns">
-    <b> We use client side encryption </b>
+    <h3> We use client side encryption </h3>
     <p> This means that messages are encrypted locally in your browser and no raw text is sent to the server. In other words, we have no idea what you write.</p>
   </div>
 </div>
@@ -38,7 +38,7 @@
     <%= image_tag("bitmsg_server.svg", width: '400', height: '400', alt: 'Site Logo', class: "logo") %>
   <div class="row">
     <div id="bitmsg_server_text">
-      <b> Messages are sent as part of a micro transactions </b>
+      <h3> Messages are sent as part of a micro transactions </h3>
       <p> The message you submit to the server is wrapped into a bitcoin transaction </p>
     </div>
   </div>
@@ -50,7 +50,7 @@
     <%= image_tag("block_chain.svg", width: '350', height: '350', alt: 'Site Logo', class: "logo") %>
   </div>
   <div id="client_side_image_text" class="small-4 columns">
-    <b> Our server sends the transaction-message to the transactional ledger </b>
+    <h3> Our server sends the transaction-message to the transactional ledger </h3>
     <p> The transactional ledger is called the bitcoin blockchain. This is a public and distributed self referencing chain of transactions.</p>
   </div>
 </div>

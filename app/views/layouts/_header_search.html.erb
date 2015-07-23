@@ -1,0 +1,39 @@
+<nav class="top-bar barrr" data-topbar>
+<ul class="title-area">
+ <li class="name">
+   <h1><a href="/">Bit Msg</a></h1>
+ </li>
+ <!-- <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li> -->
+</ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="has-form">
+        <a href="/messages/new_message" id="new_message_button" class="button">New Message</a>
+      </li>
+    </ul>
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <%= form_tag messages_path, method: "get" do %>
+      <!-- Search -->
+      <li class="has-form">
+        <div class="row collapse">
+          <div class="large-8 small-9 columns">
+            <%= text_field_tag(:search, nil, placeholder: "Message", id: "message_search") %>
+
+          </div>
+          <div class="large-4 small-3 columns">
+            <%= submit_tag "Search", id: "search_button", class: "button radius small" %>
+          </div>
+        </div>
+      </li>
+      <!-- View All -->
+      <li class="has-form">
+        <%=link_to 'View All', messages_path, id: "view_all_button", class: "button radius small" %>
+      </li>
+      <% end %>
+    </ul>
+  </section>
+</nav>

@@ -20,6 +20,13 @@
 
 /*-------------------------------------------------*/
 /*General*/
+body, div, h1, h2, h3, h4, h5 {
+  font-family: 'Abel', sans-serif;
+}
+
+h1 {
+  font-size: 44px;
+}
 h4 {
   margin-top: 2px;
   margin-bottom: 2px;
@@ -337,7 +344,14 @@ margin-right: 20px;
 }
 #front_search_button {
   margin-left: 40%;
-  }
+}
+.front_button {
+  background-color: #21CE99
+}
+.front_button:hover {
+  background-color: #16AB7D
+}
+
 
 .front_page_panel {
   height: 100%;
