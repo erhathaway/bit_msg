@@ -16,18 +16,33 @@
   </div>
 </div>
 <div class="row front_page_panel section">
-  <div id="client_side_image" class="small-6 small-centered columns front_page_image  ">
+  <div id="client_side_image" class="small-5 small-offset-2 columns front_page_image  ">
     <%= image_tag("client_side.svg", width: '400', height: '400', alt: 'Site Logo', class: "logo") %>
+  </div>
+  <div id="client_side_image_text" class="small-4 columns">
+    <b> We use client side encryption </b>
+    <p> This means that messages are encrypted locally in your browser and no raw text is sent to the server. In other words, we have no idea what you write.</p>
   </div>
 </div>
 <div class="row front_page_panel section">
   <div id="bitmsg_server_image" class="small-6 small-centered columns front_page_image ">
     <%= image_tag("bitmsg_server.svg", width: '400', height: '400', alt: 'Site Logo', class: "logo") %>
+  <div class="row">
+    <div id="bitmsg_server_text">
+      <b> Messages are sent as part of a micro transactions </b>
+      <p> The message you submit to the server is wrapped into a bitcoin transaction </p>
+    </div>
   </div>
+  </div>
+
 </div>
 <div class="row front_page_panel section">
-  <div id="block_chain_image" class="small-6 small-centered columns front_page_image ">
+  <div id="block_chain_image" class="small-5 small-offset-2 columns front_page_image ">
     <%= image_tag("block_chain.svg", width: '350', height: '350', alt: 'Site Logo', class: "logo") %>
+  </div>
+  <div id="client_side_image_text" class="small-4 columns">
+    <b> Our server sends the transaction-message to the transactional ledger </b>
+    <p> The transactional ledger is called the bitcoin blockchain. This is a public and distributed self referencing chain of transactions.</p>
   </div>
 </div>
 <!--

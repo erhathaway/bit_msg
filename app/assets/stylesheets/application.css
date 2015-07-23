@@ -21,7 +21,7 @@
 /*-------------------------------------------------*/
 /*General*/
 html, body {
-    height:100%;
+    /*height:100%;*/
 }
 
 h4 {
@@ -346,29 +346,8 @@ margin-right: 20px;
 .front_page_panel {
   height: 100%;
 }
-.front_page_image img {
-  /*vertical-align: middle;*/
-  /*height: 400px;*/
-  /*padding: 10%;*/
-  /*padding-left: 40%;*/
-  /*height: 700px;*/
-  /*border-top: 2px solid black;*/
-}
-
-#client_side_image {
-  /*padding-top: 20%;*/
-  /*margin-top: 50%;*/
-  /*background-color: blue;*/
-}
-
-#bitmsg_server_image {
-  /*padding-top: 10%;*/
-
-  /*background-color: green;*/
-}
-
-#block_chain_image {
-  /*padding-bottom: -20%;*/
-  /*background-color: yellow;*/
-  /*margin-bottom: 300px;*/
+#bitmsg_server_text {
+  text-align: center;
+  margin-top: 40px;
+  width: 400px;
 }
