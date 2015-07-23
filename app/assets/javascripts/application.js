@@ -78,7 +78,6 @@ $(function(){
     //call specific functions
   }
 });
-
 // function show_new_message_popup(data){
 //   var state = $("#new_message_popup").css('display');
 //   if (state == 'block'){
