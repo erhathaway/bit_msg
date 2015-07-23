@@ -69,6 +69,16 @@ $(document).ready(function() {
 
 });
 
+
+$(function(){
+  if($('body').is('.front_page')){
+    //add dynamic script tag  using createElement()
+    $('#fullpage').fullpage();
+
+    //call specific functions
+  }
+});
+
 // function show_new_message_popup(data){
 //   var state = $("#new_message_popup").css('display');
 //   if (state == 'block'){
