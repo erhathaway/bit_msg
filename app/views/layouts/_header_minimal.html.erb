@@ -1,12 +1,15 @@
 <div class="sticky">
   <!-- <div class="contain-to-grid"> -->
-  <div class="row">
+  <!-- <div class="row"> -->
     <!-- <div id="name" class="small-3 small-offset-6 columns"> -->
       <!-- large-8 large-offset-3 columns -->
+    <div id="front_nav_container">
       <div id="front_new_message_button">
-        <%=link_to 'NEW MESSAGE', new_message_messages_path, id: "front_new_message_button", class: "large button radius" %>
+        <%=link_to 'NEW MESSAGE', new_message_messages_path, id: "front_new_message_button", class: "medium button radius" %>
 
       </div>
-    <!-- </div> -->
-  </div>
+    </div>
+    <div class="row" id="spacer_row">
+    </div>
+  <!-- </div> -->
 </div>
