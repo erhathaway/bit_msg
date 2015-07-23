@@ -76,7 +76,7 @@ $(function(){
     $('#fullpage').fullpage({
 
 
-      
+      sectionsColor: ['#f2f2f2', '#040D14', 'white', '#f2f2f2']
     });
 
     //call specific functions
