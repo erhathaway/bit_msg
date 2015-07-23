@@ -5,6 +5,7 @@
   <div id="name" class="small-6 small-centered columns">
   <h1>Blockchain Messages</h1>
   </div>
+  <%= form_tag messages_path, method: "get" do %>
   <div class="row">
     <div id="search" class="small-9 small-centered columns">
       <%= text_field_tag(:search, nil, placeholder: "Message", id: "message_search") %>
@@ -16,6 +17,7 @@
       <%=link_to 'View All', messages_path, id: "front_view_all_button", class: "button radius small" %>
     </div>
   </div>
+  <% end %>
 </div>
 <div class="row front_page_panel section">
   <div id="client_side_image" class="small-5 small-offset-2 columns front_page_image  ">
