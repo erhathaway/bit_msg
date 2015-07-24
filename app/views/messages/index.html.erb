@@ -1,6 +1,14 @@
 <%= h render(:partial => '/layouts/header_search.html.erb') -%>
 
-  <div id="messages_page">
+<div id="message_title" class="row">
+  <div class="small-4 large-centered columns">
+
+      <h2> Blockchain Messages </h2>
+    </div>
+  </div>
+<div class="row">
+  <div id="messages_page" class="small-12 large-centered columns">
+
     <%  @messages.each do |message| %>
     <div class="messaage_spacer_row ">
       <!-- <hr> -->
@@ -48,3 +56,4 @@
       </div>
     </div>
   </div>
+</div>
