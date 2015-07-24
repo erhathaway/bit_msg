@@ -19,9 +19,15 @@
 
 $(document).ready(function() {
   // $( ".search_message_decoded").on('click touch', function(){show_message_box(this);});
-  $( ".toggle_technical_details").on('click touch', function(){show_technical_details(this);});
-  $( "#use_encryption").on('click touch', function(){show_encryption(this);});
-  $( "#submit_message_form").submit(function(){submit_message(this);});
+  $( ".toggle_technical_details" ).on('click touch', function(){show_technical_details(this);});
+  $( "#use_encryption" ).on('click touch', function(){show_encryption(this);});
+  $( "#submit_message_form" ).submit(function(){submit_message(this);});
+  $( ".single_message" ).mouseover(function(){show_icon(this);});
+  $( ".single_message" ).mouseleave(function(){hide_icon(this);});
+// });
+
+
+
   // $( "#new_message_button").on('click touch', function(){show_new_message_popup(this);});
 
   $("#get_coupon").on("ajax:success", function(e, data, status, xhr){
@@ -93,6 +99,18 @@ $(function(){
 //     // get_message_details(messageId);
 //   }
 // }
+
+function show_icon(data) {
+  $(data).find(".toggle_technical_details").css('display', 'block');
+  $(data).find(".toggle_decode_message").css('display', 'block');
+}
+
+function hide_icon(data) {
+  $(data).find(".toggle_technical_details").css('display', 'none');
+  $(data).find(".toggle_decode_message").css('display', 'none');
+
+}
+
 function show_encryption(data){
   // var details = $(data).siblings(".technical_details")
   var state = $(".section").css('display');
@@ -154,7 +172,7 @@ function submit_message(data){
     var message = $('textarea#ciphertext').val();
     var coupon = $('#submit_message_coupon').val();
     var captcha = $("#g-recaptcha-response").val();
-      debugger
+
     $.ajax({
       type: "POST",
       url: "/queued_messages/submit_message",
