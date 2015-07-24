@@ -24,6 +24,10 @@ body, div, h1, h2, h3, h4, h5, a {
   font-family: 'Abel', sans-serif;
 }
 
+body {
+  background-color: #f2f2f2;
+}
+
 h1 {
   font-size: 44px;
 }
@@ -43,6 +47,16 @@ h5 {
   margin-bottom: 200px;
   margin-left: 300px;
   width: 800px;
+  background-color: white;
+  /*padding: 10px;*/
+  /*margin-top: 20px;*/
+}
+
+.messaage_spacer_row{
+  height: 4px;
+  background-color: #f2f2f2;
+  padding: 0px;
+  margin: 0px;
 }
 .single_message {
   border-top: 0.5px solid black;
@@ -50,6 +64,7 @@ h5 {
   border-left: 0.5px solid black;
   /*border: 1px solid black;*/
   padding: 10px;
+  padding-top: 15px;
 }
 .result{
   float: left;
@@ -179,7 +194,7 @@ h5 {
 
 #messages_nav_container {
   position: fixed;
-  background-color: white;
+  background-color: #f2f2f2;
   z-index: 1000;
   border: 1px;
   width: 100%;

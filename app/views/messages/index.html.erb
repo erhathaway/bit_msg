@@ -2,10 +2,10 @@
 
   <div id="messages_page">
     <%  @messages.each do |message| %>
+    <div class="messaage_spacer_row ">
+      <!-- <hr> -->
+    </div>
     <div class="single_message">
-      <div class="row ">
-        <!-- <hr> -->
-      </div>
       <div class="row search_message_container" data-messageid="<%=message.id%>">
 
         <div class="small-12 large-centered columns">
