@@ -2,8 +2,9 @@
 
   <div id="messages_page">
     <%  @messages.each do |message| %>
+    <div class="single_message">
       <div class="row ">
-        <hr>
+        <!-- <hr> -->
       </div>
       <div class="row search_message_container" data-messageid="<%=message.id%>">
 
@@ -20,9 +21,11 @@
             <div class="search_message_tx_hash result"><h5>Tx Hash</h5><%= message.exchange.exchange_hash %></div>
             <div class="search_message_block_hash result"><h5>Block Hash</h5><%= message.exchange.block.block_hash %></div>
             <div class="search_message_block_height result"><h5>Block Height</h5><%= message.exchange.block.block_height %></div>
+            <div class="search_message_date_raw result"><h5>Time</h5><%= message.exchange.block.date_posted %></div>
           </div>
         </div>
       </div>
+    </div>
     <% end %>
 
     <%= paginate @messages %>
