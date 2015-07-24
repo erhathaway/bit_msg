@@ -415,9 +415,20 @@ margin-right: 20px;
 }
 
 #use_encryption {
+  /*float: right;*/
+  /*margin-top: 20px;*/
+  /*margin-right: 20px;*/
+
   float: right;
-  margin-top: 20px;
-  margin-right: 20px;
+  /*margin-top: -15px;*/
+  /*padding-right: 30px;*/
+  margin-right: 25px;
+  z-index: 1000;
+
+  background-color: rgba(255, 255, 255, 0.0);
+  border: 2px solid #040d14;
+  color: #040d14;
+  font-size: 13px;
 }
 
 
