@@ -43,11 +43,9 @@ h5 {
 }
 /*Message Result Page*/
 
-#message_title {
-  padding-top: 160px;
-}
+
 #messages_page {
-  margin-top: 10px;
+  margin-top: 110px;
   margin-bottom: 200px;
   /*margin-left: 300px;*/
   width: 800px;
@@ -70,7 +68,8 @@ h5 {
   border-left: 0.5px solid black;
   /*border: 1px solid black;*/
   padding: 10px;
-  padding-top: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 
 }
 .result{
@@ -144,6 +143,7 @@ h5 {
 .toggle_technical_details {
   /*width: 10%;*/
   height: 20px;
+  margin-right: -5px;
   float: right;
   display: none;
 }
@@ -201,6 +201,7 @@ h5 {
 
 #messages_nav_container {
   position: fixed;
+  padding-top: 30px;
   background-color: #f2f2f2;
   z-index: 1000;
   border: 1px;
@@ -211,28 +212,41 @@ h5 {
 }
 #messages_search_form {
   /*position: fixed;*/
-  left: 0px;
-  margin-top: 40px;
+  /*left: 0px;*/
+  float: left;
+  /*margin-top: 40px;*/
   padding-left: 60px;
-  width: 60%;
+  /*width: 60%;*/
+}
+
+#nav_message_logo{
+  float:left;
+  margin-right: 20px;
+  margin-top: 5px;
 }
 
 #nav_message_search {
   float: left;
   width: 200px;
   height: 33px;
+  margin-top: 5px;
+
 }
 
 #nav_search_button {
   float: left;
   margin-right: 5px;
-  background-color: rgba(33,206,153,1)
+  background-color: rgba(33,206,153,1);
+  margin-top: 5px;
+
 
 }
 
 #nav_view_all_button {
   float: left;
-  background-color: rgba(33,206,153,1)
+  background-color: rgba(33,206,153,1);
+  margin-top: 5px;
+
 
 }
 
@@ -245,10 +259,11 @@ h5 {
 }
 
 #new_message_button_container_search_nav {
-  right: 0px;
+  /*right: 0px;*/
   /*margin-top: 15px;*/
   padding-right: 30px;
-  z-index: 1000;
+  /*z-index: 1000;*/
+  float: right;
 }
 #new_message_button {
 
@@ -266,8 +281,9 @@ h5 {
 #new_message_button_search_nav {
 
   float: right;
-  margin-top: -15px;
-  padding-right: 30px;
+  /*margin-top: -15px;*/
+  /*padding-right: 30px;*/
+  margin-right: 15px;
   z-index: 1000;
 
   background-color: rgba(255, 255, 255, 0.0);
