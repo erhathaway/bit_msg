@@ -238,8 +238,9 @@ h5 {
   margin-right: 5px;
   background-color: rgba(33,206,153,1);
   margin-top: 5px;
-
-
+}
+#nav_search_button:hover, #nav_view_all_button:hover  {
+  background-color: #16AB7D;
 }
 
 #nav_view_all_button {
@@ -450,6 +451,7 @@ margin-right: 20px;
 #client_side_image_text h3 {
   color: #c8cacb;
 }
+
 
 /*Front page arrow*/
 .arrow {

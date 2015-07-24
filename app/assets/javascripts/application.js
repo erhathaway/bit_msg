@@ -24,7 +24,9 @@ $(document).ready(function() {
   $( "#submit_message_form" ).submit(function(){submit_message(this);});
   $( ".single_message" ).mouseover(function(){show_icon(this);});
   $( ".single_message" ).mouseleave(function(){hide_icon(this);});
-// });
+  $( "#new_message_button_container, #new_message_button_search_nav" ).mouseenter( function(){enter_new_message_button(this)}).mouseleave(function(){leave_new_message_button(this)}  );
+
+
 
 
 
@@ -100,6 +102,16 @@ $(function(){
 //   }
 // }
 
+function enter_new_message_button(data) {
+  // console.log('hi');
+  $("#new_message_button, #new_message_button_search_nav").css('border', '2px solid #16AB7D');
+  $("#new_message_button, #new_message_button_search_nav").css('color', '#16AB7D');
+}
+function leave_new_message_button(data) {
+  console.log('hello');
+  $("#new_message_button, #new_message_button_search_nav").css('border', '2px solid #21CE99');
+  $("#new_message_button, #new_message_button_search_nav").css('color', '#21CE99');
+}
 function show_icon(data) {
   $(data).find(".toggle_technical_details").css('display', 'block');
   $(data).find(".toggle_decode_message").css('display', 'block');
