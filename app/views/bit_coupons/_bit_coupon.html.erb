@@ -1,12 +1,15 @@
 
 <div id="bit_coupon_container" class="bit_coupon">
   <%= form_for('data', url: '../bit_coupons/get_coupon', remote: true, html: {id: 'get_coupon'}) do |f| %>
-
+  STEP 1: VERIFY PERSONAGE
   <div id="recaptcha_box">
     <%= recaptcha_tags %>
   </div>
+
   <div id="coupon_buttons">
+            <!-- OPTIONAL: CREDIT CODE INFO -->
     <div id="couon_info">
+
       <h4>Address</h4>
       <div id="coupon_address"></div>
       <h4>Credit Code</h4>

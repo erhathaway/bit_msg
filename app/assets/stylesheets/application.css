@@ -184,7 +184,7 @@ h5 {
 /*Crypt Message*/
 
 #crypt {
-  float:left
+  /*float:left*/
 }
 
 .section{
@@ -192,16 +192,16 @@ h5 {
 }
 
 #plaintext {
-  width: 60%;
+  /*width: 60%;*/
 }
 
 #ciphertext {
-  width: 60%;
+  /*width: 60%;*/
 }
 
 #submit_message_container {
-  margin-top: 5px;
-  margin-bottom: 70px;
+  /*margin-top: 5px;*/
+  /*margin-bottom: 70px;*/
 }
 /*-------------------------------------------------*/
 /*Top Navigation Bar*/
@@ -311,53 +311,40 @@ margin-right: 20px;
 
 /*-------------------------------------------------*/
 /*New message*/
-#new_message_popup {
-  /*display: none;*/
+/*#new_message_popup {
   border: 2px solid white;
   position: fixed;
   margin: 0px auto;
   top: 10%;
   left: 10%;
   z-index: 11;
-  /*background-color: rgb(61, 80, 46);*/
   width: 70%;
-  /*height: 80%;*/
-}
+}*/
 
 #bit_coupon_container {
-  float:left;
-  width: 320px;
-  margin: 20px;
+  /*float:left;*/
+  /*width: 320px;*/
+  margin-top: 100px;
   padding: 10px;
-  margin-top: 0px;
-  padding-top: 0px;
-  /*border: 2px solid black;*/
 }
 
 
 #theForm{
-  float: right;
-  width: 50%;
+  /*float: right;*/
+  /*width: 50%;*/
   border: 2px solid black;
-  padding: 5px;
-  padding-top: 0px;
-  margin-left: -500px;
-  margin-right: 20px;
-  /*height: 358px;*/
+  /*padding: 5px;*/
+  margin-top: 150px;
+  /*padding-top: 0px;*/
+  /*margin-left: -500px;*/
+  /*margin-right: 20px;*/
 }
 
-/*.bit_coupon {
-  float: left;
-  padding: 20px;
-  height: 500px;
-  width: 500px;
-  border: solid black 2px;
-}*/
 #coupon_buttons {
-  margin-top: 10px;
+  /*margin-top: 10px;
   border: 2px solid black;
   padding: 20px;
-  padding-bottom: 50px;
+  padding-bottom: 50px;*/
 
 }
 
@@ -367,22 +354,22 @@ margin-right: 20px;
 }
 
 #ciphertext {
-  width: 100%;
+  /*width: 100%;*/
   height: 170px;
 }
 
 #plaintext {
-  width: 100%;
+  /*width: 100%;*/
   height: 30px;
 }
 
 #submit_message_coupon {
-  width: 200px;
+  /*width: 200px;*/
   height: 36px;
 }
 
 .submit_message_item {
-  float: right;
+  /*float: right;*/
   margin-left: 10px;
 }
 
@@ -391,13 +378,13 @@ margin-right: 20px;
 }
 
 #buttons > a > span {
-  width: 100px;
-  float: right;
+  /*width: 100px;*/
+  /*float: right;*/
   margin-left: 20px;
 }
 
 #buttons > h4 {
-  float: left;
+  /*float: left;*/
 }
 
 #buttons {
@@ -405,23 +392,17 @@ margin-right: 20px;
 }
 
 #encrypt_container {
-  border: 2px solid black;
-  padding: 5px;
+  /*border: 2px solid black;*/
+  /*padding: 5px;*/
 }
 
 .crypt h4 {
-  margin-bottom: 10px;
-  margin-left: 5px;
+  /*margin-bottom: 10px;*/
+  /*margin-left: 5px;*/
 }
 
 #use_encryption {
-  /*float: right;*/
-  /*margin-top: 20px;*/
-  /*margin-right: 20px;*/
-
   float: right;
-  /*margin-top: -15px;*/
-  /*padding-right: 30px;*/
   margin-right: 25px;
   z-index: 1000;
 
@@ -434,7 +415,6 @@ margin-right: 20px;
 
 /*-------------------------------------------------*/
 /*Front Page*/
-
 
 .front_page_panel {
   height: 100%;
