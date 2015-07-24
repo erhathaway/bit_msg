@@ -115,12 +115,14 @@ function leave_new_message_button(data) {
 function show_icon(data) {
   $(data).find(".toggle_technical_details").css('display', 'block');
   $(data).find(".toggle_decode_message").css('display', 'block');
+  $(data).find(".toggle_message_link").css('display', 'block');
+
 }
 
 function hide_icon(data) {
   $(data).find(".toggle_technical_details").css('display', 'none');
   $(data).find(".toggle_decode_message").css('display', 'none');
-
+  $(data).find(".toggle_message_link").css('display', 'none');
 }
 
 function show_encryption(data){
