@@ -26,7 +26,8 @@ $(document).ready(function() {
   $( ".single_message" ).mouseleave(function(){hide_icon(this);});
   $( "#new_message_button_container, #new_message_button_search_nav" ).mouseenter( function(){enter_new_message_button(this)}).mouseleave(function(){leave_new_message_button(this)}  );
   $( "#payment_selection").change(function(){payment_process(this)});
-
+  $( "#encrypt").on('click touch', function(){show_crypt_details(this);});
+  $( "#decrypt").on('click touch', function(){hide_crypt_details(this);});
 
   $("#get_coupon").on("ajax:success", function(e, data, status, xhr){
     // debugger
@@ -93,6 +94,18 @@ $(function(){
 //     // get_message_details(messageId);
 //   }
 // }
+
+function show_crypt_details(data){
+  setTimeout(function(){
+    var iv_data = $("#iv").val()
+    console.log(iv_data)
+  }, 2000);
+
+}
+
+function hide_crypt_details(data){
+
+}
 
 function payment_process(data) {
   var payment_method = data.value;
