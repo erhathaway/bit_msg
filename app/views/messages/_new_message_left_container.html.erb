@@ -1,6 +1,8 @@
 
-<div id="bit_coupon_container" class="bit_coupon">
-  <%= form_for('data', url: '../bit_coupons/get_coupon', remote: true, html: {id: 'get_coupon'}) do |f| %>
+<!-- <div id="bit_coupon_container" class="bit_coupon"> -->
+  <!-- <%= form_for('data', url: '../bit_coupons/get_coupon', remote: true, html: {id: 'get_coupon'}) do |f| %> -->
+
+<div id="new_message_left_container">
  <h3>INSTRUCTIONS</h3>
   <div id="step1" class="new_message_step">
     <b>STEP 1: </b> VERIFY PERSONAGE
@@ -20,11 +22,11 @@
 
   <div id="step4" class="new_message_step">
     <b>STEP 4: </b> PAYMENT
-    <select>
-      <option value="new_credit"> None - Don't Incentivise Transaction</option>
-      <option value="new_credit"> Single Use - New Bitcoin Paymment Address</option>
-      <option value="new_credit"> Multi Use - New Credit</option>
-      <option value="new_credit"> Multi Use - Existing Credit</option>
+    <select id="payment_selection">
+      <option value="none"> None - Don't Incentivise Transaction</option>
+      <option value="single_use"> Single Use - New Bitcoin Paymment Address</option>
+      <option value="multi_use_new"> Multi Use - New Credit</option>
+      <option value="multi_use_existing"> Multi Use - Existing Credit</option>
     </select>
   </div>
 
@@ -65,5 +67,6 @@
       <%= f.submit "Check value", class:"button tiny"%>
     </div>
   </div> -->
-  <% end %>
+  <!-- <% end %> -->
+<!-- </div> -->
 </div>

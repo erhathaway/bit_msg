@@ -21,20 +21,12 @@ $(document).ready(function() {
   // $( ".search_message_decoded").on('click touch', function(){show_message_box(this);});
   $( ".toggle_technical_details" ).on('click touch', function(){show_technical_details(this);});
   $( "#use_encryption, #use_encryption_checkbox" ).on('click touch', function(){show_encryption(this);});
-
-  // $( "#use_encryption_checkbox" ).prop('checked', function(){show_encryption(this);});
-
-
   $( "#submit_message_form" ).submit(function(){submit_message(this);});
   $( ".single_message" ).mouseover(function(){show_icon(this);});
   $( ".single_message" ).mouseleave(function(){hide_icon(this);});
   $( "#new_message_button_container, #new_message_button_search_nav" ).mouseenter( function(){enter_new_message_button(this)}).mouseleave(function(){leave_new_message_button(this)}  );
+  $( "#payment_selection").change(function(){payment_process(this)});
 
-
-
-
-
-  // $( "#new_message_button").on('click touch', function(){show_new_message_popup(this);});
 
   $("#get_coupon").on("ajax:success", function(e, data, status, xhr){
     // debugger
@@ -86,12 +78,8 @@ $(function(){
   if($('body').is('.front_page')){
     //add dynamic script tag  using createElement()
     $('#fullpage').fullpage({
-
-
       sectionsColor: ['#f2f2f2', '#040D14', 'white', '#f2f2f2']
     });
-
-    //call specific functions
   }
 });
 // function show_new_message_popup(data){
@@ -105,6 +93,23 @@ $(function(){
 //     // get_message_details(messageId);
 //   }
 // }
+
+function payment_process(data) {
+  var payment_method = data.value;
+  var captcha = $("#g-recaptcha-response").val();
+
+  $.ajax({
+    type: "POST",
+    url: "/bit_coupons/payment_process",
+    dataType: "json",
+    data: {
+      "g-recaptcha-response": captcha,
+      "payment_method": payment_method
+          },
+    success: function(data){console.log(data);},
+    error: function(data){console.log(data)}
+  });
+}
 
 function enter_new_message_button(data) {
   // console.log('hi');

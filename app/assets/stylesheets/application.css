@@ -321,7 +321,7 @@ margin-right: 20px;
   width: 70%;
 }*/
 
-#bit_coupon_container {
+#new_message_left_container {
   /*float:left;*/
   /*width: 320px;*/
   margin-top: 100px;
@@ -348,7 +348,8 @@ input[type=checkbox]
 #theForm{
   /*float: right;*/
   /*width: 50%;*/
-  border: 2px solid black;
+  /*padding: 2px;*/
+  /*border: 1px solid black;*/
   /*padding: 5px;*/
   margin-top: 100px;
   /*padding-top: 0px;*/

@@ -1,6 +1,6 @@
 class BitCouponsController < ApplicationController
 
-  def get_coupon
+  def payment_process
     if verify_recaptcha
       if params["commit"] == "New coupon"
         coupon = BitCoupon.new_coupon

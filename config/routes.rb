@@ -16,9 +16,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :bit_coupons, only: [:show] do
+  resources :bit_coupons, only: [] do
     collection do
-      post :get_coupon
+      post :payment_process
     end
   end
 
