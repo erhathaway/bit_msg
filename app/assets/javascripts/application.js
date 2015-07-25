@@ -20,7 +20,11 @@
 $(document).ready(function() {
   // $( ".search_message_decoded").on('click touch', function(){show_message_box(this);});
   $( ".toggle_technical_details" ).on('click touch', function(){show_technical_details(this);});
-  $( "#use_encryption" ).on('click touch', function(){show_encryption(this);});
+  $( "#use_encryption, #use_encryption_checkbox" ).on('click touch', function(){show_encryption(this);});
+
+  // $( "#use_encryption_checkbox" ).prop('checked', function(){show_encryption(this);});
+
+
   $( "#submit_message_form" ).submit(function(){submit_message(this);});
   $( ".single_message" ).mouseover(function(){show_icon(this);});
   $( ".single_message" ).mouseleave(function(){hide_icon(this);});
@@ -130,12 +134,12 @@ function show_encryption(data){
   var state = $(".section").css('display');
   if (state == 'none') {
     $('.crypt').each(function() {$(this).css('display', "block");});
-    $('#coupon_buttons').each(function() {$(this).css('margin-top', '150px');});
+    // $('#coupon_buttons').each(function() {$(this).css('margin-top', '150px');});
 
   }
   else { $('.crypt').each(function() {
     $(this).css('display', "none");});
-    $('#coupon_buttons').each(function() {$(this).css('margin-top', '10px');});
+    // $('#coupon_buttons').each(function() {$(this).css('margin-top', '10px');});
   }
 }
 

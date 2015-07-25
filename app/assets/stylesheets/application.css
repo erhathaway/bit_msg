@@ -328,6 +328,22 @@ margin-right: 20px;
   padding: 10px;
 }
 
+.new_message_step {
+  margin-top: 10px;
+}
+
+#use_encryption_checkbox{
+  margin-left: 10px;
+}
+input[type=checkbox]
+{
+  /* 1.5 x -sized Checkboxes */
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+  /*padding: 10px;*/
+}
 
 #theForm{
   /*float: right;*/

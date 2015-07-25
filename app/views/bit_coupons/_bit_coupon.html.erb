@@ -1,14 +1,49 @@
 
 <div id="bit_coupon_container" class="bit_coupon">
   <%= form_for('data', url: '../bit_coupons/get_coupon', remote: true, html: {id: 'get_coupon'}) do |f| %>
-  <b>STEP 1: </b> VERIFY PERSONAGE
-  <div id="recaptcha_box">
-    <%= recaptcha_tags %>
+ <h3>INSTRUCTIONS</h3>
+  <div id="step1" class="new_message_step">
+    <b>STEP 1: </b> VERIFY PERSONAGE
+    <div id="recaptcha_box">
+      <%= recaptcha_tags %>
+    </div>
   </div>
 
-  <div id="coupon_buttons">
-            <!-- OPTIONAL: CREDIT CODE INFO -->
-    <div id="couon_info">
+  <div id="step2" class="new_message_step">
+    <b>STEP 2: </b> USE ENCRYPTION?
+     <input type="checkbox" name="YES" value="use_encryption" id="use_encryption_checkbox">
+  </div>
+
+  <div id="step3" class="new_message_step">
+    <b>STEP 3: </b> FILL OUT MESSAGE
+  </div>
+
+  <div id="step4" class="new_message_step">
+    <b>STEP 4: </b> PAYMENT
+    <select>
+      <option value="new_credit"> None - Don't Incentivise Transaction</option>
+      <option value="new_credit"> Single Use - New Bitcoin Paymment Address</option>
+      <option value="new_credit"> Multi Use - New Credit</option>
+      <option value="new_credit"> Multi Use - Existing Credit</option>
+    </select>
+  </div>
+
+  <div id="step5" class="new_message_step">
+    <b>STEP 5: </b> SEND
+    <div id="submit_message_container">
+      <form id="submit_message_form" onsubmit="return false;">
+        <input type="submit" value="Submit message to server" class="button radius tiny submit_message_item front_button" id="submit_message_button"></input>
+
+        <!-- <input type="text" autocomplete="off" placeholder="Enter credit code" id="submit_message_coupon" class="submit_message_item"> -->
+
+      </form>
+    </div>
+  </div>
+
+
+  <!-- <div id="coupon_buttons"> -->
+
+    <!-- <div id="couon_info">
 
       <h4>Address</h4>
       <div id="coupon_address"></div>
@@ -16,8 +51,8 @@
       <div id="coupon_code"></div>
       <h4>Value</h4>
       <div id="coupon_value"></div>
-    </div>
-    <div id="coupon_address_input">
+    </div> -->
+    <!-- <div id="coupon_address_input">
       <%= f.text_field "coupon_code", id: "right-label", placeholder: "Address" %>
     </div>
     <div id="coupon_code_input">
@@ -29,6 +64,6 @@
     <div id="coupon_code_submit" class="coupon_button">
       <%= f.submit "Check value", class:"button tiny"%>
     </div>
-  </div>
+  </div> -->
   <% end %>
 </div>
