@@ -403,7 +403,7 @@ input[type=checkbox]
 #buttons > a > span {
   /*width: 100px;*/
   /*float: right;*/
-  margin-left: 20px;
+  /*margin-left: 20px;*/
 }
 
 #buttons > h4 {
@@ -414,9 +414,17 @@ input[type=checkbox]
 #buttons{
   width: 100%;
 }
+
+.crypt_button_container {
+  height: 30px;
+  /*width: 30px;*/
+    margin-left: 10px;
+}
+
 .crypt_button {
   margin-bottom: 20%;
   width: 150px;
+
 }
 
 #encrypt {
