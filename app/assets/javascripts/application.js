@@ -139,12 +139,12 @@ function show_encryption(data){
   var state = $(".section").css('display');
   if (state == 'none') {
     $('.crypt').each(function() {$(this).css('display', "block");});
-    // $('#coupon_buttons').each(function() {$(this).css('margin-top', '150px');});
+    $('#ciphertext').css('height', '10px');
 
   }
   else { $('.crypt').each(function() {
     $(this).css('display', "none");});
-    // $('#coupon_buttons').each(function() {$(this).css('margin-top', '10px');});
+    $('#ciphertext').css('height', '100px');
   }
 }
 
