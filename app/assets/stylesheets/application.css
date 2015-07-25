@@ -404,8 +404,20 @@ input[type=checkbox]
   /*float: left;*/
 }
 
-#buttons {
+
+#buttons{
+  width: 100%;
+}
+.crypt_button {
   margin-bottom: 20%;
+  width: 150px;
+}
+
+#encrypt {
+  float: right;
+}
+#decrypt {
+  float: right;
 }
 
 #encrypt_container {
