@@ -363,6 +363,21 @@ input[type=checkbox]
 
 }
 
+#crypt_info {
+  display: none;
+}
+
+#crypt_info_container {
+  width: 100%;
+  /*float: none;*/
+  display: block;
+}
+
+.crypt_info_item {
+  float: left;
+  margin-right: 10px;
+}
+
 #coupon_buttons {
   /*margin-top: 10px;
   border: 2px solid black;
