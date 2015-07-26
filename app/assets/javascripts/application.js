@@ -28,6 +28,8 @@ $(document).ready(function() {
   $( "#payment_selection").change(function(){payment_process(this)});
   $( "#encrypt").on('click touch', function(){show_crypt_details(this);});
   $( "#decrypt").on('click touch', function(){hide_crypt_details(this);});
+  // $( "#recaptcha-verify-button").on('click touch', function(){check_recaptcha(this);});
+
 
   $("#get_coupon").on("ajax:success", function(e, data, status, xhr){
     // debugger
@@ -58,6 +60,12 @@ $(document).ready(function() {
     }).on( "ajax:error", function(e, xhr, status, error){
       $("#coupon_code").text("Error!")
       });
+
+
+
+// highlight captcha box if verification is needed
+    setInterval(check_recaptcha, 200);
+
 
 
 // Popup exit when clicking outside
@@ -94,6 +102,18 @@ $(function(){
 //     // get_message_details(messageId);
 //   }
 // }
+
+function check_recaptcha(data){
+  if (typeof grecaptcha != "undefined"){
+    var captcha = grecaptcha.getResponse();
+    if (captcha === "" || captcha === undefined){
+      $("#step1").css('border', '1px solid red');
+    }
+    else {
+      $("#step1").css('border', '1px solid white');
+    }
+  }
+}
 
 function show_crypt_details(data){
   setTimeout(function(){

@@ -347,10 +347,10 @@ input[type=checkbox]
 
 
 #step1{
-  border: 1px solid red;
- padding: 10px;
- margin-left: -10px;
- width: 330px;
+  /*border: 1px solid red;*/
+  padding: 10px;
+  margin-left: -10px;
+  width: 330px;
 }
 #theForm{
   /*float: right;*/
