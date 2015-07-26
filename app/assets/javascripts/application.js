@@ -110,7 +110,7 @@ function show_crypt_details(data){
 }
 
 function hide_crypt_details(data){
-
+  $("#crypt_info").css('display', 'none');
 }
 
 function payment_process(data) {
@@ -159,11 +159,16 @@ function show_encryption(data){
   if (state == 'none') {
     $('.crypt').each(function() {$(this).css('display', "block");});
     $('#ciphertext').css('height', '10px');
+    var iv_data = $("#iv").val()
+    if (iv_data !== ""){
+      $("#crypt_info").css('display', 'block');
+    }
 
   }
   else { $('.crypt').each(function() {
     $(this).css('display', "none");});
     $('#ciphertext').css('height', '100px');
+    $("#crypt_info").css('display', 'none');
   }
 }
 
