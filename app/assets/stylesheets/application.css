@@ -365,12 +365,15 @@ input[type=checkbox]
 
 #crypt_info {
   display: none;
+  width: 100%
 }
 
-#crypt_info_container {
+.crypt_info_container {
   width: 100%;
+  height: 20px;
   /*float: none;*/
   display: block;
+  clear: both;
 }
 
 .crypt_info_item {

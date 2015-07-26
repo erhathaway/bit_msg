@@ -98,10 +98,12 @@ $(function(){
 function show_crypt_details(data){
   setTimeout(function(){
     var iv_data = $("#iv").val()
+    var salt_data = $("#salt").val()
     if (iv_data !== ""){
       $("#crypt_info").css('display', 'block');
       $("#iv_show").text(iv_data);
-      console.log(iv_data)
+      $("#salt_show").text(salt_data);
+      // console.log(iv_data)
     }
   }, 1000);
 
