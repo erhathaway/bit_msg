@@ -78,6 +78,10 @@ function check_recaptcha(){
     var captcha = grecaptcha.getResponse();
     if (captcha === "" || captcha === undefined){highlight_item(item_id)}
     else {
+      $(".rc-anchor").css('display', 'none');
+      $(".g-recaptcha").css('display', 'none');
+
+
       remove_highlight_item(item_id)
       check_encryption_radio()
     }
@@ -148,9 +152,6 @@ function highlight_item(item_id){
 
 function remove_highlight_item(item_id){
   $(item_id).css('border', '');
-
-  // $(item_id).removeAttr('border');
-  // removeAttr( 'style' );
   $(item_id).css('background-color', '#f2f2f2');
   $(item_id).css('color', 'black');
   $(item_id).css('box-shadow', 'none');
