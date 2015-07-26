@@ -20,7 +20,7 @@
 $(document).ready(function() {
   // $( ".search_message_decoded").on('click touch', function(){show_message_box(this);});
   $( ".toggle_technical_details" ).on('click touch', function(){show_technical_details(this);});
-  $( "#use_encryption, #use_encryption_checkbox" ).on('click touch', function(){show_encryption(this);});
+  $( "#dont_use_encryption_checkbox, #use_encryption_checkbox" ).on('click touch', function(){show_encryption(this);});
   $( "#submit_message_form" ).submit(function(){submit_message(this);});
   $( ".single_message" ).mouseover(function(){show_icon(this);});
   $( ".single_message" ).mouseleave(function(){hide_icon(this);});
@@ -28,8 +28,6 @@ $(document).ready(function() {
   $( "#payment_selection").change(function(){payment_process(this)});
   $( "#encrypt").on('click touch', function(){show_crypt_details(this);});
   $( "#decrypt").on('click touch', function(){hide_crypt_details(this);});
-  // $( "#recaptcha-verify-button").on('click touch', function(){check_recaptcha(this);});
-
 
   $("#get_coupon").on("ajax:success", function(e, data, status, xhr){
     // debugger
@@ -66,7 +64,7 @@ $(document).ready(function() {
 // highlight captcha box if verification is needed
     setInterval(check_recaptcha, 200);
 
-
+  // alert($('input[name="encryption_radio"]:checked').val(););
 
 // Popup exit when clicking outside
   $(document).on('click touch', function(events) {
@@ -104,15 +102,75 @@ $(function(){
 // }
 
 function check_recaptcha(data){
+  var item_id = "#step1"
   if (typeof grecaptcha != "undefined"){
     var captcha = grecaptcha.getResponse();
-    if (captcha === "" || captcha === undefined){
-      $("#step1").css('border', '1px solid red');
-    }
+    if (captcha === "" || captcha === undefined){highlight_item(item_id)}
     else {
-      $("#step1").css('border', '1px solid white');
+      remove_highlight_item(item_id)
+      check_encryption_radio()
     }
   }
+}
+
+function check_encryption_radio(){
+  var item_id = "#step2"
+  var state = $('input[name="encryption_radio"]:checked').val();
+  if (state === undefined ){
+    highlight_item(item_id)
+  }
+  else {
+    remove_highlight_item(item_id)
+    check_message()
+  }
+}
+
+function check_message(){
+  var item_id = "#step3"
+  // var state = $('input[name="encryption_radio"]:checked').val();
+  var message = $('textarea#ciphertext').val();
+
+  if (message === "" ){
+    highlight_item(item_id)
+  }
+  else {
+    remove_highlight_item(item_id)
+    check_payment()
+  }
+}
+
+function check_payment(){
+  var item_id = "#step4"
+  // var state = $('input[name="encryption_radio"]:checked').val();
+  // var message = $('textarea#ciphertext').val();
+  var message = "";
+  if (message === "" ){
+    highlight_item(item_id)
+  }
+  else {
+    remove_highlight_item(item_id)
+    check_payment()
+  }
+}
+
+function highlight_item(item_id){
+  $(item_id).css('border', '1px solid red');
+  $(item_id).css('background-color', '#040D14');
+  $(item_id).css('color', '#C8CACB');
+  $(item_id).css('box-shadow', '1px 1px 2px gray');
+  // box-shadow: 1px 1px 2px gray;
+
+}
+
+function remove_highlight_item(item_id){
+  $(item_id).css('border', '');
+
+  // $(item_id).removeAttr('border');
+  // removeAttr( 'style' );
+  $(item_id).css('background-color', '#f2f2f2');
+  $(item_id).css('color', 'black');
+  $(item_id).css('box-shadow', 'none');
+
 }
 
 function show_crypt_details(data){
@@ -174,9 +232,10 @@ function hide_icon(data) {
 }
 
 function show_encryption(data){
-  // var details = $(data).siblings(".technical_details")
-  var state = $(".section").css('display');
-  if (state == 'none') {
+  var state = $('input[name="encryption_radio"]:checked').val();
+  // var state = $(".section").css('display');
+
+  if (state == 'use_encryption') {
     $('.crypt').each(function() {$(this).css('display', "block");});
     $('#ciphertext').css('height', '10px');
     var iv_data = $("#iv").val()

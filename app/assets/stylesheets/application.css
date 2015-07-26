@@ -330,11 +330,22 @@ margin-right: 20px;
 
 .new_message_step {
   margin-top: 10px;
+  padding: 10px;
+  margin-left: -10px;
+  width: 330px;
+  /*border: 1px solid white;*/
 }
 
 #use_encryption_checkbox{
   margin-left: 10px;
+
 }
+
+#dont_use_encryption_checkbox{
+  margin-left: 10px;
+
+}
+
 input[type=checkbox]
 {
   /* 1.5 x -sized Checkboxes */
@@ -346,12 +357,6 @@ input[type=checkbox]
 }
 
 
-#step1{
-  /*border: 1px solid red;*/
-  padding: 10px;
-  margin-left: -10px;
-  width: 330px;
-}
 #theForm{
   /*float: right;*/
   /*width: 50%;*/
@@ -362,8 +367,9 @@ input[type=checkbox]
   /*margin-right: 20px;*/
 }
 
-#new_message_right_contiainer {
-  border: 1px solid black;
+#new_message_right_container {
+  /*border: 1px solid black;*/
+  /*box-shadow: 1px 1px 2px gray;*/
   margin-top: 100px;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -407,7 +413,7 @@ input[type=checkbox]
 
 #ciphertext {
   /*width: 100%;*/
-  /*height: 170px;*/
+  height: 100px;
 }
 
 #plaintext {
