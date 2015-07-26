@@ -138,10 +138,10 @@ function check_submission_ready(){
 }
 
 function highlight_item(item_id){
-  $(item_id).css('border', '1px solid red');
-  $(item_id).css('background-color', 'rgba(4,13,20,0.7)');
-  $(item_id).css('color', '#C8CACB');
-  $(item_id).css('box-shadow', '1px 1px 2px gray');
+  // $(item_id).css('border', '1px solid red');
+  $(item_id).css('background-color', 'rgba(255,255,255,0.7)');
+  // $(item_id).css('color', '#C8CACB');
+  $(item_id).css('box-shadow', '1px 2px 2px gray');
   // box-shadow: 1px 1px 2px gray;
 
 }
