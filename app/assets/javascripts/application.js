@@ -64,6 +64,8 @@ $(document).ready(function() {
 // highlight captcha box if verification is needed
     setInterval(check_recaptcha, 200);
 
+// highlight if message is ready to be submitted
+    setInterval(check_submission_ready, 200);
   // alert($('input[name="encryption_radio"]:checked').val(););
 
 // Popup exit when clicking outside
@@ -101,7 +103,7 @@ $(function(){
 //   }
 // }
 
-function check_recaptcha(data){
+function check_recaptcha(){
   var item_id = "#step1"
   if (typeof grecaptcha != "undefined"){
     var captcha = grecaptcha.getResponse();
@@ -150,6 +152,23 @@ function check_payment(){
   else {
     remove_highlight_item(item_id)
   }
+}
+
+function check_submission_ready(){
+    var item_id = "#step5"
+    if (typeof grecaptcha != "undefined"){
+      var selection = $( "#payment_selection option:selected" ).val()
+      var message = $('textarea#ciphertext').val();
+      var captcha = grecaptcha.getResponse();
+      var state = $('input[name="encryption_radio"]:checked').val();
+
+      if (captcha !== "" && selection !== "choose" && message !== "" && state !== undefined ){
+        highlight_item(item_id)
+      }
+      else {
+        remove_highlight_item(item_id)
+      }
+    }
 }
 
 function highlight_item(item_id){
