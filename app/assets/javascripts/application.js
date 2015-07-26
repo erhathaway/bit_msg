@@ -21,45 +21,14 @@ $(document).ready(function() {
   // $( ".search_message_decoded").on('click touch', function(){show_message_box(this);});
   $( ".toggle_technical_details" ).on('click touch', function(){show_technical_details(this);});
   $( "#dont_use_encryption_checkbox, #use_encryption_checkbox" ).on('click touch', function(){show_encryption(this);});
-  $( "#submit_message_form" ).submit(function(){submit_message(this);});
+  // $( "#submit_message_form" ).submit(function(){submit_message(this);});
   $( ".single_message" ).mouseover(function(){show_icon(this);});
   $( ".single_message" ).mouseleave(function(){hide_icon(this);});
   $( "#new_message_button_container, #new_message_button_search_nav" ).mouseenter( function(){enter_new_message_button(this)}).mouseleave(function(){leave_new_message_button(this)}  );
   $( "#payment_selection").change(function(){payment_process(this)});
   $( "#encrypt").on('click touch', function(){show_crypt_details(this);});
   $( "#decrypt").on('click touch', function(){hide_crypt_details(this);});
-
-  $("#get_coupon").on("ajax:success", function(e, data, status, xhr){
-    // debugger
-    if (data["state"]=="new"){
-      $("#coupon_address").text(data["coupon_address"]);
-      $("#coupon_code").text(data["coupon_code"]);
-      $("#coupon_value").text(data["coupon_value"]);
-      grecaptcha.reset();
-    }
-    else if (data["state"]=="value") {
-      $("#coupon_address").text(data["coupon_address"]);
-      $("#coupon_code").text("");
-      $("#coupon_value").text(data["coupon_value"]);
-      grecaptcha.reset();
-    }
-    else if (data["state"]=="no value") {
-      $("#coupon_address").text("Could not find coupon");
-      $("#coupon_code").text("");
-      $("#coupon_value").text("");
-      grecaptcha.reset();
-    }
-    else {
-      $("#coupon_address").text("Please verify you are not a robot!")
-      $("#coupon_code").text("");
-      $("#coupon_value").text("");
-
-    };
-    }).on( "ajax:error", function(e, xhr, status, error){
-      $("#coupon_code").text("Error!")
-      });
-
-
+  $( "#submit_message_button").on('click touch', function(){submit_message(this);});
 
 // highlight captcha box if verification is needed
     setInterval(check_recaptcha, 200);
@@ -129,7 +98,6 @@ function check_encryption_radio(){
 
 function check_message(){
   var item_id = "#step3"
-  // var state = $('input[name="encryption_radio"]:checked').val();
   var message = $('textarea#ciphertext').val();
 
   if (message === "" ){
@@ -143,8 +111,6 @@ function check_message(){
 
 function check_payment(){
   var item_id = "#step4"
-  // var state = $('input[name="encryption_radio"]:checked').val();
-  // var message = $('textarea#ciphertext').val();
   var selection = $( "#payment_selection option:selected" ).val()
   if (selection === "choose" ){
     highlight_item(item_id)
@@ -173,7 +139,7 @@ function check_submission_ready(){
 
 function highlight_item(item_id){
   $(item_id).css('border', '1px solid red');
-  $(item_id).css('background-color', '#040D14');
+  $(item_id).css('background-color', 'rgba(4,13,20,0.7)');
   $(item_id).css('color', '#C8CACB');
   $(item_id).css('box-shadow', '1px 1px 2px gray');
   // box-shadow: 1px 1px 2px gray;
@@ -211,19 +177,51 @@ function hide_crypt_details(data){
 
 function payment_process(data) {
   var payment_method = data.value;
-  var captcha = $("#g-recaptcha-response").val();
 
-  $.ajax({
-    type: "POST",
-    url: "/bit_coupons/payment_process",
-    dataType: "json",
-    data: {
-      "g-recaptcha-response": captcha,
-      "payment_method": payment_method
-          },
-    success: function(data){console.log(data);},
-    error: function(data){console.log(data)}
-  });
+  var captcha = $("#g-recaptcha-response").val();
+  if ( payment_method === "none" ){
+    $(".new_btc_address").css('display', 'none');
+  }
+  else {
+    $.ajax({
+      type: "POST",
+      url: "/bit_coupons/payment_process",
+      dataType: "json",
+      data: {
+        "g-recaptcha-response": captcha,
+        "payment_method": payment_method
+            },
+      success: function(data){
+        show_payment_data(data);
+        },
+      error: function(data){
+        console.log(data);
+        grecaptcha.reset();
+        }
+    });
+  }
+}
+
+function show_payment_data(data) {
+  if (data["state"]=="new"){
+    $(".new_btc_address").css('display', 'block');
+    $("#coupon_address").text(data["coupon_address"]);
+  }
+  else if (data["state"]=="new_not_verified") {
+    $(".new_btc_address").css('display', 'block');
+  }
+  else if (data["state"]=="no value") {
+    $("#coupon_address").text("Could not find coupon");
+    $("#coupon_code").text("");
+    $("#coupon_value").text("");
+    grecaptcha.reset();
+  }
+  else {
+    $("#coupon_address").text("Please verify you are not a robot!")
+    $("#coupon_code").text("");
+    $("#coupon_value").text("");
+
+  };
 }
 
 function enter_new_message_button(data) {
@@ -314,9 +312,9 @@ function update_message_details(data){
 function submit_message(data){
 
     var message = $('textarea#ciphertext').val();
-    var coupon = $('#submit_message_coupon').val();
+    // var coupon = $('#submit_message_coupon').val();
     var captcha = $("#g-recaptcha-response").val();
-
+    alert("Message submitted!")
     $.ajax({
       type: "POST",
       url: "/queued_messages/submit_message",

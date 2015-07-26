@@ -299,6 +299,10 @@ h5 {
   color: #21CE99;
   font-size: 13px;
 }
+
+.new_btc_address{
+  display: none;
+}
 /*-------------------------------------------------*/
 /*#search_box{
 background: url(magnifying_glass.svg) no-repeat;
@@ -329,7 +333,7 @@ margin-right: 20px;
 }
 
 .new_message_step {
-  margin-top: 10px;
+  /*margin-top: 10px;*/
   padding: 10px;
   margin-left: -10px;
   width: 330px;
