@@ -363,6 +363,10 @@ input[type=checkbox]
 
 }
 
+#pciphertext{
+  margin-top: 20px;
+}
+
 #crypt_info {
   display: none;
   width: 100%
