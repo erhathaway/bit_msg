@@ -143,13 +143,12 @@ function check_payment(){
   var item_id = "#step4"
   // var state = $('input[name="encryption_radio"]:checked').val();
   // var message = $('textarea#ciphertext').val();
-  var message = "";
-  if (message === "" ){
+  var selection = $( "#payment_selection option:selected" ).val()
+  if (selection === "choose" ){
     highlight_item(item_id)
   }
   else {
     remove_highlight_item(item_id)
-    check_payment()
   }
 }
 
