@@ -29,6 +29,9 @@ $(document).ready(function() {
   $( "#encrypt").on('click touch', function(){show_crypt_details(this);});
   $( "#decrypt").on('click touch', function(){hide_crypt_details(this);});
   $( "#submit_message_button").on('click touch', function(){submit_message(this);});
+  $( "#front_page_arrow").on('click touch', function(){$.fn.fullpage.moveSectionDown();});
+
+
 
 // highlight captcha box if verification is needed
     setInterval(check_recaptcha, 200);
