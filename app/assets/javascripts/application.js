@@ -79,7 +79,10 @@ function check_recaptcha(){
   var item_id = "#step1"
   if (typeof grecaptcha != "undefined"){
     var captcha = grecaptcha.getResponse();
-    if (captcha === "" || captcha === undefined){highlight_item(item_id)}
+    if (captcha === "" || captcha === undefined){
+      $(".g-recaptcha").css('display', 'block');
+      highlight_item(item_id);
+    }
     else {
       $(".rc-anchor").css('display', 'none');
       $(".g-recaptcha").css('display', 'none');
