@@ -30,7 +30,12 @@ $(document).ready(function() {
   $( "#decrypt").on('click touch', function(){hide_crypt_details(this);});
   $( "#submit_message_button").on('click touch', function(){submit_message(this);});
   $( "#front_page_arrow").on('click touch', function(){$.fn.fullpage.moveSectionDown();});
+  remove_highlight_item("#step2");
+  remove_highlight_item("#step3");
+  remove_highlight_item("#step4");
+  remove_highlight_item("#step5");
 
+// $( ".new_message_step" ).mouseenter( highlight_item() ).mouseleave( remove_highlight_item(this) );
 
 
 // highlight captcha box if verification is needed
@@ -82,7 +87,7 @@ function check_recaptcha(){
     if (captcha === "" || captcha === undefined){
       $(".g-recaptcha").css('display', 'block');
       highlight_item(item_id);
-      
+
     }
     else {
       $(".rc-anchor").css('display', 'none');
