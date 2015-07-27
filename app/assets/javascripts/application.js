@@ -209,7 +209,7 @@ function payment_process(data) {
 
   var captcha = $("#g-recaptcha-response").val();
   if ( payment_method === "none" ){
-    $(".new_btc_address").css('display', 'none');
+    $("#new_btc_address").css('display', 'none');
   }
   else {
     $.ajax({
@@ -233,11 +233,11 @@ function payment_process(data) {
 
 function show_payment_data(data) {
   if (data["state"]=="new"){
-    $(".new_btc_address").css('display', 'block');
+    $("#new_btc_address").css('display', 'block');
     $("#coupon_address").text(data["coupon_address"]);
   }
   else if (data["state"]=="new_not_verified") {
-    $(".new_btc_address").css('display', 'block');
+    $("#new_btc_address").css('display', 'none');
   }
   else if (data["state"]=="no value") {
     $("#coupon_address").text("Could not find coupon");
