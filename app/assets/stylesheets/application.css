@@ -373,7 +373,8 @@ input[type=checkbox]
 
 #new_message_right_container {
   /*border: 1px solid black;*/
-  /*box-shadow: 1px 1px 2px gray;*/
+  background-color: white;
+  box-shadow: 1px 2px 2px gray;
   margin-top: 100px;
   padding-top: 20px;
   padding-bottom: 20px;
