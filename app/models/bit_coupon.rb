@@ -3,6 +3,7 @@ require 'digest'
 
 class BitCoupon < ActiveRecord::Base
   belongs_to :user
+  has_many :queued_messages
 
   validates :private_key, presence: true
   validates :public_key, presence: true

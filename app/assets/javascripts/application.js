@@ -316,8 +316,11 @@ function update_message_details(data){
 function submit_message(data){
 
     var message = $('textarea#ciphertext').val();
-    // var coupon = $('#submit_message_coupon').val();
+    var coupon_address = $("#coupon_address").text();
+    var coupon_code = $("#coupon_code").text();
+    var payment_selection = $( "#payment_selection").val();
     var captcha = $("#g-recaptcha-response").val();
+
     alert("Message submitted!")
     $.ajax({
       type: "POST",
@@ -326,7 +329,9 @@ function submit_message(data){
       data: {
         "g-recaptcha-response": captcha,
         message: message,
-        coupon: coupon
+        coupon_code: coupon_code,
+        coupon_address: coupon_address,
+        payment_selection: payment_selection
             },
       success: function(data){console.log(data);},
       error: function(data){console.log(data)}

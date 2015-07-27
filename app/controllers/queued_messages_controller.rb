@@ -1,29 +1,32 @@
 class QueuedMessagesController < ApplicationController
 
   def submit_message
-    render json: { state: "okay"}
     # if verify_recaptcha
-    #   if params["commit"] == "New coupon"
-    #     coupon = BitCoupon.new_coupon
-    #     render json: { state: "new",
-    #                    coupon_address: coupon.address,
-    #                    coupon_code: coupon.coupon_code,
-    #                    coupon_value: coupon.btc_value}
-    #   elsif params["commit"] == "Check value"
-    #     coupon = BitCoupon.find_by(coupon_code: params["data"][:coupon_code])
-    #
-    #     if coupon == nil
-    #       render json: { state: "no value" }
-    #     else
-    #       render json: { state: "value",
-    #                      coupon_address: coupon.address,
-    #                      coupon_code: coupon.coupon_code,
-    #                      coupon_value: coupon.btc_value}
-    #     end
-    #   end
+      message = params["message"]
+      if params["payment_selection"] == "single_use"
+        coupon = BitCoupon.find_by(address: params["coupon_address"])
+        store_message(message, coupon)
+      elsif params["payment_selection"] == "none"
+        store_message(message)
+      end
     # else
-    #   render json: { state: "not verified" }
+      # render json: { state: "not verified" }
     # end
+  end
+
+  private
+
+  def store_message(message, coupon = nil)
+    if coupon == nil
+      new_message = QueuedMessage.new(message: message, tx_state: "waiting payment")
+    else
+      new_message = QueuedMessage.new(message: message, bit_coupon_id: coupon.id, tx_state: "waiting payment")
+    end
+    if new_message.save
+      render json: { state: "message saved to server" }
+    else
+      render json: { state: "ERROR!" }
+    end
   end
 
 end
