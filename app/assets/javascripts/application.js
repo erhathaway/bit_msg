@@ -82,6 +82,7 @@ function check_recaptcha(){
     if (captcha === "" || captcha === undefined){
       $(".g-recaptcha").css('display', 'block');
       highlight_item(item_id);
+      
     }
     else {
       $(".rc-anchor").css('display', 'none');
@@ -151,16 +152,26 @@ function highlight_item(item_id){
   // $(item_id).css('border', '1px solid red');
   $(item_id).css('background-color', 'rgba(255,255,255,0.7)');
   // $(item_id).css('color', '#C8CACB');
-  $(item_id).css('box-shadow', '1px 2px 2px gray');
-  // box-shadow: 1px 1px 2px gray;
+  $(item_id).css('height', '');
 
+  $(item_id).css('box-shadow', '1px 2px 2px gray');
+  $(item_id).children().each(function () {
+    $(this).css('display', 'block'); // "this" is the current element in the loop
+  });
 }
 
 function remove_highlight_item(item_id){
   $(item_id).css('border', '');
-  $(item_id).css('background-color', '#f2f2f2');
+  // $(item_id).css('background-color', '#f2f2f2');
+  $(item_id).css('background-color', 'white');
+  $(item_id).css('box-shadow', '1px 2px 2px gray');
+
   $(item_id).css('color', 'black');
-  $(item_id).css('box-shadow', 'none');
+  // $(item_id).css('box-shadow', 'none');
+  $(item_id).children().each(function () {
+    $(this).css('display', 'none'); // "this" is the current element in the loop
+  });
+  $(item_id).css('height', '10px');
 
 }
 
