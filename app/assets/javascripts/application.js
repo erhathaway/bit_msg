@@ -177,6 +177,12 @@ function remove_highlight_item(item_id){
     $(this).css('display', 'none'); // "this" is the current element in the loop
   });
   $(item_id).css('height', '10px');
+  var coupon_address = $("#coupon_address").text();
+  if (coupon_address !== ""){
+    $(item_id).css('height', '');
+    $("#coupon_address").css('display', 'block');
+    $("#new_btc_address").css('display', 'block');
+  }
 
 }
 
