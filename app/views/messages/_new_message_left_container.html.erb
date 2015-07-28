@@ -6,33 +6,41 @@
  <h3>NEW MESSAGE</h3>
   <div id="step1" class="new_message_step">
     <div class="step_text"><b>STEP 1: </b> VERIFY PERSONAGE</div>
-    <div id="recaptcha_box">
-      <%= recaptcha_tags %>
+    <div class="step_info">
+      <div id="recaptcha_box">
+        <%= recaptcha_tags %>
+      </div>
     </div>
   </div>
 
   <div id="step2" class="new_message_step">
     <div class="step_text"><b>STEP 2: </b> USE ENCRYPTION?</div>
-     <!-- <input type="checkbox" name="YES" value="use_encryption" id="use_encryption_checkbox">YES</input> -->
-     <!-- <input type="checkbox" name="YES" value="dont_use_encryption" id="dont_encryption_checkbox">NO</input> -->
-     <div style="float: left"><input type="radio" name="encryption_radio" value="use_encryption" id="use_encryption_checkbox">YES</div>
-     <div style="float: left"><input type="radio" name="encryption_radio" value="dont_use_encryption" id="dont_use_encryption_checkbox">NO</div>
-     <br>
+    <div class="step_info">
+      <!-- <input type="checkbox" name="YES" value="use_encryption" id="use_encryption_checkbox">YES</input> -->
+      <!-- <input type="checkbox" name="YES" value="dont_use_encryption" id="dont_encryption_checkbox">NO</input> -->
+      <div style="float: left"><input type="radio" name="encryption_radio" value="use_encryption" id="use_encryption_checkbox">YES</div>
+      <div style="float: left"><input type="radio" name="encryption_radio" value="dont_use_encryption" id="dont_use_encryption_checkbox">NO</div>
+      <br>
+    </div>
   </div>
 
   <div id="step3" class="new_message_step">
     <div class="step_text"><b>STEP 3: </b> FILL OUT MESSAGE</div>
+    <div class="step_info">
+    </div>
   </div>
 
   <div id="step4" class="new_message_step">
     <div class="step_text"><b>STEP 4: </b> INCENTIVISE TRANSACTION</div>
-    <select id="payment_selection">
-      <option name="payment_type" value="choose"> Please choose one</option>
-      <option name="payment_type" value="none"> None - Don't Incentivise Transaction</option>
-      <option name="payment_type" value="single_use"> Single Use - New Bitcoin Paymment Address</option>
-      <!-- <option value="multi_use_new"> Multi Use - New Credit</option> -->
-      <!-- <option value="multi_use_existing"> Multi Use - Existing Credit</option> -->
-    </select>
+    <div class="step_info">
+      <select id="payment_selection">
+        <option name="payment_type" value="choose"> Please choose one</option>
+        <option name="payment_type" value="none"> None - Don't Incentivise Transaction</option>
+        <option name="payment_type" value="single_use"> Single Use - New Bitcoin Paymment Address</option>
+        <!-- <option value="multi_use_new"> Multi Use - New Credit</option> -->
+        <!-- <option value="multi_use_existing"> Multi Use - Existing Credit</option> -->
+      </select>
+    </div>
     <div id="new_btc_address">Send 0.0001 BTC to Address:</div>
     <div class="new_btc" id="coupon_address"></div>
     <div class="new_btc" id="coupon_code"></div>
@@ -42,13 +50,15 @@
 
   <div id="step5" class="new_message_step">
     <div class="step_text"><b>STEP 5: </b> SEND</div>
-    <div id="submit_message_container">
-      <form id="submit_message_form" onsubmit="return false;">
-        <input type="submit" value="Submit message to server" class="button radius tiny submit_message_item front_button" id="submit_message_button"></input>
+    <div class="step_info">
+      <div id="submit_message_container">
+        <form id="submit_message_form" onsubmit="return false;">
+          <input type="submit" value="Submit message to server" class="button radius tiny submit_message_item front_button" id="submit_message_button"></input>
 
-        <!-- <input type="text" autocomplete="off" placeholder="Enter credit code" id="submit_message_coupon" class="submit_message_item"> -->
+          <!-- <input type="text" autocomplete="off" placeholder="Enter credit code" id="submit_message_coupon" class="submit_message_item"> -->
 
-      </form>
+        </form>
+      </div>
     </div>
   </div>
 

@@ -35,8 +35,8 @@ $(document).ready(function() {
   remove_highlight_item("#step4");
   remove_highlight_item("#step5");
 
-// $( ".new_message_step" ).mouseenter( highlight_item() ).mouseleave( remove_highlight_item(this) );
-
+  $( ".new_message_step" ).mouseenter(function(){highlight_item(this)} ).mouseleave(function(){remove_highlight_item(this)} );
+  // $(".new_message_step").hover( );
 
 // highlight captcha box if verification is needed
     setInterval(check_recaptcha, 200);
@@ -87,13 +87,10 @@ function check_recaptcha(){
     if (captcha === "" || captcha === undefined){
       $(".g-recaptcha").css('display', 'block');
       highlight_item(item_id);
-
     }
     else {
       $(".rc-anchor").css('display', 'none');
       $(".g-recaptcha").css('display', 'none');
-
-
       remove_highlight_item(item_id)
       check_encryption_radio()
     }
@@ -154,29 +151,24 @@ function check_submission_ready(){
 }
 
 function highlight_item(item_id){
-  // $(item_id).css('border', '1px solid red');
-  $(item_id).css('background-color', 'rgba(255,255,255,0.7)');
-  // $(item_id).css('color', '#C8CACB');
-  $(item_id).css('height', '');
 
+  $(item_id).css('background-color', 'white');
+  $(item_id).css('height', '');
   $(item_id).css('box-shadow', '1px 2px 2px gray');
-  $(item_id).children().each(function () {
-    $(this).css('display', 'block'); // "this" is the current element in the loop
+  $(item_id).children(".step_text, .step_info").each(function () {
+    $(this).css('display', 'block');
   });
 }
 
 function remove_highlight_item(item_id){
   $(item_id).css('border', '');
-  // $(item_id).css('background-color', '#f2f2f2');
-  $(item_id).css('background-color', 'white');
+  $(item_id).css('background-color', 'rgba(255,255,255,0.1)');
   $(item_id).css('box-shadow', '1px 2px 2px gray');
-
   $(item_id).css('color', 'black');
-  // $(item_id).css('box-shadow', 'none');
-  $(item_id).children().each(function () {
-    $(this).css('display', 'none'); // "this" is the current element in the loop
+  $(item_id).children(".step_info").each(function () {
+    $(this).css('display', 'none');
   });
-  $(item_id).css('height', '10px');
+  $(item_id).css('height', '40px');
   var coupon_address = $("#coupon_address").text();
   if (coupon_address !== ""){
     $(item_id).css('height', '');
