@@ -16,50 +16,6 @@
 //= require_tree .
 
 
-
-$(document).ready(function() {
-  // $( ".search_message_decoded").on('click touch', function(){show_message_box(this);});
-  $( ".toggle_technical_details" ).on('click touch', function(){show_technical_details(this);});
-  $( "#dont_use_encryption_checkbox, #use_encryption_checkbox" ).on('click touch', function(){show_encryption(this);});
-  // $( "#submit_message_form" ).submit(function(){submit_message(this);});
-  $( ".single_message" ).mouseover(function(){show_icon(this);});
-  $( ".single_message" ).mouseleave(function(){hide_icon(this);});
-  $( "#new_message_button_container, #new_message_button_search_nav" ).mouseenter( function(){enter_new_message_button(this)}).mouseleave(function(){leave_new_message_button(this)}  );
-  $( "#payment_selection").change(function(){payment_process(this)});
-  $( "#encrypt").on('click touch', function(){show_crypt_details(this);});
-  $( "#decrypt").on('click touch', function(){hide_crypt_details(this);});
-  $( "#submit_message_button").on('click touch', function(){submit_message(this);});
-  $( "#front_page_arrow").on('click touch', function(){$.fn.fullpage.moveSectionDown();});
-  remove_highlight_item("#step2");
-  remove_highlight_item("#step3");
-  remove_highlight_item("#step4");
-  remove_highlight_item("#step5");
-
-  $( ".new_message_step" ).mouseenter(function(){highlight_item(this)} ).mouseleave(function(){remove_highlight_item(this)} );
-  // $(".new_message_step").hover( );
-
-// highlight captcha box if verification is needed
-    setInterval(check_recaptcha, 200);
-
-// highlight if message is ready to be submitted
-    setInterval(check_submission_ready, 200);
-  // alert($('input[name="encryption_radio"]:checked').val(););
-
-// Popup exit when clicking outside
-  $(document).on('click touch', function(events) {
-    if (!$(event.target).parents().addBack().is('.search_message_decoded')){
-      $('#message_details').css("display", "none");
-    }
-  });
-
-  $('#message_details').on('click touch', function(event) {
-    event.stopPropagation();
-  });
-
-
-});
-
-
 $(function(){
   if($('body').is('.front_page')){
     //add dynamic script tag  using createElement()
@@ -80,103 +36,6 @@ $(function(){
 //   }
 // }
 
-function check_recaptcha(){
-  var item_id = "#step1"
-  if (typeof grecaptcha != "undefined"){
-    var captcha = grecaptcha.getResponse();
-    if (captcha === "" || captcha === undefined){
-      $(".g-recaptcha").css('display', 'block');
-      highlight_item(item_id);
-    }
-    else {
-      $(".rc-anchor").css('display', 'none');
-      $(".g-recaptcha").css('display', 'none');
-      remove_highlight_item(item_id)
-      check_encryption_radio()
-    }
-  }
-}
-
-function check_encryption_radio(){
-  var item_id = "#step2"
-  var state = $('input[name="encryption_radio"]:checked').val();
-  if (state === undefined ){
-    highlight_item(item_id)
-  }
-  else {
-    remove_highlight_item(item_id)
-    check_message()
-  }
-}
-
-function check_message(){
-  var item_id = "#step3"
-  var message = $('textarea#ciphertext').val();
-
-  if (message === "" ){
-    highlight_item(item_id)
-  }
-  else {
-    remove_highlight_item(item_id)
-    check_payment()
-  }
-}
-
-function check_payment(){
-  var item_id = "#step4"
-  var selection = $( "#payment_selection option:selected" ).val()
-  if (selection === "choose" ){
-    highlight_item(item_id)
-  }
-  else {
-    remove_highlight_item(item_id)
-  }
-}
-
-function check_submission_ready(){
-    var item_id = "#step5"
-    if (typeof grecaptcha != "undefined"){
-      var selection = $( "#payment_selection option:selected" ).val()
-      var message = $('textarea#ciphertext').val();
-      var captcha = grecaptcha.getResponse();
-      var state = $('input[name="encryption_radio"]:checked').val();
-
-      if (captcha !== "" && selection !== "choose" && message !== "" && state !== undefined ){
-        highlight_item(item_id)
-      }
-      else {
-        remove_highlight_item(item_id)
-      }
-    }
-}
-
-function highlight_item(item_id){
-
-  $(item_id).css('background-color', 'white');
-  $(item_id).css('height', '');
-  $(item_id).css('box-shadow', '1px 2px 2px gray');
-  $(item_id).children(".step_text, .step_info").each(function () {
-    $(this).css('display', 'block');
-  });
-}
-
-function remove_highlight_item(item_id){
-  $(item_id).css('border', '');
-  $(item_id).css('background-color', 'rgba(255,255,255,0.1)');
-  $(item_id).css('box-shadow', '1px 2px 2px gray');
-  $(item_id).css('color', 'black');
-  $(item_id).children(".step_info").each(function () {
-    $(this).css('display', 'none');
-  });
-  $(item_id).css('height', '40px');
-  var coupon_address = $("#coupon_address").text();
-  if (coupon_address !== ""){
-    $(item_id).css('height', '');
-    $("#coupon_address").css('display', 'block');
-    $("#new_btc_address").css('display', 'block');
-  }
-
-}
 
 function show_crypt_details(data){
   setTimeout(function(){
@@ -194,55 +53,6 @@ function show_crypt_details(data){
 
 function hide_crypt_details(data){
   $("#crypt_info").css('display', 'none');
-}
-
-function payment_process(data) {
-  var payment_method = data.value;
-
-  var captcha = $("#g-recaptcha-response").val();
-  if ( payment_method === "none" ){
-    $("#new_btc_address").css('display', 'none');
-  }
-  else {
-    $.ajax({
-      type: "POST",
-      url: "/bit_coupons/payment_process",
-      dataType: "json",
-      data: {
-        "g-recaptcha-response": captcha,
-        "payment_method": payment_method
-            },
-      success: function(data){
-        show_payment_data(data);
-        },
-      error: function(data){
-        console.log(data);
-        grecaptcha.reset();
-        }
-    });
-  }
-}
-
-function show_payment_data(data) {
-  if (data["state"]=="new"){
-    $("#new_btc_address").css('display', 'block');
-    $("#coupon_address").text(data["coupon_address"]);
-  }
-  else if (data["state"]=="new_not_verified") {
-    $("#new_btc_address").css('display', 'none');
-  }
-  else if (data["state"]=="no value") {
-    $("#coupon_address").text("Could not find coupon");
-    $("#coupon_code").text("");
-    $("#coupon_value").text("");
-    grecaptcha.reset();
-  }
-  else {
-    $("#coupon_address").text("Please verify you are not a robot!")
-    $("#coupon_code").text("");
-    $("#coupon_value").text("");
-
-  };
 }
 
 function enter_new_message_button(data) {
@@ -330,29 +140,5 @@ function update_message_details(data){
   $("#message_details_date a").text(data["date_posted"]);
 }
 
-function submit_message(data){
-
-    var message = $('textarea#ciphertext').val();
-    var coupon_address = $("#coupon_address").text();
-    var coupon_code = $("#coupon_code").text();
-    var payment_selection = $( "#payment_selection").val();
-    var captcha = $("#g-recaptcha-response").val();
-
-    alert("Message submitted!")
-    $.ajax({
-      type: "POST",
-      url: "/queued_messages/submit_message",
-      dataType: "json",
-      data: {
-        "g-recaptcha-response": captcha,
-        message: message,
-        coupon_code: coupon_code,
-        coupon_address: coupon_address,
-        payment_selection: payment_selection
-            },
-      success: function(data){console.log(data);},
-      error: function(data){console.log(data)}
-    });
-}
 
 $(function(){ $(document).foundation(); });
