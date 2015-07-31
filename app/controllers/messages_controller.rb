@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
 
   def index
     if params[:search].present?
-      @messages = Message.search(params[:search]).page params[:page]
+      @messages = Message.search(params[:search]).order('date_posted DESC').page params[:page]
     else
       @messages = Message.joins("
                     JOIN exchanges ON
