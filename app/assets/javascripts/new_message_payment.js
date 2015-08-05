@@ -48,7 +48,7 @@ function insert_payment_data(data) {
     $("#coupon_address").text("");
     $("#coupon_code").text("");
     $("#coupon_value").text("");
-    grecaptcha.reset();
+    // grecaptcha.reset();
 
   };
 }
