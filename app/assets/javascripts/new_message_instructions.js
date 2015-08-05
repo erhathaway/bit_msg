@@ -108,13 +108,13 @@ function remove_highlight_item(item_id){
   var coupon_address = $("#coupon_address").text();
   var coupon_instructions = $("#coupon_instructions").text();
 
-  if (coupon_address !== ""){
-    $(item_id).css('height', '');
-    $("#coupon_address").css('display', 'block');
-  };
-  if (coupon_address !== ""){
-    $(item_id).css('height', '');
-    $("#coupon_instructions").css('display', 'block');
-  };
+  // if (coupon_address !== ""){
+  //   $(item_id).css('height', '');
+  //   $("#coupon_address").css('display', 'block');
+  // };
+  // if (coupon_address !== ""){
+  //   $(item_id).css('height', '');
+  //   $("#coupon_instructions").css('display', 'block');
+  // };
 
 }
