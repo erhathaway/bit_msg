@@ -1,11 +1,13 @@
 function payment_process(data) {
   var payment_method = data.value;
-
   var captcha = $("#g-recaptcha-response").val();
-  if ( payment_method === "none" ){
-    $("#new_btc_address").css('display', 'none');
+  var coupon_address = $("#coupon_address").text();
+
+  if ( coupon_address !="" ){
+    show_payment_details()
+    // $("#new_btc_address").css('display', 'none');
   }
-  else {
+  else if (payment_method == "single_use") {
     $.ajax({
       type: "POST",
       url: "/bit_coupons/payment_process",

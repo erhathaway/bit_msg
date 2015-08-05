@@ -108,21 +108,13 @@ function remove_highlight_item(item_id){
   var coupon_address = $("#coupon_address").text();
   var coupon_instructions = $("#coupon_instructions").text();
 
-  // if (item_id == "step1"){
-    // $(".rc-anchor").css('display', 'none');
-    // $(".g-recaptcha").css('display', 'none');
+  // if (coupon_address !== ""){
+  //   $(item_id).css('height', '');
+  //   $("#coupon_address").css('display', 'block');
   // };
-  if (coupon_address !== ""){
-    $(item_id).css('height', '');
-    $("#coupon_address").css('display', 'block');
-    // $("#new_btc_address").css('display', 'block');
-  };
-  if (coupon_address !== ""){
-    $(item_id).css('height', '');
-    $("#coupon_instructions").css('display', 'block');
-    // $("#coupon_instructions").css('height', '30px');
-
-    // $("#new_btc_address").css('display', 'block');
-  };
+  // if (coupon_address !== ""){
+  //   $(item_id).css('height', '');
+  //   $("#coupon_instructions").css('display', 'block');
+  // };
 
 }
