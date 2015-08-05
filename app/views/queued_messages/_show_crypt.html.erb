@@ -160,19 +160,21 @@
     </div>
 
     <div id="final_message">
-      <div id="server_messaage">
+      <div id="server_messaage" class="message_sent">
         <h3>You message has been submitted</h3>
       </div>
-      <div id="payment_message">
-        <div id="payment_type"></div>
-        <div id="payment_instructions"></div>
-        <div id="payment_address"></div>
-
+      <div id="payment_message" class="message_sent">
+        <hr></hr>
+        <div id="payment_type" class="message_sent_item"></div>
+        <div id="payment_type_elaboration" class="message_sent_item"></div>
+        <div id="payment_instructions" class="message_sent_item"></div>
+        <div id="payment_address" class="message_sent_item"></div>
       </div>
-      <div id="encryption_message">
-       <h4>You will need to remember the password, iv, and salt in order to retrieve you message</h4>
-       <h6>IV</h6><div id="encryption_iv"></div>
-       <h6>Salt</h6><div id="encryption_salt"></div>
+      <div id="encryption_message" class="message_sent">
+       <hr></hr>
+       <h4 class="message_sent_item">You will need to remember the password, IV, and salt in order to retrieve your message</h4>
+       <div id="encryption_iv" class="message_sent_item"></div>
+       <div id="encryption_salt" class="message_sent_item"></div>
       </div>
     </div>
 

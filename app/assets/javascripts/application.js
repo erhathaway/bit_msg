@@ -37,24 +37,6 @@ $(function(){
 // }
 
 
-function show_crypt_details(data){
-  setTimeout(function(){
-    var iv_data = $("#iv").val()
-    var salt_data = $("#salt").val()
-    if (iv_data !== ""){
-      $("#crypt_info").css('display', 'block');
-      $("#iv_show").text(iv_data);
-      $("#salt_show").text(salt_data);
-      // console.log(iv_data)
-    }
-  }, 1000);
-
-}
-
-function hide_crypt_details(data){
-  $("#crypt_info").css('display', 'none');
-}
-
 function enter_new_message_button(data) {
   // console.log('hi');
   $("#new_message_button, #new_message_button_search_nav").css('border', '2px solid #16AB7D');
@@ -78,25 +60,7 @@ function hide_icon(data) {
   $(data).find(".toggle_message_link").css('display', 'none');
 }
 
-function show_encryption(data){
-  var state = $('input[name="encryption_radio"]:checked').val();
-  // var state = $(".section").css('display');
 
-  if (state == 'use_encryption') {
-    $('.crypt').each(function() {$(this).css('display', "block");});
-    $('#ciphertext').css('height', '10px');
-    var iv_data = $("#iv").val()
-    if (iv_data !== ""){
-      $("#crypt_info").css('display', 'block');
-    }
-
-  }
-  else { $('.crypt').each(function() {
-    $(this).css('display', "none");});
-    $('#ciphertext').css('height', '100px');
-    $("#crypt_info").css('display', 'none');
-  }
-}
 
 function show_technical_details(data){
   console.log('hi');

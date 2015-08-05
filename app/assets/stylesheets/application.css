@@ -325,10 +325,23 @@ margin-right: 20px;
   width: 70%;
 }*/
 
+
+#encryption_iv, #encryption_salt{
+  font-weight: bold;
+}
+
 #final_message {
   display: none;
   /*margin-top: 200px;*/
   /*font-size: 300px;*/
+}
+
+.message_sent_item {
+  margin-top: 5px;
+}
+
+#payment_instructions {
+  font-weight: bold;
 }
 
 #new_message_left_container {
