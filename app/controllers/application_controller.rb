@@ -1,3 +1,5 @@
+require_relative '../../lib/bitcoin/utilities.rb'
+
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -8,9 +10,11 @@ class ApplicationController < ActionController::Base
 
   helper_method :format_time
 
+  def to_hex(raw_message)
+    encode_message(raw_message)[0]
+  end
 
   def format_time(time)
-
     time_difference = Time.now - time
     days = (time_difference / (60 * 60 * 24))
     # binding.pry

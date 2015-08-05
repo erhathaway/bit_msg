@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150727030737) do
+ActiveRecord::Schema.define(version: 20150720202453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,12 +77,15 @@ ActiveRecord::Schema.define(version: 20150727030737) do
   end
 
   create_table "queued_messages", force: :cascade do |t|
-    t.string   "message",       null: false
-    t.string   "bit_coupon_id"
-    t.string   "tx_state",      null: false
+    t.string   "raw_message",      null: false
+    t.string   "hex_message",      null: false
+    t.string   "message_encoding"
+    t.integer  "bit_coupon_id"
+    t.string   "tx_state",         null: false
     t.string   "tx_hash"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "tx_fee_btc"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "users", force: :cascade do |t|

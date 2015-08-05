@@ -1,5 +1,30 @@
 // this function is depreciated (it is still being called but currently not showing anything)
 // Display should be refactored to left hand instruction column
+
+function d2h(d) {
+    return d.toString(16);
+}
+
+function stringToHex (tmp) {
+    var str = '',
+        i = 0,
+        tmp_len = tmp.length,
+        c;
+
+    for (; i < tmp_len; i += 1) {
+        c = tmp.charCodeAt(i);
+        str += d2h(c) + ' ';
+    }
+    return str;
+}
+
+function check_length(data){
+  var message = data.value
+  var hex_message = stringToHex(message)
+  // return hex_message.length
+  console.log(hex_message.length);
+}
+
 function show_crypt_details(data){
   setTimeout(function(){
     var iv_data = $("#iv").val()

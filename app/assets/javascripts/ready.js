@@ -12,6 +12,8 @@ $(document).ready(function() {
   $( "#submit_message_button").on('click touch', function(){submit_message(this);});
   $( "#front_page_arrow").on('click touch', function(){$.fn.fullpage.moveSectionDown();});
 
+  $('textarea#ciphertext').on('change keyup paste', function(){check_length(this)});
+
   remove_highlight_item("#step1");
   remove_highlight_item("#step2");
   remove_highlight_item("#step3");
@@ -24,7 +26,7 @@ $(document).ready(function() {
 
   // check if form is ready to be submitted
     setInterval(check_submission_ready, 100);
-
+  
 // Popup exit when clicking outside
   $(document).on('click touch', function(events) {
     if (!$(event.target).parents().addBack().is('.search_message_decoded')){
