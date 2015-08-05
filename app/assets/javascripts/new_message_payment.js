@@ -29,13 +29,9 @@ function payment_process(data) {
 
 function insert_payment_data(data) {
   if (data["state"]=="new"){
-    // $("#new_btc_address").css('display', 'block');
     $("#coupon_instructions").text("Send 0.0001 BTC to Address:");
     $("#coupon_address").text(data["coupon_address"]);
   }
-  // else if (data["state"]=="new_not_verified") {
-    // $("#new_btc_address").css('display', 'none');
-  // }
   else if (data["state"]=="no value") {
     $("#coupon_instructions").text("Could not find coupon");
     $("#coupon_address").text("");
