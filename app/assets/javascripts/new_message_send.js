@@ -50,7 +50,7 @@ function clear_screen(message,payment_selection,coupon_address,coupon_code,iv,sa
     $("#payment_address").text(coupon_address);
   }
   else {
-    $("#payment_type").text("You have choosen to NOT include a small fee that would incentivise the transaction. This means that your message may take hours, days, or never be taken up into the bitcoin ledger. It is highly recommended that you include a fee if you want to insure your message is sent.")
+    $("#payment_type").text("You have choosen to NOT include a small fee that would incentivise the transaction. This means that your message may take hours, days, or never be taken up into the bitcoin ledger. It is highly recommended that you include a fee if you want to ensure your message is sent.")
   }
 
 
