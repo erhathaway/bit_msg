@@ -325,6 +325,12 @@ margin-right: 20px;
   width: 70%;
 }*/
 
+#final_message {
+  display: none;
+  /*margin-top: 200px;*/
+  /*font-size: 300px;*/
+}
+
 #new_message_left_container {
   /*float:left;*/
   /*width: 320px;*/
