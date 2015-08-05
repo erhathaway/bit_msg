@@ -1,4 +1,3 @@
-
 function check_recaptcha(){
   var item_id = "#step1"
   if (typeof grecaptcha != "undefined"){
@@ -8,27 +7,21 @@ function check_recaptcha(){
       highlight_item(item_id);
     }
     else {
-      $(".rc-anchor").css('display', 'none');
-      $(".g-recaptcha").css('display', 'none');
-      remove_highlight_item(item_id)
-      // check_encryption_radio()
+      remove_highlight_check(item_id, "check")
+      check_encryption_radio()
     }
   }
 }
 
 function check_encryption_radio(){
-  var captcha = grecaptcha.getResponse();
-  debugger
-  if (captcha !== "" || captcha !== undefined){
-    var item_id = "#step2"
-    var state = $('input[name="encryption_radio"]:checked').val();
-    if (state === undefined ){
-      highlight_item(item_id)
-    }
-    else {
-      remove_highlight_item(item_id)
-      check_message()
-    }
+  var item_id = "#step2"
+  var state = $('input[name="encryption_radio"]:checked').val();
+  if (state === undefined ){
+    highlight_item(item_id)
+  }
+  else {
+    remove_highlight_check(item_id, "check")
+    check_message()
   }
 }
 
@@ -40,7 +33,7 @@ function check_message(){
     highlight_item(item_id)
   }
   else {
-    remove_highlight_item(item_id)
+    remove_highlight_check(item_id, "check")
     check_payment()
   }
 }
@@ -52,8 +45,12 @@ function check_payment(){
     highlight_item(item_id)
   }
   else {
-    remove_highlight_item(item_id)
+    remove_highlight_check(item_id, "check")
   }
+  // check which type of payment data should be displayed
+  if (selection == "single_use"){show_payment_details()}
+  else if (selection == "none" || selection == "choose") {hide_payment_details()}
+
 }
 
 function check_submission_ready(){
@@ -83,8 +80,23 @@ function highlight_item(item_id){
   });
 }
 
+
+function remove_highlight_check(item_id, state){
+  if (state == "startup"){
+    remove_highlight_item(item_id);
+  }
+  if (state == "check") {
+  //   // ($('#hello').is(':hover'))
+    if ($(item_id).is(':hover')){
+      // prevent submission if not ready
+      highlight_item(item_id);
+    }
+    else { remove_highlight_item(item_id);
+    }
+  }
+}
+
 function remove_highlight_item(item_id){
-  // debugger
   $(item_id).css('border', '');
   $(item_id).css('background-color', 'rgba(255,255,255,0.1)');
   $(item_id).css('box-shadow', '1px 2px 2px gray');
@@ -92,12 +104,25 @@ function remove_highlight_item(item_id){
   $(item_id).children(".step_info").each(function () {
     $(this).css('display', 'none');
   });
-  $(item_id).css('height', '40px');
+  // $(item_id).css('height', '40px');
   var coupon_address = $("#coupon_address").text();
+  var coupon_instructions = $("#coupon_instructions").text();
+
+  // if (item_id == "step1"){
+    // $(".rc-anchor").css('display', 'none');
+    // $(".g-recaptcha").css('display', 'none');
+  // };
   if (coupon_address !== ""){
     $(item_id).css('height', '');
     $("#coupon_address").css('display', 'block');
-    $("#new_btc_address").css('display', 'block');
-  }
+    // $("#new_btc_address").css('display', 'block');
+  };
+  if (coupon_address !== ""){
+    $(item_id).css('height', '');
+    $("#coupon_instructions").css('display', 'block');
+    // $("#coupon_instructions").css('height', '30px');
+
+    // $("#new_btc_address").css('display', 'block');
+  };
 
 }

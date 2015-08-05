@@ -13,19 +13,18 @@ $(document).ready(function() {
   $( "#submit_message_button").on('click touch', function(){submit_message(this);});
   $( "#front_page_arrow").on('click touch', function(){$.fn.fullpage.moveSectionDown();});
 
+  remove_highlight_item("#step1");
   remove_highlight_item("#step2");
   remove_highlight_item("#step3");
   remove_highlight_item("#step4");
   remove_highlight_item("#step5");
 
-  $( ".new_message_step" ).mouseenter(function(){id_hover = this; highlight_item(this)} ).mouseleave(function(){id_hover = ""; remove_highlight_item(this)} );
-  // $(".new_message_step").hover( );
+  // highlight captcha box if verification is needed
+  // highlight other instructions if possible
+    setInterval(check_recaptcha, 100);
 
-// highlight captcha box if verification is needed
-    setInterval(check_recaptcha, 200);
-
-// highlight if message is ready to be submitted
-    // setInterval(check_submission_ready, 200);
+  // check if form is ready to be submitted
+    setInterval(check_submission_ready, 100);
 
 // Popup exit when clicking outside
   $(document).on('click touch', function(events) {
