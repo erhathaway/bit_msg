@@ -19,8 +19,7 @@ About:
 
 TODO:
  - Create Tests
- - Fix problem with addresses ocassionally not working in #send_message
- - Create database to store IDs of messages submitted 
- - Create methods to find IDs in bitcoin OP_RETURN data
- - Add JS webpage functionality to switch between SEND and RETRIEVE views
- - etc...
+ - Add ability to decode messages from live feed
+ - Add dictinary filter to blockchain messages live feed 
+ - Add ID to OP_RETURN data using unique binary labeling scheme
+
